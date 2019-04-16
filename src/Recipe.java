@@ -6,6 +6,7 @@ public class Recipe {
 	private String unit;
 	private ArrayList RecipeIngredient;
 	int i = 0 ;
+	int j = 1;
 	
 	public void setRecipeName(String name) {
 		this.recipeName = name;
