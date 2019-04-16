@@ -5,7 +5,6 @@ public class Recipe {
 	private float quantity;
 	private String unit;
 	private ArrayList RecipeIngredient;
-	int i = 0 ;
 	
 	public void setRecipeName(String name) {
 		this.recipeName = name;
