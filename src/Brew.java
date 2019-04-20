@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 
 public class Brew {
 	private float batchSize;
 	private Date date;
+	private Map<String, Recipe> recipe;
 	
 	public float getBatchSize() {
 		return batchSize;
@@ -24,5 +26,13 @@ public class Brew {
 	public ArrayList checkRecipes() {
 		//unfinished method
 		return null;
+	}
+	
+	public void addRecipe(String recipeName, Recipe r) {
+		if(!recipe.containsKey(recipeName))
+		{
+			recipe.put(recipeName, r);
+			r.addBrew(recipeName, this);
+		}
 	}
 }
