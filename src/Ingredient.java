@@ -19,7 +19,16 @@ public class Ingredient {
 	public String getUnit() {
 		return unit;
 	}
-	public void setUnit(String unit) {
-		this.unit = unit;
+	public boolean setUnit(String unit) {
+		if (unit.equals("kg") || unit.equals("g") || unit.equals("ml") || unit.equals("l")) {
+			this.unit = unit;
+			return true;
+		}
+		else 
+		{
+			System.out.println("Unit Invalid! (Must be \"kg\" or \"g\" or \"ml\" or \"l\")");
+			return false;
+		}
+		
 	}
 }
