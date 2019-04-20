@@ -1,5 +1,8 @@
 
 public class RecipeIngredient extends Ingredient{
+	public RecipeIngredient () {
+		super();
+	}
 	public boolean updateAmount(float amount) {
 		if(amount >= 0)
 		{

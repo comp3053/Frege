@@ -5,19 +5,19 @@ public class Ingredient {
 	private String unit;
 	
 	public String getIngredientName() {
-		return ingredientName;
+		return this.ingredientName;
 	}
 	public void setIngredientName(String ingredientName) {
 		this.ingredientName = ingredientName;
 	}
 	public float getAmount() {
-		return amount;
+		return this.amount;
 	}
 	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 	public String getUnit() {
-		return unit;
+		return this.unit;
 	}
 	public boolean setUnit(String unit) {
 		if (unit.equals("kg") || unit.equals("g") || unit.equals("ml") || unit.equals("l")) {
