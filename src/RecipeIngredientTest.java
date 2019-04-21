@@ -6,6 +6,7 @@ import org.junit.Test;
 public class RecipeIngredientTest {
 	
 	private static RecipeIngredient ri = new RecipeIngredient();
+	
 	@Before
 	public void setUp() throws Exception {
 		ri.setIngredientName("test");
@@ -17,7 +18,6 @@ public class RecipeIngredientTest {
 	public void testGetAmount() {
 		assertEquals(5, ri.getAmount(),0.001);
 	}
-	
 
 	@Test
 	public void testGetIngredientName() {
@@ -32,7 +32,13 @@ public class RecipeIngredientTest {
 
 	@Test
 	public void testUpdateAmount() {
+		// valid test
 		ri.updateAmount(2);
+		assertEquals(2, ri.getAmount(),0.001);
+		
+		// invalid test
+		ri.updateAmount(-2);
+		// if this correct, means the amount unchanged
 		assertEquals(2, ri.getAmount(),0.001);
 	}
 
@@ -52,5 +58,5 @@ public class RecipeIngredientTest {
 		ri.setUnit("l");
 		assertEquals("l", ri.getUnit());
 	}
-
+	
 }
