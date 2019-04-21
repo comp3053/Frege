@@ -14,10 +14,10 @@ public class RecipeIngredientTest {
 	}
 
 	@Test
-	public void testUpdateAmount() {
-		ri.updateAmount(2);
-		assertEquals(2, ri.getAmount());
+	public void testGetAmount() {
+		assertEquals(5, ri.getAmount(),0.001);
 	}
+	
 
 	@Test
 	public void testGetIngredientName() {
@@ -31,27 +31,26 @@ public class RecipeIngredientTest {
 	}
 
 	@Test
-	public void testGetAmount() {
-		assertEquals(5, ri.getAmount());
+	public void testUpdateAmount() {
+		ri.updateAmount(2);
+		assertEquals(2, ri.getAmount(),0.001);
 	}
 
 	@Test
 	public void testSetAmount() {
 		ri.setAmount(4);
-		assertEquals(4, ri.getAmount());
+		assertEquals(4, ri.getAmount(),0.001);
 	}
 
 	@Test
 	public void testGetUnit() {
 		assertEquals("ml", ri.getUnit());
-		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testSetUnit() {
 		ri.setUnit("l");
 		assertEquals("l", ri.getUnit());
-		fail("Not yet implemented");
 	}
 
 }
