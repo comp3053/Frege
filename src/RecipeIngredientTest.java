@@ -36,13 +36,13 @@ public class RecipeIngredientTest {
 	@Test
 	public void testUpdateAmount() {
 		// valid test
-		ri.updateAmount(2);
-		assertEquals(2, ri.getAmount(),0.001);
+		assertEquals(true, ri.updateAmount(2));	// if input is valid, it will return true
+		assertEquals(2, ri.getAmount(),0.001);	// and value will be changed
 		
 		// invalid test
-		// if input a negative number, the function will return false, and amount remain unchanged
-		assertEquals(false, ri.updateAmount(-2));
-		assertEquals(2, ri.getAmount(),0.001);
+		
+		assertEquals(false, ri.updateAmount(-2));	// if input a negative number, the function will return false
+		assertEquals(2, ri.getAmount(),0.001);		// and amount remain unchanged
 	}
 
 	@Test
@@ -59,12 +59,12 @@ public class RecipeIngredientTest {
 	@Test
 	public void testSetUnit() {
 		// valid test
-		ri.setUnit("l");
-		assertEquals("l", ri.getUnit());
+		assertEquals(true, ri.setUnit("l"));	// if input is correct type, it will return true
+		assertEquals("l", ri.getUnit());		// and unit will change
 		
 		// invalid test
-		// if input a wrong type of unit, return false
-		assertEquals(false, ri.setUnit("gg"));
+		assertEquals(false, ri.setUnit("gg")); // if input a wrong type of unit, it will return false
+		assertEquals("l", ri.getUnit());		// and unit remain unchanged
 	}
 	
 }
