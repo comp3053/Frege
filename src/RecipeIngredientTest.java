@@ -9,6 +9,7 @@ public class RecipeIngredientTest {
 	
 	@Before
 	public void setUp() throws Exception {
+		// initialization
 		ri.setIngredientName("test");
 		ri.setAmount(5);
 		ri.setUnit("ml");
@@ -16,7 +17,9 @@ public class RecipeIngredientTest {
 
 	@Test
 	public void testGetAmount() {
-		assertEquals(5, ri.getAmount(),0.001);
+		// if we get a right amount, means all set functions in our initialization are correct 
+		assertEquals(5, ri.getAmount(), 0.001);
+		// and also the getAmount function is correct
 	}
 
 	@Test
@@ -37,8 +40,8 @@ public class RecipeIngredientTest {
 		assertEquals(2, ri.getAmount(),0.001);
 		
 		// invalid test
-		ri.updateAmount(-2);
-		// if this correct, means the amount unchanged
+		// if input a negative number, the function will return false, and amount remain unchanged
+		assertEquals(false, ri.updateAmount(-2));
 		assertEquals(2, ri.getAmount(),0.001);
 	}
 
@@ -55,8 +58,13 @@ public class RecipeIngredientTest {
 
 	@Test
 	public void testSetUnit() {
+		// valid test
 		ri.setUnit("l");
 		assertEquals("l", ri.getUnit());
+		
+		// invalid test
+		// if input a wrong type of unit, return false
+		assertEquals(false, ri.setUnit("gg"));
 	}
 	
 }
