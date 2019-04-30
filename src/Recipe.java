@@ -27,6 +27,11 @@ public class Recipe<ingredients> {
 		}
 	}
 	
+	public ArrayList<RecipeIngredient> getIngredients() {
+		
+		return ingredients;
+	}
+	
 	public float getQuantity() {
 		return this.quantity;
 	}
@@ -92,17 +97,15 @@ public class Recipe<ingredients> {
 		return null;
 	}
 	
-	public ArrayList<Ingredient> CheckIngredients(float batchSize) {
-		ArrayList<Ingredient> result = new ArrayList<Ingredient>();
-		
+	public boolean CheckIngredients(float batchSize) {
+		boolean flag = true;
 		for (int i = 0; i < ingredients.size(); i++)
 		{
 			if (ingredients.get(i).getAmount() < batchSize)
 			{
-				result.add(ingredients.get(i));
-				
+				flag = false;
 			}
 		}
-		return result;
-	}			
+		return flag;
+	}	
 }

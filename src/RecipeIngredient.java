@@ -3,6 +3,7 @@ public class RecipeIngredient extends Ingredient{
 	public RecipeIngredient () {
 		super();
 	}
+	
 	public boolean updateAmount(float amount) {
 		// only accept non-negative numbers
 		if(amount >= 0)
