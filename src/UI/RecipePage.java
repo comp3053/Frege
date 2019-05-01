@@ -1,3 +1,4 @@
+package UI;
 import javax.swing.JPanel;
 
 public class RecipePage extends JPanel {
