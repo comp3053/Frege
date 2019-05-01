@@ -6,7 +6,7 @@ public class Brew<recipes> {
 	private float batchSize;
 	private Date date;
 	private Map<String, Recipe> recipe;
-	//private ArrayList<Recipe> recipes;
+	private ArrayList<Recipe> recipes;
 	private ArrayList<Ingredient> ingredient;
 	private ArrayList<RecipeIngredient> RIn;
 	
@@ -26,7 +26,7 @@ public class Brew<recipes> {
 	
 	public void Brew(String recipeName) {
 		//unfinished method
-		ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+		recipes = new ArrayList<Recipe>();
 		recipes = checkRecipes();
 		for(int i = 0; i < recipes.size(); i++) {
 			if(recipes.get(i).getRecipeName().equals(recipeName)) {
