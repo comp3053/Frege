@@ -5,6 +5,11 @@ public class Equipment {
 	private String name;
 	public float capacity;
 	
+	public Equipment(String name, float capacity) {
+		this.name = name;
+		this.capacity = capacity;
+	}
+	
 	public String getName() {
 		return name;
 	}
