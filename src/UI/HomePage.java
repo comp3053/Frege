@@ -1,10 +1,9 @@
+package UI;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class HomePage {
 
@@ -47,10 +46,6 @@ public class HomePage {
 		frame.getContentPane().add(lblBrewday);
 		
 		JButton btnRecipe = new JButton("Recipe");
-		btnRecipe.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnRecipe.setBounds(42, 66, 113, 27);
 		frame.getContentPane().add(btnRecipe);
 		
