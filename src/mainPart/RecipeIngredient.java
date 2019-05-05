@@ -9,7 +9,7 @@ public class RecipeIngredient extends Ingredient{
 		// only accept non-negative numbers
 		if(amount >= 0)
 		{
-			super.setAmount(amount);
+			super.setQuantity(amount);
 			return true;
 		}
 		// if number is negative, then amount unchanged
