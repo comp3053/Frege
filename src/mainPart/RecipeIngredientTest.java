@@ -1,3 +1,4 @@
+package mainPart;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -11,14 +12,14 @@ public class RecipeIngredientTest {
 	public void setUp() throws Exception {
 		// initialization
 		ri.setIngredientName("test");
-		ri.setAmount(5);
+		ri.setQuantity(5);
 		ri.setUnit("ml");
 	}
 
 	@Test
 	public void testGetAmount() {
 		// if we get a right amount, means all set functions in our initialization are correct 
-		assertEquals(5, ri.getAmount(), 0.001);
+		assertEquals(5, ri.getQuantity(), 0.001);
 		// and also the getAmount function is correct
 	}
 
@@ -37,18 +38,18 @@ public class RecipeIngredientTest {
 	public void testUpdateAmount() {
 		// valid test
 		assertEquals(true, ri.updateAmount(2));	// if input is valid, it will return true
-		assertEquals(2, ri.getAmount(),0.001);	// and value will be changed
+		assertEquals(2, ri.getQuantity(),0.001);	// and value will be changed
 		
 		// invalid test
 		
 		assertEquals(false, ri.updateAmount(-2));	// if input a negative number, the function will return false
-		assertEquals(2, ri.getAmount(),0.001);		// and amount remain unchanged
+		assertEquals(2, ri.getQuantity(),0.001);		// and amount remain unchanged
 	}
 
 	@Test
 	public void testSetAmount() {
-		ri.setAmount(4);
-		assertEquals(4, ri.getAmount(),0.001);
+		ri.setQuantity(4);
+		assertEquals(4, ri.getQuantity(),0.001);
 	}
 
 	@Test

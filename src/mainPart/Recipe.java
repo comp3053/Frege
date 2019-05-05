@@ -1,3 +1,4 @@
+package mainPart;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -28,7 +29,6 @@ public class Recipe<ingredients> {
 	}
 	
 	public ArrayList<RecipeIngredient> getIngredients() {
-		
 		return ingredients;
 	}
 	
@@ -101,7 +101,7 @@ public class Recipe<ingredients> {
 		boolean flag = true;
 		for (int i = 0; i < ingredients.size(); i++)
 		{
-			if (ingredients.get(i).getAmount() < batchSize)
+			if (ingredients.get(i).getQuantity() < batchSize)
 			{
 				flag = false;
 			}

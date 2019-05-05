@@ -1,7 +1,8 @@
+package mainPart;
 
 public class Ingredient {
 	private String ingredientName;
-	private float amount;
+	private float quantity;
 	private String unit;
 	
 	// get and set functions
@@ -11,11 +12,11 @@ public class Ingredient {
 	public void setIngredientName(String ingredientName) {
 		this.ingredientName = ingredientName;
 	}
-	public float getAmount() {
-		return this.amount;
+	public float getQuantity() {
+		return this.quantity;
 	}
-	public void setAmount(float amount) {
-		this.amount = amount;
+	public void setQuantity(float amount) {
+		this.quantity = amount;
 	}
 	public String getUnit() {
 		return this.unit;

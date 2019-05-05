@@ -1,9 +1,10 @@
+package mainPart;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Note {
 	private String title;
-	private Date date;
+	private java.sql.Date date;
 	private String content;
 	
 	public String getTitle() {
@@ -14,10 +15,10 @@ public class Note {
 		this.title = title;
 	}
 	
-	public Date getDate() {
+	public java.sql.Date getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(java.sql.Date date) {
 		this.date = date;
 	}
 	

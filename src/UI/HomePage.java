@@ -10,22 +10,6 @@ public class HomePage {
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HomePage window = new HomePage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public HomePage() {
@@ -60,5 +44,7 @@ public class HomePage {
 		JButton btnBrew = new JButton("Brew");
 		btnBrew.setBounds(42, 127, 113, 27);
 		frame.getContentPane().add(btnBrew);
+		
+		frame.setVisible(true);
 	}
 }

@@ -1,0 +1,195 @@
+# ************************************************************
+# Sequel Pro SQL dump
+# Version 5438
+#
+# https://www.sequelpro.com/
+# https://github.com/sequelpro/sequelpro
+#
+# Host: 127.0.0.1 (MySQL 8.0.15)
+# Database: BrewDay
+# Generation Time: 2019-05-05 12:26:39 +0000
+# ************************************************************
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+SET NAMES utf8mb4;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table Brew
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `Brew`;
+
+CREATE TABLE `Brew` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `RecipeID` int(11) unsigned NOT NULL,
+  `NoteID` int(11) unsigned NOT NULL,
+  `EquipmentID` int(11) unsigned NOT NULL,
+  `BatchSize` float NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `NoteID` (`NoteID`),
+  KEY `EquipmentID` (`EquipmentID`),
+  CONSTRAINT `brew_ibfk_1` FOREIGN KEY (`NoteID`) REFERENCES `note` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `brew_ibfk_2` FOREIGN KEY (`EquipmentID`) REFERENCES `equipment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `Brew` WRITE;
+/*!40000 ALTER TABLE `Brew` DISABLE KEYS */;
+
+INSERT INTO `Brew` (`id`, `RecipeID`, `NoteID`, `EquipmentID`, `BatchSize`)
+VALUES
+	(1,2,2,3,100),
+	(2,2,1,1,500);
+
+/*!40000 ALTER TABLE `Brew` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table Equipment
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `Equipment`;
+
+CREATE TABLE `Equipment` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `capacity` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `Equipment` WRITE;
+/*!40000 ALTER TABLE `Equipment` DISABLE KEYS */;
+
+INSERT INTO `Equipment` (`id`, `name`, `capacity`)
+VALUES
+	(1,'big',500),
+	(2,'medium',200),
+	(3,'samll',100);
+
+/*!40000 ALTER TABLE `Equipment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table Note
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `Note`;
+
+CREATE TABLE `Note` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `date` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `Note` WRITE;
+/*!40000 ALTER TABLE `Note` DISABLE KEYS */;
+
+INSERT INTO `Note` (`id`, `title`, `date`, `content`)
+VALUES
+	(1,'good','2019-04-30','None'),
+	(2,'bad','2019-03-21','akdsjlkajjq'),
+	(5,'test','2019-5-4','fun'),
+	(6,'test2','2019-5-5','kjadh'),
+	(7,'hello','2019-5-4',NULL);
+
+/*!40000 ALTER TABLE `Note` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table Recipe
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `Recipe`;
+
+CREATE TABLE `Recipe` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `RecipeName` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `Unit` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `Quantity` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `Recipe` WRITE;
+/*!40000 ALTER TABLE `Recipe` DISABLE KEYS */;
+
+INSERT INTO `Recipe` (`id`, `RecipeName`, `Unit`, `Quantity`)
+VALUES
+	(1,'aaa','l',500),
+	(2,'bbb','l',350);
+
+/*!40000 ALTER TABLE `Recipe` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table RecipeIngredient
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `RecipeIngredient`;
+
+CREATE TABLE `RecipeIngredient` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `RecipeID` int(11) unsigned NOT NULL,
+  `IngredientName` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `Unit` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `Quantity` float NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `RecipeID` (`RecipeID`),
+  CONSTRAINT `recipeingredient_ibfk_1` FOREIGN KEY (`RecipeID`) REFERENCES `recipe` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `RecipeIngredient` WRITE;
+/*!40000 ALTER TABLE `RecipeIngredient` DISABLE KEYS */;
+
+INSERT INTO `RecipeIngredient` (`id`, `RecipeID`, `IngredientName`, `Unit`, `Quantity`)
+VALUES
+	(1,2,'malts','kg',20),
+	(2,2,'additives','g',100),
+	(3,1,'yeasts','kg',10);
+
+/*!40000 ALTER TABLE `RecipeIngredient` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table StorageIngredient
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `StorageIngredient`;
+
+CREATE TABLE `StorageIngredient` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `IngredientName` varchar(20) NOT NULL DEFAULT '',
+  `Unit` varchar(5) NOT NULL DEFAULT '',
+  `Quantity` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `StorageIngredient` WRITE;
+/*!40000 ALTER TABLE `StorageIngredient` DISABLE KEYS */;
+
+INSERT INTO `StorageIngredient` (`id`, `IngredientName`, `Unit`, `Quantity`)
+VALUES
+	(1,'malts','kg',200),
+	(2,'hops','kg',150),
+	(3,'yeasts','kg',302),
+	(4,'sugars','kg',300),
+	(5,'additives','kg',400);
+
+/*!40000 ALTER TABLE `StorageIngredient` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
