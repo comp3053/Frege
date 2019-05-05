@@ -1,0 +1,79 @@
+package UI;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JTextField;
+import java.awt.Choice;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+
+public class RecipesDeletePage extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					RecipesDeletePage frame = new RecipesDeletePage();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public RecipesDeletePage() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 600, 430);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblDeleteRecipe = new JLabel("Delete Recipe");
+		lblDeleteRecipe.setFont(new Font("Calibri", Font.BOLD, 30));
+		lblDeleteRecipe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDeleteRecipe.setBounds(187, 92, 208, 30);
+		contentPane.add(lblDeleteRecipe);
+		
+		JLabel lblName = new JLabel("Name:");
+		lblName.setFont(new Font("Calibri", Font.PLAIN, 30));
+		lblName.setBounds(122, 177, 90, 30);
+		contentPane.add(lblName);
+		
+		textField = new JTextField();
+		textField.setBounds(226, 177, 140, 30);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(366, 177, 29, 30);
+		contentPane.add(comboBox);
+		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnDelete.setBounds(99, 283, 113, 27);
+		contentPane.add(btnDelete);
+		
+		JButton btnCancel = new JButton("Cancel");
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCancel.setBounds(373, 283, 113, 27);
+		contentPane.add(btnCancel);
+	}
+}
