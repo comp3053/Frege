@@ -1,3 +1,4 @@
+package mainPart;
 
 public class Ingredient {
 	private String ingredientName;

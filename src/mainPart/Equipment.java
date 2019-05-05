@@ -1,3 +1,4 @@
+package mainPart;
 import java.util.Scanner;
 
 public class Equipment {

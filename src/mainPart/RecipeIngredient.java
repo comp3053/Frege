@@ -1,3 +1,4 @@
+package mainPart;
 
 public class RecipeIngredient extends Ingredient{
 	public RecipeIngredient () {
