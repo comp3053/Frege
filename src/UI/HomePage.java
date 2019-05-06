@@ -21,7 +21,7 @@ public class HomePage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 454, 293);
+		frame.setBounds(100, 100, 600, 430);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

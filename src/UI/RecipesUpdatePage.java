@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -140,15 +143,37 @@ public class RecipesUpdatePage extends JFrame {
 		label_10.setBounds(506, 202, 26, 18);
 		contentPane.add(label_10);
 		
+		// Set Buttons
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnUpdate.setBounds(101, 300, 113, 27);
 		contentPane.add(btnUpdate);
 		
-		JButton button = new JButton("Cancel");
-		button.setFont(new Font("Calibri", Font.PLAIN, 25));
-		button.setBounds(344, 302, 113, 27);
-		contentPane.add(button);
+		JButton btnCancel = new JButton("Cancel");
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCancel.setBounds(344, 302, 113, 27);
+		contentPane.add(btnCancel);
+		
+		// Page Jump
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// 暂时空缺修改数据库的行为或页面
+				//应当有一个提示Update成功的页面(操作成功)
+			}
+		});
+								
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeThis();
+				new RecipePage(); //return back to RecipePage
+			}
+		});
+		
+	}
+	
+	// Close current UI page
+	protected void closeThis() {
+		contentPane.setVisible(false);
 	}
 
 }

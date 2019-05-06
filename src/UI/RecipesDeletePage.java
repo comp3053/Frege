@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import java.awt.Choice;
 import javax.swing.JComboBox;
@@ -66,6 +69,7 @@ public class RecipesDeletePage extends JFrame {
 		comboBox.setBounds(366, 177, 29, 30);
 		contentPane.add(comboBox);
 		
+		// Set Buttons
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnDelete.setBounds(99, 283, 113, 27);
@@ -75,5 +79,27 @@ public class RecipesDeletePage extends JFrame {
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.setBounds(373, 283, 113, 27);
 		contentPane.add(btnCancel);
+		
+		// Page Jump
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// 暂时空缺修改数据库的行为或页面
+				//应当有一个提示delete成功的页面(操作成功)
+			}
+		});
+						
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeThis();
+				new RecipePage(); //return back to RecipePage
+			}
+		});
+						
 	}
+					
+	// Close current UI page
+	protected void closeThis() {
+		contentPane.setVisible(false);
+	}
+
 }

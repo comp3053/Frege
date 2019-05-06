@@ -48,37 +48,68 @@ public class RecipePage {
 		frame.setBounds(100, 100, 600, 430);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setVisible(true);
 		
 		JLabel lblRecipes = new JLabel("Recipes");
 		lblRecipes.setFont(new Font("Calibri", Font.BOLD, 35));
-		lblRecipes.setBounds(217, 124, 113, 52);
+		lblRecipes.setBounds(224, 125, 113, 52);
 		frame.getContentPane().add(lblRecipes);
 		
-		Label label = new Label("Home");
-		label.setBounds(524, 29, 44, 25);
-		frame.getContentPane().add(label);
+		// Set Buttons
+		JButton btnHome = new JButton("Home");
+		btnHome.setBounds(478, 29, 90, 32);
+		frame.getContentPane().add(btnHome);
+		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
 		
 		JButton btnAdd = new JButton("Add");
-		btnAdd.setBounds(76, 256, 107, 39);
+		btnAdd.setBounds(53, 256, 130, 39);
 		frame.getContentPane().add(btnAdd);
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
 		
 		JButton btnDelete = new JButton("Delete");
-		btnDelete.setBounds(223, 256, 107, 39);
+		btnDelete.setBounds(223, 256, 130, 39);
 		frame.getContentPane().add(btnDelete);
 		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
 		
 		JButton btnUpdate = new JButton("Update");
-		btnUpdate.setBounds(378, 256, 107, 39);
+		btnUpdate.setBounds(392, 256, 130, 39);
 		frame.getContentPane().add(btnUpdate);
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnDelete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		
+		// Page Jump
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				closeThis();
+				new HomePage();
 			}
 		});
+		
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				closeThis();
+				new RecipesAddPage().setVisible(true);
 			}
 		});
+		
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeThis();
+				new RecipesDeletePage().setVisible(true);;
+			}
+		});
+		
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeThis();
+				new RecipesUpdatePage().setVisible(true);;
+			}
+		});
+		
 	}
+	
+	// Close current UI page
+	protected void closeThis() {
+		frame.setVisible(false);
+	}
+
 }

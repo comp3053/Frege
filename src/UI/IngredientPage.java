@@ -59,9 +59,11 @@ public class IngredientPage extends JFrame {
 		btnSubtract.setBounds(334, 230, 125, 39);
 		contentPane.add(btnSubtract);
 		
-		Label label = new Label("Home");
-		label.setBounds(528, 10, 44, 25);
-		contentPane.add(label);
+		JButton btnHome = new JButton("Home");
+		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
+		btnHome.setBounds(482, 10, 90, 32);
+		contentPane.add(btnHome);
+		
 	}
 
 }
