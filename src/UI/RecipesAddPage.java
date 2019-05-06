@@ -66,6 +66,7 @@ public class RecipesAddPage extends JFrame {
 		contentPane.add(lblName);
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Calibri", Font.PLAIN, 18));
 		textField.setBounds(132, 71, 110, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
@@ -77,6 +78,7 @@ public class RecipesAddPage extends JFrame {
 		contentPane.add(lblMalts);
 		
 		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Calibri", Font.PLAIN, 18));
 		textField_1.setBounds(132, 141, 86, 24);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
@@ -93,6 +95,7 @@ public class RecipesAddPage extends JFrame {
 		contentPane.add(lblHops);
 		
 		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Calibri", Font.PLAIN, 18));
 		textField_2.setBounds(132, 210, 86, 24);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
@@ -109,6 +112,7 @@ public class RecipesAddPage extends JFrame {
 		contentPane.add(lblYeasts);
 		
 		textField_3 = new JTextField();
+		textField_3.setFont(new Font("Calibri", Font.PLAIN, 18));
 		textField_3.setBounds(423, 73, 86, 24);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
@@ -125,6 +129,7 @@ public class RecipesAddPage extends JFrame {
 		contentPane.add(lblSugars);
 		
 		textField_4 = new JTextField();
+		textField_4.setFont(new Font("Calibri", Font.PLAIN, 18));
 		textField_4.setBounds(423, 141, 86, 24);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
@@ -141,6 +146,7 @@ public class RecipesAddPage extends JFrame {
 		contentPane.add(lblAdditives);
 		
 		textField_5 = new JTextField();
+		textField_5.setFont(new Font("Calibri", Font.PLAIN, 18));
 		textField_5.setBounds(423, 210, 86, 24);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);

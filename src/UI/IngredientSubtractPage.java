@@ -2,41 +2,20 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import com.sun.prism.paint.Color;
-
-import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.GridLayout;
-
-import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.JTable;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import java.awt.ScrollPane;
-import javax.swing.SwingConstants;
-import javax.swing.JScrollPane;
-import javax.swing.JDesktopPane;
-import javax.swing.JLayeredPane;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class IngredientAddPage extends JFrame {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
+public class IngredientSubtractPage extends JFrame {
 
 	private JPanel contentPane;
 
@@ -47,7 +26,7 @@ public class IngredientAddPage extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IngredientAddPage frame = new IngredientAddPage();
+					IngredientSubtractPage frame = new IngredientSubtractPage();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -59,7 +38,7 @@ public class IngredientAddPage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IngredientAddPage() {
+	public IngredientSubtractPage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -67,7 +46,7 @@ public class IngredientAddPage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblAddIngredientList = new JLabel("Add Ingredient List");
+		JLabel lblAddIngredientList = new JLabel("Subtract Ingredient List");
 		lblAddIngredientList.setBounds(14, 13, 303, 27);
 		lblAddIngredientList.setFont(new Font("Calibri", Font.BOLD, 25));
 		contentPane.add(lblAddIngredientList);
@@ -91,19 +70,19 @@ public class IngredientAddPage extends JFrame {
 		lblAmount.setBounds(198, 13, 122, 18);
 		layeredPane.add(lblAmount);
 		
-		JButton btnAdd = new JButton("Add");
-		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnAdd.setBounds(99, 332, 113, 38);
-		contentPane.add(btnAdd);
-		btnAdd.addActionListener(new ActionListener() {
+		JButton btnSubtract = new JButton("Subtract");
+		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnSubtract.setBounds(94, 332, 136, 38);
+		contentPane.add(btnSubtract);
+		btnSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//暂时缺少对于数据库的操作
+				//暂时缺少对数据库的操作
 			}
 		});
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(357, 332, 113, 38);
+		btnCancel.setBounds(344, 332, 136, 38);
 		contentPane.add(btnCancel);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -111,12 +90,10 @@ public class IngredientAddPage extends JFrame {
 				new IngredientPage().setVisible(true);
 			}
 		});
-		
-		
 	}
-	
 	// Close current UI page
 			protected void closeThis() {
 				contentPane.setVisible(false);
 			}
+
 }

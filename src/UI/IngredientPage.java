@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class IngredientPage extends JFrame {
 
@@ -49,10 +51,11 @@ public class IngredientPage extends JFrame {
 		lblIngredient.setBounds(195, 96, 176, 52);
 		contentPane.add(lblIngredient);
 		
-		JButton button = new JButton("Add");
-		button.setFont(new Font("Calibri", Font.PLAIN, 25));
-		button.setBounds(107, 230, 125, 39);
-		contentPane.add(button);
+		// Set Buttons
+		JButton btnAdd = new JButton("Add");
+		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnAdd.setBounds(107, 230, 125, 39);
+		contentPane.add(btnAdd);
 		
 		JButton btnSubtract = new JButton("Subtract");
 		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 25));
@@ -64,6 +67,33 @@ public class IngredientPage extends JFrame {
 		btnHome.setBounds(482, 10, 90, 32);
 		contentPane.add(btnHome);
 		
+		// Page Jump
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				closeThis();
+				new HomePage();
+			}
+		});
+		
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				closeThis();
+				new IngredientAddPage().setVisible(true);
+			}
+		});
+		
+		btnSubtract.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeThis();
+				new IngredientSubtractPage().setVisible(true);
+			}
+		});
+		
 	}
+	
+	// Close current UI page
+		protected void closeThis() {
+			contentPane.setVisible(false);
+		}
 
 }

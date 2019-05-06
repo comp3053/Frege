@@ -61,6 +61,7 @@ public class RecipesDeletePage extends JFrame {
 		contentPane.add(lblName);
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Calibri", Font.PLAIN, 20));
 		textField.setBounds(226, 177, 140, 30);
 		contentPane.add(textField);
 		textField.setColumns(10);
