@@ -52,12 +52,12 @@ public class RecipesDeletePage extends JFrame {
 		JLabel lblDeleteRecipe = new JLabel("Delete Recipe");
 		lblDeleteRecipe.setFont(new Font("Calibri", Font.BOLD, 30));
 		lblDeleteRecipe.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDeleteRecipe.setBounds(187, 92, 208, 30);
+		lblDeleteRecipe.setBounds(149, 91, 252, 47);
 		contentPane.add(lblDeleteRecipe);
 		
 		JLabel lblName = new JLabel("Name:");
 		lblName.setFont(new Font("Calibri", Font.PLAIN, 30));
-		lblName.setBounds(122, 177, 90, 30);
+		lblName.setBounds(99, 177, 113, 30);
 		contentPane.add(lblName);
 		
 		textField = new JTextField();
@@ -73,12 +73,12 @@ public class RecipesDeletePage extends JFrame {
 		// Set Buttons
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnDelete.setBounds(99, 283, 113, 27);
+		btnDelete.setBounds(99, 283, 113, 39);
 		contentPane.add(btnDelete);
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(373, 283, 113, 27);
+		btnCancel.setBounds(373, 283, 113, 39);
 		contentPane.add(btnCancel);
 		
 		// Page Jump

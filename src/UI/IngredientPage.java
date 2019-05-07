@@ -48,18 +48,18 @@ public class IngredientPage extends JFrame {
 		JLabel lblIngredient = new JLabel("Ingredient");
 		lblIngredient.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIngredient.setFont(new Font("Calibri", Font.BOLD, 35));
-		lblIngredient.setBounds(195, 96, 176, 52);
+		lblIngredient.setBounds(162, 99, 238, 52);
 		contentPane.add(lblIngredient);
 		
 		// Set Buttons
 		JButton btnAdd = new JButton("Add");
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnAdd.setBounds(107, 230, 125, 39);
+		btnAdd.setBounds(96, 230, 137, 52);
 		contentPane.add(btnAdd);
 		
 		JButton btnSubtract = new JButton("Subtract");
 		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnSubtract.setBounds(334, 230, 125, 39);
+		btnSubtract.setBounds(334, 230, 137, 52);
 		contentPane.add(btnSubtract);
 		
 		JButton btnHome = new JButton("Home");

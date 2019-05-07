@@ -51,8 +51,9 @@ public class RecipePage {
 		frame.setVisible(true);
 		
 		JLabel lblRecipes = new JLabel("Recipes");
+		lblRecipes.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRecipes.setFont(new Font("Calibri", Font.BOLD, 35));
-		lblRecipes.setBounds(224, 125, 113, 52);
+		lblRecipes.setBounds(205, 126, 168, 52);
 		frame.getContentPane().add(lblRecipes);
 		
 		// Set Buttons
@@ -62,17 +63,17 @@ public class RecipePage {
 		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
 		
 		JButton btnAdd = new JButton("Add");
-		btnAdd.setBounds(53, 256, 130, 39);
+		btnAdd.setBounds(53, 256, 130, 52);
 		frame.getContentPane().add(btnAdd);
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
 		
 		JButton btnDelete = new JButton("Delete");
-		btnDelete.setBounds(223, 256, 130, 39);
+		btnDelete.setBounds(223, 256, 130, 52);
 		frame.getContentPane().add(btnDelete);
 		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
 		
 		JButton btnUpdate = new JButton("Update");
-		btnUpdate.setBounds(392, 256, 130, 39);
+		btnUpdate.setBounds(392, 256, 130, 52);
 		frame.getContentPane().add(btnUpdate);
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
 		

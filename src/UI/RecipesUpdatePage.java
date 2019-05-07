@@ -56,7 +56,7 @@ public class RecipesUpdatePage extends JFrame {
 		JLabel label = new JLabel("Name:");
 		label.setHorizontalAlignment(SwingConstants.LEFT);
 		label.setFont(new Font("Calibri", Font.PLAIN, 25));
-		label.setBounds(48, 66, 96, 25);
+		label.setBounds(31, 66, 113, 25);
 		contentPane.add(label);
 		
 		textField = new JTextField();
@@ -71,7 +71,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_1 = new JLabel("Malts:");
 		label_1.setFont(new Font("Calibri", Font.PLAIN, 25));
-		label_1.setBounds(48, 133, 72, 18);
+		label_1.setBounds(31, 133, 89, 25);
 		contentPane.add(label_1);
 		
 		textField_1 = new JTextField();
@@ -87,7 +87,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_3 = new JLabel("Hops:");
 		label_3.setFont(new Font("Calibri", Font.PLAIN, 25));
-		label_3.setBounds(48, 197, 72, 25);
+		label_3.setBounds(31, 194, 89, 31);
 		contentPane.add(label_3);
 		
 		textField_2 = new JTextField();
@@ -103,7 +103,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_5 = new JLabel("Yeasts:");
 		label_5.setFont(new Font("Calibri", Font.PLAIN, 25));
-		label_5.setBounds(304, 66, 72, 31);
+		label_5.setBounds(289, 66, 125, 31);
 		contentPane.add(label_5);
 		
 		textField_3 = new JTextField();
@@ -119,7 +119,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_7 = new JLabel("Sugars:");
 		label_7.setFont(new Font("Calibri", Font.PLAIN, 25));
-		label_7.setBounds(304, 127, 86, 31);
+		label_7.setBounds(289, 127, 125, 31);
 		contentPane.add(label_7);
 		
 		textField_4 = new JTextField();
@@ -135,7 +135,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_9 = new JLabel("Additives:");
 		label_9.setFont(new Font("Calibri", Font.PLAIN, 25));
-		label_9.setBounds(304, 197, 110, 31);
+		label_9.setBounds(289, 197, 151, 31);
 		contentPane.add(label_9);
 		
 		textField_5 = new JTextField();
@@ -152,12 +152,12 @@ public class RecipesUpdatePage extends JFrame {
 		// Set Buttons
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnUpdate.setBounds(101, 300, 113, 27);
+		btnUpdate.setBounds(101, 300, 113, 39);
 		contentPane.add(btnUpdate);
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(344, 302, 113, 27);
+		btnCancel.setBounds(344, 302, 113, 37);
 		contentPane.add(btnCancel);
 		
 		// Page Jump

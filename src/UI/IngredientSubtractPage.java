@@ -59,7 +59,7 @@ public class IngredientSubtractPage extends JFrame {
 		layeredPane.setLayout(null);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(41, 13, 72, 18);
+		lblName.setBounds(41, 13, 72, 31);
 		layeredPane.add(lblName);
 		lblName.setFont(new Font("Calibri", Font.PLAIN, 25));
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -67,7 +67,7 @@ public class IngredientSubtractPage extends JFrame {
 		JLabel lblAmount = new JLabel("Amount");
 		lblAmount.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmount.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblAmount.setBounds(198, 13, 122, 18);
+		lblAmount.setBounds(198, 13, 122, 31);
 		layeredPane.add(lblAmount);
 		
 		JButton btnSubtract = new JButton("Subtract");

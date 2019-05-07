@@ -62,7 +62,7 @@ public class RecipesAddPage extends JFrame {
 		JLabel lblName = new JLabel("Name:");
 		lblName.setFont(new Font("Calibri", Font.PLAIN, 25));
 		lblName.setHorizontalAlignment(SwingConstants.LEFT);
-		lblName.setBounds(35, 71, 96, 25);
+		lblName.setBounds(14, 71, 117, 25);
 		contentPane.add(lblName);
 		
 		textField = new JTextField();
@@ -74,7 +74,7 @@ public class RecipesAddPage extends JFrame {
 		// Malts input
 		JLabel lblMalts = new JLabel("Malts:");
 		lblMalts.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblMalts.setBounds(35, 142, 72, 18);
+		lblMalts.setBounds(14, 139, 93, 25);
 		contentPane.add(lblMalts);
 		
 		textField_1 = new JTextField();
@@ -91,7 +91,7 @@ public class RecipesAddPage extends JFrame {
 		// Hops input
 		JLabel lblHops = new JLabel("Hops:");
 		lblHops.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblHops.setBounds(35, 208, 72, 25);
+		lblHops.setBounds(14, 206, 93, 28);
 		contentPane.add(lblHops);
 		
 		textField_2 = new JTextField();
@@ -108,7 +108,7 @@ public class RecipesAddPage extends JFrame {
 		// Yeasts input
 		JLabel lblYeasts = new JLabel("Yeasts:");
 		lblYeasts.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblYeasts.setBounds(315, 68, 72, 31);
+		lblYeasts.setBounds(300, 68, 140, 31);
 		contentPane.add(lblYeasts);
 		
 		textField_3 = new JTextField();
@@ -125,7 +125,7 @@ public class RecipesAddPage extends JFrame {
 		// Sugars input
 		JLabel lblSugars = new JLabel("Sugars:");
 		lblSugars.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblSugars.setBounds(315, 136, 86, 31);
+		lblSugars.setBounds(300, 136, 140, 31);
 		contentPane.add(lblSugars);
 		
 		textField_4 = new JTextField();
@@ -142,7 +142,7 @@ public class RecipesAddPage extends JFrame {
 		// Additives input
 		JLabel lblAdditives = new JLabel("Additives:");
 		lblAdditives.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblAdditives.setBounds(315, 205, 110, 31);
+		lblAdditives.setBounds(300, 205, 125, 31);
 		contentPane.add(lblAdditives);
 		
 		textField_5 = new JTextField();
@@ -159,12 +159,12 @@ public class RecipesAddPage extends JFrame {
 		// Set Buttons
 		btnAdd = new JButton("Add");
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnAdd.setBounds(105, 303, 113, 27);
+		btnAdd.setBounds(105, 303, 113, 39);
 		contentPane.add(btnAdd);
 		
 		btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(340, 303, 113, 27);
+		btnCancel.setBounds(340, 303, 113, 39);
 		contentPane.add(btnCancel);
 		
 		// Page Jump
