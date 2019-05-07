@@ -3,11 +3,20 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Recipe<ingredients> {
+	private int id;
 	private String recipeName;
 	private float quantity;
 	private String unit;
 	private ArrayList<RecipeIngredient> ingredients;
 	private Map<String, Brew> Brews;
+	
+	public Recipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
+		this.recipeName = recipeName;
+		this.quantity = quantity;
+		this.unit = unit;
+		this.ingredients = ingredients;
+		this.id = Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
+	}
 	
 	public void setRecipeName(String name) {
 		this.recipeName = name;

@@ -18,13 +18,9 @@ public class Database {
     static final String USER = "root";
     static final String PASS = "xiaocong310";
  
-    public static boolean addRecipe(Recipe recipe) {
-    	String recipeName = recipe.getRecipeName();
-    	String recipeUnit = recipe.getUnit();
-    	float recipeQuantity = recipe.getQuantity();
-    	ArrayList<RecipeIngredient> ingredients = recipe.getIngredients();
+    public static int dbNewRecipe(String recipeName, float recipeQuantity, String recipeUnit, ArrayList<RecipeIngredient> ingredients) {
+    	int recipeID = 0;
     	String sql = "INSERT INTO recipe (RecipeName, Unit, Quantity) VALUES (?, ?, ?)";
-    	boolean result = false;
     	Connection conn = null;
     	
         try{
@@ -41,19 +37,16 @@ public class Database {
             ps.setObject(3, recipeQuantity);
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            int recipeID = rs.getInt(1);
+            recipeID = rs.getInt(1);
             
             for (int i = 0; i < ingredients.size(); i++)
             {
-            	addRecipeIngredient(recipeID,ingredients.get(i));
+            	dbNewRecipeIngredient(recipeID,ingredients.get(i));
             }
 
             // 完成后关闭
             ps.close();
             conn.close();
-            
-            result = true;
-            return result;
         } catch(SQLException e)
         {
             System.err.println("Error: " + e);
@@ -61,10 +54,10 @@ public class Database {
         } catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-        return result;
+    	return recipeID;
     }
 
-    public static boolean addRecipeIngredient(int recipeID, RecipeIngredient ingredient) {
+    public static boolean dbNewRecipeIngredient(int recipeID, RecipeIngredient ingredient) {
     	String ingredientName = ingredient.getIngredientName();
     	String ingredientUnit = ingredient.getUnit();
     	float ingredientQuantity = ingredient.getQuantity();
@@ -86,7 +79,6 @@ public class Database {
             ps.setString(3, ingredientUnit);
             ps.setFloat(4, ingredientQuantity);
             ps.executeUpdate();
-            System.out.println(result);
 
             // 完成后关闭
             ps.close();
@@ -104,7 +96,41 @@ public class Database {
         return result;
     }
     
-    public static boolean addNote(Note note) {
+    public static boolean dbUpdateCapacity(Equipment equipment) {
+	    float capacity = equipment.getCapacity();
+		String sql = "UPDATE Equipment SET Capacity = ?";
+		boolean result = false;
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    PreparedStatement ps = conn.prepareStatement(sql);
+		    ps.setFloat(1, capacity);
+		    ps.executeUpdate();
+		
+		    // 完成后关闭
+		    ps.close();
+		    conn.close();
+		    
+		    result = true;
+		    return result;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+    }
+    
+    public static boolean dbAddNote(Note note) {
     	String noteTitle = note.getTitle();
     	java.sql.Date noteDate = note.getDate();
     	String noteContent = note.getContent();

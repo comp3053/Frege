@@ -2,7 +2,6 @@ package mainPart;
 import java.util.Scanner;
 
 public class Equipment {
-
 	private String name;
 	public float capacity;
 	
@@ -24,17 +23,18 @@ public class Equipment {
 		this.capacity = capacity;
 	}
 	
-	public void updateCapacity(float capacity) {
+	public boolean updateCapacity(float capacity) {
 		if (capacity >= 0)
 		{
 			Scanner inputCapacity = new Scanner(System.in);
 	        float newCapacity = inputCapacity.nextFloat();
 	        this.capacity = newCapacity;
+	        return Database.dbUpdateCapacity(this);
 		}
 		else 
 		{
 			System.out.println("Capacity should be non-negative!");
 		}
+		return false;
 	}
-	
 }
