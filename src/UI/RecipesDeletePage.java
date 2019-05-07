@@ -66,6 +66,8 @@ public class RecipesDeletePage extends JFrame {
 		textField.setBounds(226, 177, 140, 30);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		//Get Name String
+		String name = textField.getText().trim();
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(366, 177, 29, 30);

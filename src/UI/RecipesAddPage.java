@@ -86,7 +86,9 @@ public class RecipesAddPage extends JFrame {
 		textField_1.setBounds(132, 141, 86, 24);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		
+		//Get String and transfer into integer
+		String cMalts = textField_1.getText().trim();
+		int malts = Integer.parseInt(cMalts);
 		
 		JLabel lblKg = new JLabel("kg");
 		lblKg.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -104,6 +106,9 @@ public class RecipesAddPage extends JFrame {
 		textField_2.setBounds(132, 210, 86, 24);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
+		//Get String and transfer into integer
+		String cHops = textField_2.getText().trim();
+		int hops = Integer.parseInt(cHops);
 		
 		label = new JLabel("kg");
 		label.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -121,6 +126,9 @@ public class RecipesAddPage extends JFrame {
 		textField_3.setBounds(423, 73, 86, 24);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
+		//Get String and transfer into integer
+		String cYeasts = textField_3.getText().trim();
+		int yeasts = Integer.parseInt(cYeasts);
 		
 		label_1 = new JLabel("kg");
 		label_1.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -138,6 +146,9 @@ public class RecipesAddPage extends JFrame {
 		textField_4.setBounds(423, 141, 86, 24);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
+		//Get String and transfer into integer
+		String cSugars = textField_4.getText().trim();
+		int sugars = Integer.parseInt(cSugars);
 		
 		label_2 = new JLabel("kg");
 		label_2.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -155,6 +166,9 @@ public class RecipesAddPage extends JFrame {
 		textField_5.setBounds(423, 210, 86, 24);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
+		//Get String and transfer into integer
+		String cAdditives = textField_5.getText().trim();
+		int additives= Integer.parseInt(cAdditives);
 		
 		label_3 = new JLabel("kg");
 		label_3.setFont(new Font("Calibri", Font.PLAIN, 20));

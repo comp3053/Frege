@@ -70,6 +70,9 @@ public class BrewPage extends JFrame {
 		textField.setBounds(234, 201, 86, 29);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		//Get input String and transfer into integer
+		String cBatch = textField.getText().trim();
+		int batch= Integer.parseInt(cBatch);
 		
 		JButton btnGo = new JButton("GO!");
 		btnGo.setFont(new Font("Calibri", Font.PLAIN, 25));
