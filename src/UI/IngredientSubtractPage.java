@@ -106,8 +106,8 @@ public class IngredientSubtractPage extends JFrame {
 		});
 	}
 	// Close current UI page
-			protected void closeThis() {
-				contentPane.setVisible(false);
-			}
+	protected void closeThis() {
+		contentPane.setVisible(false);
+	}
 
 }
