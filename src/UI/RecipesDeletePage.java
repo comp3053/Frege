@@ -66,8 +66,6 @@ public class RecipesDeletePage extends JFrame {
 		textField.setBounds(226, 177, 140, 30);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		//Get Name String
-		String name = textField.getText().trim();
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(366, 177, 29, 30);
@@ -92,17 +90,22 @@ public class RecipesDeletePage extends JFrame {
 				//应当有一个提示delete成功的页面(操作成功)
 				//There should be a page that prompts delete success (operation is successful)
 				
-				// 如果操作成功，则修改数据库并且返回RecipePage
-				//If the operation is successful, modify the database and return to RecipePage
-				JOptionPane.showMessageDialog(null, "Success!");
-				closeThis();
-				new RecipePage();
+				String name = textField.getText().trim();
 				
-				//如果操作失败，不改变数据库并且刷新当前页面
-				//If the operation fails, do not change the database and refresh the current page
-				/*JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
-				closeThis();
-				new RecipesDeletePage().setVisible(true);*/
+				if(name.equals("")) {
+					//如果操作失败，不改变数据库并且刷新当前页面
+					//If the operation fails, do not change the database and refresh the current page
+					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+					closeThis();
+					new RecipesDeletePage().setVisible(true);
+				}else {
+					// 如果操作成功，则修改数据库并且返回RecipePage
+					//If the operation is successful, modify the database and return to RecipePage
+					JOptionPane.showMessageDialog(null, "Success!");
+					closeThis();
+					new RecipePage();
+				}
+	
 			}
 		});
 						

@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -70,9 +72,6 @@ public class BrewPage extends JFrame {
 		textField.setBounds(234, 201, 86, 29);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		//Get input String and transfer into integer
-		String cBatch = textField.getText().trim();
-		int batch= Integer.parseInt(cBatch);
 		
 		JButton btnGo = new JButton("GO!");
 		btnGo.setFont(new Font("Calibri", Font.PLAIN, 25));
@@ -82,6 +81,19 @@ public class BrewPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//closeThis();
 				//new RecipePage();
+				
+				//Get input String and transfer into integer
+				String cBatch = textField.getText().trim();
+				if(cBatch.equals("")) {
+					//warning
+					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+					closeThis();
+					new BrewPage().setVisible(true);
+				}else {
+					int batch= Integer.parseInt(cBatch);
+					// go to next page
+				}
+				
 			}
 		});
 	}

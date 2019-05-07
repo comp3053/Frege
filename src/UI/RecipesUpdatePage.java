@@ -66,8 +66,6 @@ public class RecipesUpdatePage extends JFrame {
 		textField.setColumns(10);
 		textField.setBounds(141, 66, 106, 26);
 		contentPane.add(textField);
-		// Get input information
-		String name = textField.getText().trim();
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(249, 66, 26, 26);
@@ -83,9 +81,6 @@ public class RecipesUpdatePage extends JFrame {
 		textField_1.setColumns(10);
 		textField_1.setBounds(141, 132, 86, 24);
 		contentPane.add(textField_1);
-		//Get String and transfer into integer
-		String cMalts = textField_1.getText().trim();
-		int malts = Integer.parseInt(cMalts);
 		
 		JLabel label_2 = new JLabel("kg");
 		label_2.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -102,9 +97,6 @@ public class RecipesUpdatePage extends JFrame {
 		textField_2.setColumns(10);
 		textField_2.setBounds(141, 199, 86, 24);
 		contentPane.add(textField_2);
-		//Get String and transfer into integer
-		String cHops = textField_2.getText().trim();
-		int hops = Integer.parseInt(cHops);
 		
 		JLabel label_4 = new JLabel("kg");
 		label_4.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -121,9 +113,6 @@ public class RecipesUpdatePage extends JFrame {
 		textField_3.setColumns(10);
 		textField_3.setBounds(415, 68, 86, 24);
 		contentPane.add(textField_3);
-		//Get String and transfer into integer
-		String cYeasts = textField_3.getText().trim();
-		int yeasts = Integer.parseInt(cYeasts);
 		
 		JLabel label_6 = new JLabel("kg");
 		label_6.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -140,9 +129,6 @@ public class RecipesUpdatePage extends JFrame {
 		textField_4.setColumns(10);
 		textField_4.setBounds(415, 132, 86, 24);
 		contentPane.add(textField_4);
-		//Get String and transfer into integer
-		String cSugars = textField_4.getText().trim();
-		int sugars = Integer.parseInt(cSugars);
 		
 		JLabel label_8 = new JLabel("kg");
 		label_8.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -159,9 +145,6 @@ public class RecipesUpdatePage extends JFrame {
 		textField_5.setColumns(10);
 		textField_5.setBounds(415, 199, 86, 24);
 		contentPane.add(textField_5);
-		//Get String and transfer into integer
-		String cAdditives = textField_5.getText().trim();
-		int additives= Integer.parseInt(cAdditives);
 		
 		JLabel label_10 = new JLabel("kg");
 		label_10.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -187,17 +170,33 @@ public class RecipesUpdatePage extends JFrame {
 				//应当有一个提示Update成功的页面(操作成功)
 				//There should be a page that prompts that Update is successful (operation is successful)
 				
-				// 如果操作成功，则修改数据库并且返回RecipePage
-				//If the operation is successful, modify the database and return to RecipePage
-				JOptionPane.showMessageDialog(null, "Success!");
-				closeThis();
-				new RecipePage();
+				String cName = textField.getText().trim();
+				String cMalts = textField_1.getText().trim();
+				String cHops = textField_2.getText().trim();
+				String cYeasts = textField_3.getText().trim();
+				String cSugars = textField_4.getText().trim();
+				String cAdditives = textField_5.getText().trim();
 				
-				//如果操作失败，不改变数据库并且刷新当前页面
-				//If the operation fails, do not change the database and refresh the current page
-				/*JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
-				closeThis();
-				new RecipesUpdatePage().setVisible(true);*/
+				if(cName.equals("")||cMalts.equals("")||cHops.equals("")||cYeasts.equals("")||cSugars.equals("")||cAdditives.equals("")) {
+					//如果操作失败，不改变数据库并且刷新当前页面
+					//If the operation fails, do not change the database and refresh the current page
+					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+					closeThis();
+					new RecipesUpdatePage().setVisible(true);
+				}else {
+					//Transfer String into integer
+					int malts = Integer.parseInt(cMalts);
+					int hops = Integer.parseInt(cHops);
+					int yeasts = Integer.parseInt(cYeasts);
+					int sugars = Integer.parseInt(cSugars);
+					int additives= Integer.parseInt(cAdditives);
+					
+					// 如果操作成功，则修改数据库并且返回RecipePage
+					//If the operation is successful, modify the database and return to RecipePage
+					JOptionPane.showMessageDialog(null, "Success!");
+					closeThis();
+					new RecipePage();
+				}
 			}
 		});
 								
