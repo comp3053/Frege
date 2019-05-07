@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JTable;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import java.awt.ScrollPane;
 import javax.swing.SwingConstants;
@@ -98,6 +99,19 @@ public class IngredientAddPage extends JFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//暂时缺少对于数据库的操作
+				//Temporarily missing operations on the database
+				
+				// 如果操作成功，则修改数据库并且返回RecipePage
+				//If the operation is successful, modify the database and return to RecipePage
+				JOptionPane.showMessageDialog(null, "Success!");
+				closeThis();
+				new IngredientPage();
+				
+				//如果操作失败，不改变数据库并且刷新当前页面
+				//If the operation fails, do not change the database and refresh the current page
+				/*JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+				closeThis();
+				new IngredientAddPage().setVisible(true);*/
 			}
 		});
 		

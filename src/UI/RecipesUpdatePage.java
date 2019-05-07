@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -164,7 +166,21 @@ public class RecipesUpdatePage extends JFrame {
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// 暂时空缺修改数据库的行为或页面
+				//Temporary vacancies modify the behavior or page of the database
 				//应当有一个提示Update成功的页面(操作成功)
+				//There should be a page that prompts that Update is successful (operation is successful)
+				
+				// 如果操作成功，则修改数据库并且返回RecipePage
+				//If the operation is successful, modify the database and return to RecipePage
+				JOptionPane.showMessageDialog(null, "Success!");
+				closeThis();
+				new RecipePage();
+				
+				//如果操作失败，不改变数据库并且刷新当前页面
+				//If the operation fails, do not change the database and refresh the current page
+				/*JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+				closeThis();
+				new RecipesUpdatePage().setVisible(true);*/
 			}
 		});
 								
