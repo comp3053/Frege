@@ -1,13 +1,28 @@
 package UI;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 
 public class HomePage {
 
 	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					HomePage window = new HomePage();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the application.
@@ -23,28 +38,6 @@ public class HomePage {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 600, 430);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JLabel lblBrewday = new JLabel("BrewDay!");
-		lblBrewday.setBounds(184, 13, 73, 40);
-		frame.getContentPane().add(lblBrewday);
-		
-		JButton btnRecipe = new JButton("Recipe");
-		btnRecipe.setBounds(42, 66, 113, 27);
-		frame.getContentPane().add(btnRecipe);
-		
-		JButton btnIngredient = new JButton("Ingredient");
-		btnIngredient.setBounds(265, 66, 113, 27);
-		frame.getContentPane().add(btnIngredient);
-		
-		JButton btnEquipment = new JButton("Equipment");
-		btnEquipment.setBounds(265, 127, 113, 27);
-		frame.getContentPane().add(btnEquipment);
-		
-		JButton btnBrew = new JButton("Brew");
-		btnBrew.setBounds(42, 127, 113, 27);
-		frame.getContentPane().add(btnBrew);
-		
-		frame.setVisible(true);
 	}
+
 }
