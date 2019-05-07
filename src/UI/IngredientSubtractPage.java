@@ -109,5 +109,4 @@ public class IngredientSubtractPage extends JFrame {
 	protected void closeThis() {
 		contentPane.setVisible(false);
 	}
-
 }
