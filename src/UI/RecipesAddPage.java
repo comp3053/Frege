@@ -1,12 +1,14 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Dialog;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -172,6 +174,16 @@ public class RecipesAddPage extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				// 暂时空缺修改数据库的行为或页面
 				//应当有一个提示add成功的页面
+				
+				// 如果操作成功，则修改数据库并且返回RecipePage
+				JOptionPane.showMessageDialog(null, "Success!");
+				closeThis();
+				new RecipePage();
+				
+				//如果操作失败，不改变数据库并且刷新当前页面
+				/*JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+				closeThis();
+				new RecipesAddPage().setVisible(true);*/
 			}
 		});
 				
