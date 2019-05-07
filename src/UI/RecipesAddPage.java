@@ -72,6 +72,8 @@ public class RecipesAddPage extends JFrame {
 		textField.setBounds(132, 71, 110, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		// Get input information
+		String RName = textField.getText().trim();
 		
 		// Malts input
 		JLabel lblMalts = new JLabel("Malts:");
@@ -84,6 +86,7 @@ public class RecipesAddPage extends JFrame {
 		textField_1.setBounds(132, 141, 86, 24);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
 		
 		JLabel lblKg = new JLabel("kg");
 		lblKg.setFont(new Font("Calibri", Font.PLAIN, 20));
