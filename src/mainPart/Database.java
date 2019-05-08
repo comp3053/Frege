@@ -97,8 +97,9 @@ public class Database {
     }
     
     public static boolean dbUpdateCapacity(Equipment equipment) {
+    	String name = equipment.getName();
 	    float capacity = equipment.getCapacity();
-		String sql = "UPDATE Equipment SET Capacity = ?";
+		String sql = "UPDATE Equipment SET Capacity = ? WHERE name = ?";
 		boolean result = false;
 		Connection conn = null;
 		
@@ -112,6 +113,79 @@ public class Database {
 		    // 执行查询
 		    PreparedStatement ps = conn.prepareStatement(sql);
 		    ps.setFloat(1, capacity);
+		    ps.setString(2, name);
+		    ps.executeUpdate();
+		
+		    // 完成后关闭
+		    ps.close();
+		    conn.close();
+		    
+		    result = true;
+		    return result;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+    }
+    
+    public static boolean dbUpdateStorageIngredient(StorageIngredient ingredient) {
+    	String name = ingredient.getIngredientName();
+	    float quantity = ingredient.getQuantity();
+		String sql = "UPDATE StorageIngredient SET Quantity = ? WHERE name = ?";
+		boolean result = false;
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    PreparedStatement ps = conn.prepareStatement(sql);
+		    ps.setFloat(1, quantity);
+		    ps.setString(2, name);
+		    ps.executeUpdate();
+		
+		    // 完成后关闭
+		    ps.close();
+		    conn.close();
+		    
+		    result = true;
+		    return result;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return result;
+    }
+
+    public static boolean dbUpdateRecipeIngredient(RecipeIngredient ingredient) {
+    	String name = ingredient.getIngredientName();
+	    float quantity = ingredient.getQuantity();
+		String sql = "UPDATE RecipeIngredient SET Quantity = ? WHERE name = ?";
+		boolean result = false;
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    PreparedStatement ps = conn.prepareStatement(sql);
+		    ps.setFloat(1, quantity);
+		    ps.setString(2, name);
 		    ps.executeUpdate();
 		
 		    // 完成后关闭
@@ -166,5 +240,9 @@ public class Database {
 			e.printStackTrace();
 		}
         return result;
+    }
+
+    public static float dbGetStorageingredientQuantity(StorageIngredient ingredient) {
+    	
     }
 }
