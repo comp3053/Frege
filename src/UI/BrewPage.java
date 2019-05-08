@@ -77,8 +77,8 @@ public class BrewPage extends JFrame {
 		contentPane.add(btnGo);
 		btnGo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//closeThis();
-				//new RecipePage();
+				closeThis();
+				new SelectRecipesPage().setVisible(true);;
 			}
 		});
 	}
