@@ -48,6 +48,7 @@ public class BrewPage extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setVisible(true);
 		
 		JLabel lblBrew = new JLabel("Brew");
 		lblBrew.setHorizontalAlignment(SwingConstants.CENTER);
@@ -101,8 +102,13 @@ public class BrewPage extends JFrame {
 					closeThis();
 					new BrewPage().setVisible(true);
 				}else {
-					int batch= Integer.parseInt(cBatch);
-					// go to next page
+					
+					float batch = Integer.parseInt(cBatch);
+					if(batch < 0) {
+						JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+						// go to next page
+					}
+					
 				}
 				
 			}

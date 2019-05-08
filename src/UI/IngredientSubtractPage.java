@@ -241,7 +241,7 @@ public class IngredientSubtractPage extends JFrame {
 					//If the operation is successful, modify the database and return to RecipePage
 					JOptionPane.showMessageDialog(null, "Success!");
 					closeThis();
-					new IngredientPage();
+					new IngredientPage().setVisible(true);
 				}
 			}
 		});

@@ -203,10 +203,10 @@ public class RecipesAddPage extends JFrame {
 						JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 					}else {
 						// 如果操作成功，则修改数据库并且返回RecipePage
-					//If the operation is successful, modify the database and return to RecipePage
-					JOptionPane.showMessageDialog(null, "Success!");
-					closeThis();
-					new RecipePage();
+						//If the operation is successful, modify the database and return to RecipePage
+						JOptionPane.showMessageDialog(null, "Success!");
+						closeThis();
+						new RecipePage();
 					}
 					
 					

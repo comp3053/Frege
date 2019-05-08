@@ -83,7 +83,7 @@ public class HomePage {
 		btnBrew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
-				//new EquipmentPage().setVisible(true);
+				new BrewPage().setVisible(true);
 			}
 		});
 		

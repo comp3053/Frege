@@ -42,6 +42,7 @@ public class IngredientPage extends JFrame {
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setVisible(true);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
