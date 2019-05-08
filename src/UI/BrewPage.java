@@ -73,6 +73,17 @@ public class BrewPage extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		JButton btnHome = new JButton("Home");
+		btnHome.setBounds(478, 29, 90, 32);
+		contentPane.add(btnHome);
+		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				closeThis();
+				new HomePage();
+			}
+		});
+		
 		JButton btnGo = new JButton("GO!");
 		btnGo.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnGo.setBounds(225, 275, 113, 39);

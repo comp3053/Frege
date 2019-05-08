@@ -192,17 +192,24 @@ public class RecipesAddPage extends JFrame {
 					new RecipesAddPage().setVisible(true);
 				}else {
 					//Transfer String into integer
-					int malts = Integer.parseInt(cMalts);
-					int hops = Integer.parseInt(cHops);
-					int yeasts = Integer.parseInt(cYeasts);
-					int sugars = Integer.parseInt(cSugars);
-					int additives= Integer.parseInt(cAdditives);
+					float malts = Integer.parseInt(cMalts);
+					float hops = Integer.parseInt(cHops);
+					float yeasts = Integer.parseInt(cYeasts);
+					float sugars = Integer.parseInt(cSugars);
+					float additives= Integer.parseInt(cAdditives);
 					
-					// 如果操作成功，则修改数据库并且返回RecipePage
+					if (malts<0||hops<0||yeasts<0||sugars<0||additives<0) {
+						// If input a negative number it will be error 
+						JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+					}else {
+						// 如果操作成功，则修改数据库并且返回RecipePage
 					//If the operation is successful, modify the database and return to RecipePage
 					JOptionPane.showMessageDialog(null, "Success!");
 					closeThis();
 					new RecipePage();
+					}
+					
+					
 				}
 			}
 		});

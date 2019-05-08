@@ -81,11 +81,11 @@ public class IngredientSubtractPage extends JFrame {
 		lblMalts.setBounds(51, 57, 99, 31);
 		layeredPane.add(lblMalts);
 		
-		JLabel lblHopes = new JLabel("Hopes");
-		lblHopes.setHorizontalAlignment(SwingConstants.LEFT);
-		lblHopes.setFont(new Font("Calibri", Font.PLAIN, 22));
-		lblHopes.setBounds(51, 91, 99, 31);
-		layeredPane.add(lblHopes);
+		JLabel lblHops = new JLabel("Hops");
+		lblHops.setHorizontalAlignment(SwingConstants.LEFT);
+		lblHops.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblHops.setBounds(51, 91, 99, 31);
+		layeredPane.add(lblHops);
 		
 		JLabel lblYeasts = new JLabel("Yeasts");
 		lblYeasts.setHorizontalAlignment(SwingConstants.LEFT);
@@ -114,13 +114,13 @@ public class IngredientSubtractPage extends JFrame {
 		lblAmountMalts.setBounds(224, 57, 71, 31);
 		layeredPane.add(lblAmountMalts);
 		
-		float x2 = Database.dbGetStorageingredientQuantity("Hopes");
-		String cHopes = Float.toString(x2);
-		JLabel lblAmountHopes = new JLabel(cHopes);
-		lblAmountHopes.setHorizontalAlignment(SwingConstants.CENTER);
-		lblAmountHopes.setFont(new Font("Calibri", Font.PLAIN, 22));
-		lblAmountHopes.setBounds(224, 91, 71, 31);
-		layeredPane.add(lblAmountHopes);
+		float x2 = Database.dbGetStorageingredientQuantity("Hops");
+		String cHops = Float.toString(x2);
+		JLabel lblAmountHops = new JLabel(cHops);
+		lblAmountHops.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountHops.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblAmountHops.setBounds(224, 91, 71, 31);
+		layeredPane.add(lblAmountHops);
 		
 		float x3 = Database.dbGetStorageingredientQuantity("Yeasts");
 		String cYeasts = Float.toString(x3);
@@ -223,12 +223,12 @@ public class IngredientSubtractPage extends JFrame {
 				//Temporarily missing operations on the database
 				
 				float nMalts = (float) spinner.getValue();
-				float nHopes = (float) spinner_1.getValue();
+				float nHops = (float) spinner_1.getValue();
 				float nYeasts = (float) spinner_2.getValue();
 				float nSugars = (float) spinner_3.getValue();
 				float nAdditives = (float) spinner_4.getValue();
 				
-				if(nMalts < 0||nHopes < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
+				if(nMalts < 0||nHops < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
 					
 					//如果操作失败，不改变数据库并且刷新当前页面
 					//If the operation fails, do not change the database and refresh the current page
