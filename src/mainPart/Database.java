@@ -242,7 +242,36 @@ public class Database {
         return result;
     }
 
-    public static float dbGetStorageingredientQuantity(StorageIngredient ingredient) {
-    	
+    public static float dbGetStorageingredientQuantity(String name) {
+		String sql = "SELECT Quantity FROM StorageIngredient WHERE IngredientName = ?";
+		boolean result = false;
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    PreparedStatement ps = conn.prepareStatement(sql);
+		    ps.setString(1, name);
+		    ResultSet rs = ps.executeQuery(sql);
+		
+		    float quantity  = rs.getFloat("Quantity");
+		    // 完成后关闭
+		    ps.close();
+		    conn.close();
+		   
+		    return quantity;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return 0;
     }
 }
