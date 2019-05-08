@@ -10,6 +10,8 @@ import javax.swing.border.EmptyBorder;
 
 import com.sun.prism.paint.Color;
 
+import mainPart.Database;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -36,6 +38,8 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class IngredientAddPage extends JFrame {
 
@@ -92,6 +96,145 @@ public class IngredientAddPage extends JFrame {
 		lblAmount.setBounds(198, 13, 133, 31);
 		layeredPane.add(lblAmount);
 		
+		JLabel lblMalts = new JLabel("Malts");
+		lblMalts.setHorizontalAlignment(SwingConstants.LEFT);
+		lblMalts.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblMalts.setBounds(51, 57, 99, 31);
+		layeredPane.add(lblMalts);
+		
+		JLabel lblHopes = new JLabel("Hopes");
+		lblHopes.setHorizontalAlignment(SwingConstants.LEFT);
+		lblHopes.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblHopes.setBounds(51, 91, 99, 31);
+		layeredPane.add(lblHopes);
+		
+		JLabel lblYeasts = new JLabel("Yeasts");
+		lblYeasts.setHorizontalAlignment(SwingConstants.LEFT);
+		lblYeasts.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblYeasts.setBounds(51, 125, 99, 31);
+		layeredPane.add(lblYeasts);
+		
+		JLabel lblSugars = new JLabel("Sugars");
+		lblSugars.setHorizontalAlignment(SwingConstants.LEFT);
+		lblSugars.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblSugars.setBounds(51, 159, 99, 31);
+		layeredPane.add(lblSugars);
+		
+		JLabel lblAdditives = new JLabel("Additives");
+		lblAdditives.setHorizontalAlignment(SwingConstants.LEFT);
+		lblAdditives.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblAdditives.setBounds(51, 194, 121, 31);
+		layeredPane.add(lblAdditives);
+		
+		
+		// Find Amount in database and show on
+		float x1 = Database.dbGetStorageingredientQuantity("Malts");
+		String cMalts = Float.toString(x1);
+		JLabel lblAmountMalts= new JLabel(cMalts);
+		lblAmountMalts.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountMalts.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblAmountMalts.setBounds(224, 57, 71, 31);
+		layeredPane.add(lblAmountMalts);
+		
+		float x2 = Database.dbGetStorageingredientQuantity("Hopes");
+		String cHopes = Float.toString(x2);
+		JLabel lblAmountHopes = new JLabel(cHopes);
+		lblAmountHopes.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountHopes.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblAmountHopes.setBounds(224, 91, 71, 31);
+		layeredPane.add(lblAmountHopes);
+		
+		float x3 = Database.dbGetStorageingredientQuantity("Yeasts");
+		String cYeasts = Float.toString(x3);
+		JLabel lblAmountYeasts = new JLabel(cYeasts);
+		lblAmountYeasts.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountYeasts.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblAmountYeasts.setBounds(224, 125, 71, 31);
+		layeredPane.add(lblAmountYeasts);
+		
+		float x4 = Database.dbGetStorageingredientQuantity("Sugars");
+		String cSugars = Float.toString(x4);
+		JLabel lblAmountSugars = new JLabel(cSugars);
+		lblAmountSugars.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountSugars.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblAmountSugars.setBounds(224, 159, 71, 31);
+		layeredPane.add(lblAmountSugars);
+		
+		float x5 = Database.dbGetStorageingredientQuantity("Additives");
+		String cAdditives = Float.toString(x5);
+		JLabel lblAmountAdditives = new JLabel(cAdditives);
+		lblAmountAdditives.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountAdditives.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblAmountAdditives.setBounds(224, 194, 71, 31);
+		layeredPane.add(lblAmountAdditives);
+		
+		// The symbol '+'
+		JLayeredPane layeredPane_1 = new JLayeredPane();
+		layeredPane_1.setBounds(345, 0, 55, 266);
+		layeredPane.add(layeredPane_1);
+		
+		JLabel label = new JLabel("+");
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setFont(new Font("Calibri", Font.PLAIN, 22));
+		label.setBounds(0, 58, 55, 31);
+		layeredPane_1.add(label);
+		
+		JLabel label_1 = new JLabel("+");
+		label_1.setHorizontalAlignment(SwingConstants.CENTER);
+		label_1.setFont(new Font("Calibri", Font.PLAIN, 22));
+		label_1.setBounds(0, 92, 55, 31);
+		layeredPane_1.add(label_1);
+		
+		JLabel label_2 = new JLabel("+");
+		label_2.setHorizontalAlignment(SwingConstants.CENTER);
+		label_2.setFont(new Font("Calibri", Font.PLAIN, 22));
+		label_2.setBounds(0, 125, 55, 31);
+		layeredPane_1.add(label_2);
+		
+		JLabel label_3 = new JLabel("+");
+		label_3.setHorizontalAlignment(SwingConstants.CENTER);
+		label_3.setFont(new Font("Calibri", Font.PLAIN, 22));
+		label_3.setBounds(0, 160, 55, 31);
+		layeredPane_1.add(label_3);
+		
+		JLabel label_4 = new JLabel("+");
+		label_4.setHorizontalAlignment(SwingConstants.CENTER);
+		label_4.setFont(new Font("Calibri", Font.PLAIN, 22));
+		label_4.setBounds(0, 194, 55, 31);
+		layeredPane_1.add(label_4);
+		
+		// Input number to add
+		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
+		spinner.setFont(new Font("Calibri", Font.PLAIN, 18));
+		spinner.setBounds(414, 61, 55, 24);
+		layeredPane.add(spinner);
+		
+		JSpinner spinner_1 = new JSpinner();
+		spinner_1.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
+		spinner_1.setFont(new Font("Calibri", Font.PLAIN, 18));
+		spinner_1.setBounds(414, 95, 55, 24);
+		layeredPane.add(spinner_1);
+		
+		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
+		spinner_2.setFont(new Font("Calibri", Font.PLAIN, 18));
+		spinner_2.setBounds(414, 129, 55, 24);
+		layeredPane.add(spinner_2);
+		
+		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
+		spinner_3.setFont(new Font("Calibri", Font.PLAIN, 18));
+		spinner_3.setBounds(414, 163, 55, 24);
+		layeredPane.add(spinner_3);
+		
+		JSpinner spinner_4 = new JSpinner();
+		spinner_4.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
+		spinner_4.setFont(new Font("Calibri", Font.PLAIN, 18));
+		spinner_4.setBounds(414, 198, 55, 24);
+		layeredPane.add(spinner_4);
+		
+		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnAdd.setBounds(99, 332, 113, 38);
@@ -100,18 +243,27 @@ public class IngredientAddPage extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				//暂时缺少对于数据库的操作
 				//Temporarily missing operations on the database
+				float nMalts = (float) spinner.getValue();
+				float nHopes = (float) spinner_1.getValue();
+				float nYeasts = (float) spinner_2.getValue();
+				float nSugars = (float) spinner_3.getValue();
+				float nAdditives = (float) spinner_4.getValue();
 				
-				// 如果操作成功，则修改数据库并且返回RecipePage
-				//If the operation is successful, modify the database and return to RecipePage
-				JOptionPane.showMessageDialog(null, "Success!");
-				closeThis();
-				new IngredientPage();
-				
-				//如果操作失败，不改变数据库并且刷新当前页面
-				//If the operation fails, do not change the database and refresh the current page
-				/*JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
-				closeThis();
-				new IngredientAddPage().setVisible(true);*/
+				if(nMalts < 0||nHopes < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
+					
+					//如果操作失败，不改变数据库并且刷新当前页面
+					//If the operation fails, do not change the database and refresh the current page
+					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+					closeThis();
+					new IngredientAddPage().setVisible(true);
+					
+				}else {
+					// 如果操作成功，则修改数据库并且返回RecipePage
+					//If the operation is successful, modify the database and return to RecipePage
+					JOptionPane.showMessageDialog(null, "Success!");
+					closeThis();
+					new IngredientPage();
+				}
 			}
 		});
 		
