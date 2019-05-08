@@ -36,10 +36,4 @@ public class Note {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
-	public void editContent(String content) {
-		Scanner inputContent = new Scanner(System.in);
-        String newContent = inputContent.next();
-        this.content = newContent;
-	}
 }
