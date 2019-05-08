@@ -7,6 +7,13 @@ public class Note {
 	private java.sql.Date date;
 	private String content;
 	
+	public Note(String title, java.sql.Date date, String content) {
+		this.title = title;
+		this.date = date;
+		this.content = content;
+		Database.dbAddNote(this);
+	}
+	
 	public String getTitle() {
 		return title;
 	}

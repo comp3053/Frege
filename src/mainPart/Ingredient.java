@@ -5,6 +5,12 @@ public class Ingredient {
 	private float quantity;
 	private String unit;
 	
+	public Ingredient(String name, float quantity, String unit) {
+		this.ingredientName = name;
+		this.quantity = quantity;
+		this.unit = unit;
+	}
+	
 	// get and set functions
 	public String getIngredientName() {
 		return this.ingredientName;

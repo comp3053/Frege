@@ -1,16 +1,17 @@
 package mainPart;
 
 public class RecipeIngredient extends Ingredient{
-	public RecipeIngredient () {
-		super();
+	
+	public RecipeIngredient (String name, float quantity, String unit) {
+		super(name, quantity, unit);
 	}
 	
-	public boolean updateAmount(float amount) {
+	public boolean updateQuantity(float quantity) {
 		// only accept non-negative numbers
-		if(amount >= 0)
+		if(quantity >= 0)
 		{
-			super.setQuantity(amount);
-			return true;
+			super.setQuantity(quantity);
+			return Database.dbUpdateRecipeIngredient(this);
 		}
 		// if number is negative, then amount unchanged
 		System.out.println("Invalid amount!");
