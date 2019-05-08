@@ -70,25 +70,30 @@ public class Recipe<ingredients> {
 		}
 	}
 	
-	public boolean updateIngredient(String ingreName, float quantity) {
+	public boolean updateRecipeIngredient(String ingreName, float quantity) {
 		if ((quantity >= 0))
 		{
 			switch (ingreName)
 			{
 			case "malts":
 				ingredients.get(0).updateQuantity(quantity);
+				Database.dbUpdateRecipeIngredient(ingredients.get(0));
 				break;
 			case "hops":
 				ingredients.get(1).updateQuantity(quantity);
+				Database.dbUpdateRecipeIngredient(ingredients.get(1));
 				break;
 			case "yeasts":
 				ingredients.get(2).updateQuantity(quantity);
+				Database.dbUpdateRecipeIngredient(ingredients.get(2));
 				break;
 			case "sugars":
 				ingredients.get(3).updateQuantity(quantity);
+				Database.dbUpdateRecipeIngredient(ingredients.get(3));
 				break;
 			case "additives":
 				ingredients.get(4).updateQuantity(quantity);
+				Database.dbUpdateRecipeIngredient(ingredients.get(4));
 				break;
 			default:
 				System.out.println("Ingredient invaild!");
