@@ -108,9 +108,11 @@ public class BrewPage extends JFrame {
 						JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 						// go to next page
 					}
-					
+					closeThis();
+					new SelectRecipesPage().setVisible(true);
 				}
 				
+
 			}
 		});
 	}

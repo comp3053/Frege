@@ -94,7 +94,7 @@ public class HomePage {
 		btnNotes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
-				//new NotesPage().setVisible(true);
+				new NotesPage().setVisible(true);
 			}
 		});
 		
@@ -105,7 +105,7 @@ public class HomePage {
 		btnEquipemnt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
-				//new EquipmentPage().setVisible(true);
+				new EquipmentPage().setVisible(true);
 			}
 		});
 	}
