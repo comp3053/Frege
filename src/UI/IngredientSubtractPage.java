@@ -222,27 +222,33 @@ public class IngredientSubtractPage extends JFrame {
 				//暂时缺少对数据库的操作
 				//Temporarily missing operations on the database
 				
-				float nMalts = (float) spinner.getValue();
-				float nHops = (float) spinner_1.getValue();
-				float nYeasts = (float) spinner_2.getValue();
-				float nSugars = (float) spinner_3.getValue();
-				float nAdditives = (float) spinner_4.getValue();
+				try {
+					float nMalts = (float) spinner.getValue();
+					float nHops = (float) spinner_1.getValue();
+					float nYeasts = (float) spinner_2.getValue();
+					float nSugars = (float) spinner_3.getValue();
+					float nAdditives = (float) spinner_4.getValue();
 				
-				if(nMalts < 0||nHops < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
+					if(nMalts < 0||nHops < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
 					
-					//如果操作失败，不改变数据库并且刷新当前页面
-					//If the operation fails, do not change the database and refresh the current page
-					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
-					closeThis();
-					new IngredientAddPage().setVisible(true);
+						//如果操作失败，不改变数据库并且刷新当前页面
+						//If the operation fails, do not change the database and refresh the current page
+						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+						closeThis();
+						new IngredientAddPage().setVisible(true);
 					
-				}else {
-					// 如果操作成功，则修改数据库并且返回RecipePage
-					//If the operation is successful, modify the database and return to RecipePage
-					JOptionPane.showMessageDialog(null, "Success!");
-					closeThis();
-					new IngredientPage().setVisible(true);
+					}else {
+						// 如果操作成功，则修改数据库并且返回RecipePage
+						//If the operation is successful, modify the database and return to RecipePage
+						JOptionPane.showMessageDialog(null, "Success!");
+						closeThis();
+						new IngredientPage().setVisible(true);
+					}
+					
+				}catch(NumberFormatException ex) {
+					JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
 				}
+				
 			}
 		});
 		

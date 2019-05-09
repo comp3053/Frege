@@ -184,23 +184,27 @@ public class RecipesUpdatePage extends JFrame {
 					closeThis();
 					new RecipesUpdatePage().setVisible(true);
 				}else {
-					//Transfer String into integer
-					float malts = Integer.parseInt(cMalts);
-					float hops = Integer.parseInt(cHops);
-					float yeasts = Integer.parseInt(cYeasts);
-					float sugars = Integer.parseInt(cSugars);
-					float additives= Integer.parseInt(cAdditives);
 					
-					if (malts < 0||hops < 0||yeasts < 0||sugars < 0||additives < 0) {
-						// If input a negative number it will be error 
-						JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
-					}else {
-						// 如果操作成功，则修改数据库并且返回RecipePage
-					//If the operation is successful, modify the database and return to RecipePage
-					JOptionPane.showMessageDialog(null, "Success!");
-					closeThis();
-					new RecipePage();
-					}
+					try {
+						//Transfer String into integer
+						float malts = Integer.parseInt(cMalts);
+						float hops = Integer.parseInt(cHops);
+						float yeasts = Integer.parseInt(cYeasts);
+						float sugars = Integer.parseInt(cSugars);
+						float additives= Integer.parseInt(cAdditives);
+						if (malts<0||hops<0||yeasts<0||sugars<0||additives<0) {
+							// If input a negative number it will be error 
+							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+						}else {
+							// 如果操作成功，则修改数据库并且返回RecipePage
+							//If the operation is successful, modify the database and return to RecipePage
+							JOptionPane.showMessageDialog(null, "Success!");
+							closeThis();
+							new RecipePage();
+						}
+					}catch(NumberFormatException ex) {
+						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+					}	
 				}
 			}
 		});

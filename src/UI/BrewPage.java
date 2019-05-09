@@ -102,17 +102,19 @@ public class BrewPage extends JFrame {
 					closeThis();
 					new BrewPage().setVisible(true);
 				}else {
-					
-					float batch = Integer.parseInt(cBatch);
-					if(batch < 0) {
-						JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
-						// go to next page
-					}
-					closeThis();
-					new SelectRecipesPage().setVisible(true);
+					try {
+						float batch = Integer.parseInt(cBatch);
+						if(batch < 0) {
+							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+						}else {
+							// go to next page
+							closeThis();
+							new SelectRecipesPage().setVisible(true);
+						}
+					}catch(NumberFormatException ex) {
+						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+					}	
 				}
-				
-
 			}
 		});
 	}
