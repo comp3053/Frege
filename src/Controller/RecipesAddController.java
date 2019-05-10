@@ -31,7 +31,6 @@ public class RecipesAddController {
 			addR.add(additive);
 		}
 		
-		Recipe newRecipe = new Recipe(name, 1, "l", addR);
-		return newRecipe.addRecipe(name, 1, "l",addR);
+		return Recipe.addRecipe(name, 1, "l",addR);
 	}
 }

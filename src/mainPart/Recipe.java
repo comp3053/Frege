@@ -18,7 +18,7 @@ public class Recipe<ingredients> {
 		//this.id = Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
 	
-	public boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
+	public static boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
 		return Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
 	
