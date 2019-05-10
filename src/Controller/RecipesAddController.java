@@ -8,7 +8,7 @@ public class RecipesAddController {
 		
 	}
 	
-	public boolean addRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugerQ, float additiveQ) {
+	public boolean addRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugarQ, float additiveQ) {
 		ArrayList<RecipeIngredient> addR = new ArrayList<RecipeIngredient>();
 		if(maltQ != 0) {
 			RecipeIngredient malt = new RecipeIngredient("malt", maltQ, "kg");
@@ -22,9 +22,9 @@ public class RecipesAddController {
 			RecipeIngredient yeast = new RecipeIngredient("yeast", yeastQ, "kg");
 			addR.add(yeast);
 		}
-		if(sugerQ != 0) {
-			RecipeIngredient suger = new RecipeIngredient("suger", sugerQ, "kg");
-			addR.add(suger);
+		if(sugarQ != 0) {
+			RecipeIngredient sugar = new RecipeIngredient("sugar", sugarQ, "kg");
+			addR.add(sugar);
 		}
 		if(additiveQ != 0) {
 			RecipeIngredient additive = new RecipeIngredient("additive", additiveQ, "kg");
