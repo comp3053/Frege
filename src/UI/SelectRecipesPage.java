@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import javafx.scene.control.TableColumn;
@@ -65,27 +66,22 @@ public class SelectRecipesPage extends JFrame {
 		contentPane.add(layeredPane);
 		
 		// Table
-		table = new JTable();
+		DefaultTableModel tableModel=new DefaultTableModel();
+		tableModel.addColumn("Recipes");
+        tableModel.addColumn("Operation");
+		table = new JTable(tableModel);
 		table.setFont(new Font("Calibri", Font.PLAIN, 18));
 		table.setBounds(75, 13, 394, 253);
-		layeredPane.add(table);
+		//layeredPane.add(table);
 		/* 用JScrollPane装载JTable，这样超出范围的列就可以通过滚动条来查看 */  
         JScrollPane scroll = new JScrollPane(table);  
         scroll.setBounds(14, 325, 554, -275);
+        layeredPane.add(table);
         getContentPane().add(scroll); 
+        String n = "k";
+  
 		
-		String[] columnNames = {"Recipes","Operation"};
-		javax.swing.table.TableColumn column = null;  
-        int colunms = table.getColumnCount();
-        for(int i = 0; i < colunms; i++)  {  
-            column = table.getColumnModel().getColumn(i);  
-            /*将每一列的默认宽度设置为100*/  
-            column.setPreferredWidth(100);  
-        }  
-        /* 
-         * 设置JTable自动调整列表的状态，此处设置为关闭 
-         */  
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);  
+       
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(215, 325, 150, 45);

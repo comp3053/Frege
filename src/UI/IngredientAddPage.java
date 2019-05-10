@@ -130,7 +130,10 @@ public class IngredientAddPage extends JFrame {
 		// Find Amount in database and show on
 		//IngredientAddController controllerUI1 = new IngredientAddController();
 		
-		float x1 = Database.dbGetStorageingredientQuantity("Malts");
+		//float x1 = Database.dbGetStorageingredientQuantity("Malts");
+		
+		IngredientAddController controller1 = new IngredientAddController();
+		float x1 = controller1.searchQuantity("Malts");
 		String cMalts = Float.toString(x1);
 		JLabel lblAmountMalts= new JLabel(cMalts);
 		lblAmountMalts.setHorizontalAlignment(SwingConstants.CENTER);
@@ -138,7 +141,8 @@ public class IngredientAddPage extends JFrame {
 		lblAmountMalts.setBounds(224, 57, 71, 31);
 		layeredPane.add(lblAmountMalts);
 		
-		float x2 = Database.dbGetStorageingredientQuantity("Hops");
+		//float x2 = Database.dbGetStorageingredientQuantity("Hops");
+		float x2 = controller1.searchQuantity("Hops");
 		String cHops = Float.toString(x2);
 		JLabel lblAmountHops = new JLabel(cHops);
 		lblAmountHops.setHorizontalAlignment(SwingConstants.CENTER);
@@ -146,7 +150,8 @@ public class IngredientAddPage extends JFrame {
 		lblAmountHops.setBounds(224, 91, 71, 31);
 		layeredPane.add(lblAmountHops);
 		
-		float x3 = Database.dbGetStorageingredientQuantity("Yeasts");
+		//float x3 = Database.dbGetStorageingredientQuantity("Yeasts");
+		float x3 = controller1.searchQuantity("Yeasts");
 		String cYeasts = Float.toString(x3);
 		JLabel lblAmountYeasts = new JLabel(cYeasts);
 		lblAmountYeasts.setHorizontalAlignment(SwingConstants.CENTER);
@@ -154,7 +159,8 @@ public class IngredientAddPage extends JFrame {
 		lblAmountYeasts.setBounds(224, 125, 71, 31);
 		layeredPane.add(lblAmountYeasts);
 		
-		float x4 = Database.dbGetStorageingredientQuantity("Sugars");
+		//float x4 = Database.dbGetStorageingredientQuantity("Sugars");
+		float x4 = controller1.searchQuantity("Sugars");
 		String cSugars = Float.toString(x4);
 		JLabel lblAmountSugars = new JLabel(cSugars);
 		lblAmountSugars.setHorizontalAlignment(SwingConstants.CENTER);
@@ -162,7 +168,8 @@ public class IngredientAddPage extends JFrame {
 		lblAmountSugars.setBounds(224, 159, 71, 31);
 		layeredPane.add(lblAmountSugars);
 		
-		float x5 = Database.dbGetStorageingredientQuantity("Additives");
+		//float x5 = Database.dbGetStorageingredientQuantity("Additives");
+		float x5 = controller1.searchQuantity("Additives");
 		String cAdditives = Float.toString(x5);
 		JLabel lblAmountAdditives = new JLabel(cAdditives);
 		lblAmountAdditives.setHorizontalAlignment(SwingConstants.CENTER);
@@ -244,7 +251,6 @@ public class IngredientAddPage extends JFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					//暂时缺少对于数据库的操作
 					//Temporarily missing operations on the database
 					float nMalts = (float) spinner.getValue();
 					float nHops = (float) spinner_1.getValue();
@@ -254,7 +260,6 @@ public class IngredientAddPage extends JFrame {
 					
 					if(nMalts < 0||nHops < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
 					
-						//如果操作失败，不改变数据库并且刷新当前页面
 						//If the operation fails, do not change the database and refresh the current page
 						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
