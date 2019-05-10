@@ -80,7 +80,7 @@ public class SelectRecipesPage extends JFrame {
 		lblRecipe_3.setBounds(250, 131, 165, 37);
 		layeredPane.add(lblRecipe_3);
 		
-		JButton btnBrew = new JButton("Check");
+		JButton btnBrew = new JButton("Brew");
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 20));
 		btnBrew.setBounds(163, 56, 91, 37);
 		layeredPane.add(btnBrew);
@@ -91,7 +91,7 @@ public class SelectRecipesPage extends JFrame {
 			}
 		});
 		
-		JButton button = new JButton("Check");
+		JButton button = new JButton("Brew");
 		button.setFont(new Font("Calibri", Font.PLAIN, 20));
 		button.setBounds(163, 131, 91, 37);
 		layeredPane.add(button);
@@ -102,7 +102,7 @@ public class SelectRecipesPage extends JFrame {
 			}
 		});
 		
-		JButton button_1 = new JButton("Check");
+		JButton button_1 = new JButton("Brew");
 		button_1.setFont(new Font("Calibri", Font.PLAIN, 20));
 		button_1.setBounds(400, 56, 91, 37);
 		layeredPane.add(button_1);
@@ -113,7 +113,7 @@ public class SelectRecipesPage extends JFrame {
 			}
 		});
 		
-		JButton button_2 = new JButton("Check");
+		JButton button_2 = new JButton("Brew");
 		button_2.setFont(new Font("Calibri", Font.PLAIN, 20));
 		button_2.setBounds(400, 131, 91, 37);
 		layeredPane.add(button_2);
