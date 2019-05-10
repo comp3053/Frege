@@ -18,6 +18,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import Controller.IngredientAddController;
+import Controller.IngredientSubtractController;
 import mainPart.Database;
 
 public class IngredientSubtractPage extends JFrame {
@@ -106,7 +108,8 @@ public class IngredientSubtractPage extends JFrame {
 		layeredPane.add(lblAdditives);
 		
 		// Find Amount in database and show on
-		float x1 = Database.dbGetStorageingredientQuantity("Malts");
+		IngredientSubtractController controller1 = new IngredientSubtractController();
+		float x1 = controller1.searchQuantity("Malts");
 		String cMalts = Float.toString(x1);
 		JLabel lblAmountMalts= new JLabel(cMalts);
 		lblAmountMalts.setHorizontalAlignment(SwingConstants.CENTER);
@@ -114,7 +117,7 @@ public class IngredientSubtractPage extends JFrame {
 		lblAmountMalts.setBounds(224, 57, 71, 31);
 		layeredPane.add(lblAmountMalts);
 		
-		float x2 = Database.dbGetStorageingredientQuantity("Hops");
+		float x2 = controller1.searchQuantity("Hops");
 		String cHops = Float.toString(x2);
 		JLabel lblAmountHops = new JLabel(cHops);
 		lblAmountHops.setHorizontalAlignment(SwingConstants.CENTER);
@@ -122,7 +125,7 @@ public class IngredientSubtractPage extends JFrame {
 		lblAmountHops.setBounds(224, 91, 71, 31);
 		layeredPane.add(lblAmountHops);
 		
-		float x3 = Database.dbGetStorageingredientQuantity("Yeasts");
+		float x3 = controller1.searchQuantity("Yeasts");
 		String cYeasts = Float.toString(x3);
 		JLabel lblAmountYeasts = new JLabel(cYeasts);
 		lblAmountYeasts.setHorizontalAlignment(SwingConstants.CENTER);
@@ -130,7 +133,7 @@ public class IngredientSubtractPage extends JFrame {
 		lblAmountYeasts.setBounds(224, 125, 71, 31);
 		layeredPane.add(lblAmountYeasts);
 		
-		float x4 = Database.dbGetStorageingredientQuantity("Sugars");
+		float x4 = controller1.searchQuantity("Sugars");
 		String cSugars = Float.toString(x4);
 		JLabel lblAmountSugars = new JLabel(cSugars);
 		lblAmountSugars.setHorizontalAlignment(SwingConstants.CENTER);
@@ -138,7 +141,7 @@ public class IngredientSubtractPage extends JFrame {
 		lblAmountSugars.setBounds(224, 159, 71, 31);
 		layeredPane.add(lblAmountSugars);
 		
-		float x5 = Database.dbGetStorageingredientQuantity("Additives");
+		float x5 = controller1.searchQuantity("Additives");
 		String cAdditives = Float.toString(x5);
 		JLabel lblAmountAdditives = new JLabel(cAdditives);
 		lblAmountAdditives.setHorizontalAlignment(SwingConstants.CENTER);
@@ -238,6 +241,12 @@ public class IngredientSubtractPage extends JFrame {
 						new IngredientAddPage().setVisible(true);
 					
 					}else {
+						IngredientSubtractController controllerUI = new IngredientSubtractController();
+						controllerUI.subtractIngredientQuantity("Malts",nMalts);
+						controllerUI.subtractIngredientQuantity("Hops",nHops);
+						controllerUI.subtractIngredientQuantity("Yeasts",nYeasts);
+						controllerUI.subtractIngredientQuantity("Sugars",nSugars);
+						controllerUI.subtractIngredientQuantity("Additives",nAdditives);
 						// 如果操作成功，则修改数据库并且返回RecipePage
 						//If the operation is successful, modify the database and return to RecipePage
 						JOptionPane.showMessageDialog(null, "Success!");
