@@ -244,7 +244,7 @@ public class IngredientAddPage extends JFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					//ÔÝÊ±È±ÉÙ¶ÔÓÚÊý¾Ý¿âµÄ²Ù×÷
+					//ï¿½ï¿½Ê±È±ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½Ä²ï¿½ï¿½ï¿½
 					//Temporarily missing operations on the database
 					float nMalts = (float) spinner.getValue();
 					float nHops = (float) spinner_1.getValue();
@@ -254,7 +254,7 @@ public class IngredientAddPage extends JFrame {
 					
 					if(nMalts < 0||nHops < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
 					
-						//Èç¹û²Ù×÷Ê§°Ü£¬²»¸Ä±äÊý¾Ý¿â²¢ÇÒË¢ÐÂµ±Ç°Ò³Ãæ
+						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½Ý¿â²¢ï¿½ï¿½Ë¢ï¿½Âµï¿½Ç°Ò³ï¿½ï¿½
 						//If the operation fails, do not change the database and refresh the current page
 						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
@@ -267,7 +267,7 @@ public class IngredientAddPage extends JFrame {
 						controllerUI.addIngredientQuantity("Yeasts",nYeasts);
 						controllerUI.addIngredientQuantity("Sugars",nSugars);
 						controllerUI.addIngredientQuantity("Additives",nAdditives);
-						// Èç¹û²Ù×÷³É¹¦£¬ÔòÐÞ¸ÄÊý¾Ý¿â²¢ÇÒ·µ»ØRecipePage
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ý¿â²¢ï¿½Ò·ï¿½ï¿½ï¿½RecipePage
 						//If the operation is successful, modify the database and return to RecipePage
 						JOptionPane.showMessageDialog(null, "Success!");
 						closeThis();

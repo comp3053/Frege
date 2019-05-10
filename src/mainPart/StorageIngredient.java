@@ -10,7 +10,7 @@ public class StorageIngredient extends Ingredient{
 		// only accept non-negative numbers
 		if(quantity >= 0)
 		{
-			float oldQuantity = this.getQuantity();
+			float oldQuantity = Database.dbGetStorageingredientQuantity(this.getIngredientName());
 			super.setQuantity(oldQuantity + quantity);
 			return Database.dbUpdateStorageIngredient(this);
 		}
@@ -23,7 +23,7 @@ public class StorageIngredient extends Ingredient{
 		// only accept non-negative numbers
 		if(quantity >= 0)
 		{
-			float oldQuantity = this.getQuantity();
+			float oldQuantity = Database.dbGetStorageingredientQuantity(this.getIngredientName());
 			if (oldQuantity - quantity >= 0) {
 				super.setQuantity(quantity);
 				return Database.dbUpdateStorageIngredient(this);

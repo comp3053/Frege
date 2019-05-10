@@ -1,4 +1,5 @@
 package mainPart;
+import java.awt.EventQueue;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
+
+import UI.HomePage;
  
 public class Database {
  
@@ -135,9 +138,11 @@ public class Database {
     public static boolean dbUpdateStorageIngredient(StorageIngredient ingredient) {
     	String name = ingredient.getIngredientName();
 	    float quantity = ingredient.getQuantity();
-		String sql = "UPDATE StorageIngredient SET Quantity = ? WHERE name = ?";
+		String sql = "UPDATE StorageIngredient SET Quantity = " + quantity + " WHERE IngredientName = \"" + name + "\"";
+		System.out.println(sql);
 		boolean result = false;
 		Connection conn = null;
+		Statement stmt = null;
 		
 		try{
 		    // 注册 JDBC 驱动
@@ -147,13 +152,11 @@ public class Database {
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
 		    // 执行查询
-		    PreparedStatement ps = conn.prepareStatement(sql);
-		    ps.setFloat(1, quantity);
-		    ps.setString(2, name);
-		    ps.executeUpdate();
+		    stmt = conn.createStatement();
+		    stmt.executeUpdate(sql); 
 		
 		    // 完成后关闭
-		    ps.close();
+		    stmt.close();
 		    conn.close();
 		    
 		    result = true;
@@ -171,9 +174,10 @@ public class Database {
     public static boolean dbUpdateRecipeIngredient(RecipeIngredient ingredient) {
     	String name = ingredient.getIngredientName();
 	    float quantity = ingredient.getQuantity();
-		String sql = "UPDATE RecipeIngredient SET Quantity = ? WHERE name = ?";
+		String sql = "UPDATE RecipeIngredient SET Quantity = " + quantity + " WHERE IngredientName = \"" + name + "\"";
 		boolean result = false;
 		Connection conn = null;
+		Statement stmt = null;
 		
 		try{
 		    // 注册 JDBC 驱动
@@ -183,13 +187,11 @@ public class Database {
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
 		    // 执行查询
-		    PreparedStatement ps = conn.prepareStatement(sql);
-		    ps.setFloat(1, quantity);
-		    ps.setString(2, name);
-		    ps.executeUpdate();
+		    stmt = conn.createStatement(  );
+		    stmt.executeUpdate(sql); 
 		
 		    // 完成后关闭
-		    ps.close();
+		    stmt.close();
 		    conn.close();
 		    
 		    result = true;
@@ -243,8 +245,7 @@ public class Database {
     }
 
     public static float dbGetStorageingredientQuantity(String name) {
-		String sql = "SELECT Quantity FROM StorageIngredient WHERE IngredientName = ?";
-		boolean result = false;
+		String sql = "SELECT Quantity FROM StorageIngredient WHERE IngredientName = \"" + name + "\";";
 		Connection conn = null;
 		
 		try{
@@ -255,13 +256,16 @@ public class Database {
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
 		    // 执行查询
-		    PreparedStatement ps = conn.prepareStatement(sql);
-		    ps.setString(1, name);
-		    ResultSet rs = ps.executeQuery(sql);
-		
-		    float quantity  = rs.getFloat("Quantity");
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    
+		    float quantity = 0;
+		    while(rs.next()) {
+			    quantity  = rs.getFloat("Quantity");
+			    System.out.println(quantity);
+		    }
 		    // 完成后关闭
-		    ps.close();
+		    stmt.close();
 		    conn.close();
 		   
 		    return quantity;
@@ -274,6 +278,10 @@ public class Database {
 		}
 		return 0;
     }
-
+    
+	public static void main(String[] args) {
+		StorageIngredient test = new StorageIngredient("malts", 40, "kg");
+		dbUpdateStorageIngredient(test);
+	}
 
 }
