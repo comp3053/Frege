@@ -7,9 +7,11 @@ public class IngredientAddController {
 			
 	}
 		
-	public void addIngredientQuantity(String name, float quantity) {
+	public boolean addIngredientQuantity(String name, float quantity) {
 		StorageIngredient siAdd = new StorageIngredient(name, quantity, "kg");
-		siAdd.addQuantity(quantity);
+		return siAdd.addQuantity(quantity);
 	}
-
+	public float searchQuantity(String name) {
+		return StorageIngredient.searchQ(name);
+	}
 }

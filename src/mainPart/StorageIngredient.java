@@ -2,6 +2,7 @@ package mainPart;
 
 public class StorageIngredient extends Ingredient{
 	
+	
 	public StorageIngredient (String name, float quantity, String unit) {
 		super(name, quantity, unit);
 	}
@@ -34,6 +35,11 @@ public class StorageIngredient extends Ingredient{
 		// if number is negative, then amount unchanged
 		System.out.println("Invalid amount!");
 		return false;
+	}
+	
+	public static float searchQ(String name) {
+		float Quantity = Database.dbGetStorageingredientQuantity(name);
+		return Quantity;
 	}
 	
 }

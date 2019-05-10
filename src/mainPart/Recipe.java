@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Recipe<ingredients> {
-	private int id;
+	//private int id;
 	private String recipeName;
 	private float quantity;
 	private String unit;
@@ -15,7 +15,11 @@ public class Recipe<ingredients> {
 		this.quantity = quantity;
 		this.unit = unit;
 		this.ingredients = ingredients;
-		this.id = Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
+		//this.id = Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
+	}
+	
+	public boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
+		return Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
 	
 	public void setRecipeName(String name) {
