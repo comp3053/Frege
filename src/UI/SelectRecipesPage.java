@@ -5,7 +5,12 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.TableModel;
+
+import javafx.scene.control.TableColumn;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -14,10 +19,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JTable;
 
 public class SelectRecipesPage extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -46,87 +54,42 @@ public class SelectRecipesPage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblRecipeList = new JLabel("Recipe List");
+		JLabel lblRecipeList = new JLabel("Available Recipe List");
 		lblRecipeList.setFont(new Font("Calibri", Font.BOLD, 30));
 		lblRecipeList.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRecipeList.setBounds(215, 27, 165, 37);
+		lblRecipeList.setBounds(119, 13, 322, 37);
 		contentPane.add(lblRecipeList);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(14, 83, 554, 287);
+		layeredPane.setBounds(14, 45, 554, 279);
 		contentPane.add(layeredPane);
 		
-		JLabel lblRecipe = new JLabel("Recipe 1");
-		lblRecipe.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRecipe.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblRecipe.setBounds(14, 56, 165, 37);
-		layeredPane.add(lblRecipe);
+		// Table
+		table = new JTable();
+		table.setFont(new Font("Calibri", Font.PLAIN, 18));
+		table.setBounds(75, 13, 394, 253);
+		layeredPane.add(table);
+		/* 用JScrollPane装载JTable，这样超出范围的列就可以通过滚动条来查看 */  
+        JScrollPane scroll = new JScrollPane(table);  
+        scroll.setBounds(14, 325, 554, -275);
+        getContentPane().add(scroll); 
 		
-		JLabel lblRecipe_2 = new JLabel("Recipe 3");
-		lblRecipe_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRecipe_2.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblRecipe_2.setBounds(14, 131, 165, 37);
-		layeredPane.add(lblRecipe_2);
-		
-		JLabel lblRecipe_1 = new JLabel("Recipe 2");
-		lblRecipe_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRecipe_1.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblRecipe_1.setBounds(250, 56, 165, 37);
-		layeredPane.add(lblRecipe_1);
-		
-		JLabel lblRecipe_3 = new JLabel("Recipe 4");
-		lblRecipe_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRecipe_3.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblRecipe_3.setBounds(250, 131, 165, 37);
-		layeredPane.add(lblRecipe_3);
-		
-		JButton btnBrew = new JButton("Brew");
-		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 20));
-		btnBrew.setBounds(163, 56, 91, 37);
-		layeredPane.add(btnBrew);
-		btnBrew.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				closeThis();
-				new CheckRecipesPage().setVisible(true);;
-			}
-		});
-		
-		JButton button = new JButton("Brew");
-		button.setFont(new Font("Calibri", Font.PLAIN, 20));
-		button.setBounds(163, 131, 91, 37);
-		layeredPane.add(button);
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				closeThis();
-				new CheckRecipesPage().setVisible(true);;
-			}
-		});
-		
-		JButton button_1 = new JButton("Brew");
-		button_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		button_1.setBounds(400, 56, 91, 37);
-		layeredPane.add(button_1);
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				closeThis();
-				new CheckRecipesPage().setVisible(true);;
-			}
-		});
-		
-		JButton button_2 = new JButton("Brew");
-		button_2.setFont(new Font("Calibri", Font.PLAIN, 20));
-		button_2.setBounds(400, 131, 91, 37);
-		layeredPane.add(button_2);
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				closeThis();
-				new CheckRecipesPage().setVisible(true);;
-			}
-		});
+		String[] columnNames = {"Recipes","Operation"};
+		javax.swing.table.TableColumn column = null;  
+        int colunms = table.getColumnCount();
+        for(int i = 0; i < colunms; i++)  {  
+            column = table.getColumnModel().getColumn(i);  
+            /*将每一列的默认宽度设置为100*/  
+            column.setPreferredWidth(100);  
+        }  
+        /* 
+         * 设置JTable自动调整列表的状态，此处设置为关闭 
+         */  
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);  
 		
 		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(210, 217, 150, 45);
-		layeredPane.add(btnCancel);
+		btnCancel.setBounds(215, 325, 150, 45);
+		contentPane.add(btnCancel);
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -136,7 +99,7 @@ public class SelectRecipesPage extends JFrame {
 		});
 	}
 	// Close current UI page
-			protected void closeThis() {
-				contentPane.setVisible(false);
-			}
+	protected void closeThis() {
+		contentPane.setVisible(false);
+	}
 }
