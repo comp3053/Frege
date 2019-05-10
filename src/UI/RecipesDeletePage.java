@@ -67,10 +67,6 @@ public class RecipesDeletePage extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(366, 177, 29, 30);
-		contentPane.add(comboBox);
-		
 		// Set Buttons
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
@@ -122,5 +118,4 @@ public class RecipesDeletePage extends JFrame {
 	protected void closeThis() {
 		contentPane.setVisible(false);
 	}
-
 }
