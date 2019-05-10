@@ -7,8 +7,9 @@ public class IngredientAddController {
 			
 	}
 		
-	public void addIngredient(String name) {
-			
+	public void addIngredientQuantity(String name, float quantity) {
+		StorageIngredient siAdd = new StorageIngredient(name, quantity, "kg");
+		siAdd.addQuantity(quantity);
 	}
 
 }
