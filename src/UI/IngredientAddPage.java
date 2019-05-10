@@ -261,12 +261,12 @@ public class IngredientAddPage extends JFrame {
 						new IngredientAddPage().setVisible(true);
 					
 					}else {
-						IngredientAddController controllerUI = new IngredientAddController();
+						/*IngredientAddController controllerUI = new IngredientAddController();
 						controllerUI.addIngredientQuantity("Malts",nMalts);
 						controllerUI.addIngredientQuantity("Hops",nHops);
 						controllerUI.addIngredientQuantity("Yeasts",nYeasts);
 						controllerUI.addIngredientQuantity("Sugars",nSugars);
-						controllerUI.addIngredientQuantity("Additives",nAdditives);
+						controllerUI.addIngredientQuantity("Additives",nAdditives);*/
 						// 如果操作成功，则修改数据库并且返回RecipePage
 						//If the operation is successful, modify the database and return to RecipePage
 						JOptionPane.showMessageDialog(null, "Success!");
@@ -295,7 +295,7 @@ public class IngredientAddPage extends JFrame {
 	}
 	
 	// Close current UI page
-			protected void closeThis() {
-				contentPane.setVisible(false);
-			}
+	protected void closeThis() {
+		contentPane.setVisible(false);
+	}
 }

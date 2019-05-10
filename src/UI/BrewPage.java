@@ -85,11 +85,11 @@ public class BrewPage extends JFrame {
 			}
 		});
 		
-		JButton btnGo = new JButton("GO!");
-		btnGo.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnGo.setBounds(225, 275, 113, 39);
-		contentPane.add(btnGo);
-		btnGo.addActionListener(new ActionListener() {
+		JButton btnCan = new JButton("Go!");
+		btnCan.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCan.setBounds(208, 273, 153, 39);
+		contentPane.add(btnCan);
+		btnCan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//closeThis();
 				//new RecipePage();
@@ -117,6 +117,7 @@ public class BrewPage extends JFrame {
 				}
 			}
 		});
+		
 	}
 	
 	// Close current UI page
