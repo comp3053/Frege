@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.sun.prism.paint.Color;
 
+import Controller.IngredientAddController;
 import mainPart.Database;
 
 import javax.swing.JLabel;
@@ -127,6 +128,8 @@ public class IngredientAddPage extends JFrame {
 		layeredPane.add(lblAdditives);
 		
 		// Find Amount in database and show on
+		//IngredientAddController controllerUI1 = new IngredientAddController();
+		
 		float x1 = Database.dbGetStorageingredientQuantity("Malts");
 		String cMalts = Float.toString(x1);
 		JLabel lblAmountMalts= new JLabel(cMalts);
@@ -258,6 +261,12 @@ public class IngredientAddPage extends JFrame {
 						new IngredientAddPage().setVisible(true);
 					
 					}else {
+						IngredientAddController controllerUI = new IngredientAddController();
+						controllerUI.addIngredientQuantity("Malts",nMalts);
+						controllerUI.addIngredientQuantity("Hops",nHops);
+						controllerUI.addIngredientQuantity("Yeasts",nYeasts);
+						controllerUI.addIngredientQuantity("Sugars",nSugars);
+						controllerUI.addIngredientQuantity("Additives",nAdditives);
 						// 如果操作成功，则修改数据库并且返回RecipePage
 						//If the operation is successful, modify the database and return to RecipePage
 						JOptionPane.showMessageDialog(null, "Success!");
