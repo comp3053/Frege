@@ -7,6 +7,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.RecipesAddController;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -203,6 +206,10 @@ public class RecipesAddPage extends JFrame {
 							// If input a negative number it will be error 
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
+							// call controller to add recipes into database
+							RecipesAddController controllerUI = new RecipesAddController();
+							controllerUI.addRecipe(cName, malts, hops, yeasts, sugars, additives);
+							
 							// 如果操作成功，则修改数据库并且返回RecipePage
 							//If the operation is successful, modify the database and return to RecipePage
 							JOptionPane.showMessageDialog(null, "Success!");
