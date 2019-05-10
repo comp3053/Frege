@@ -35,4 +35,5 @@ public class StorageIngredient extends Ingredient{
 		System.out.println("Invalid amount!");
 		return false;
 	}
+	
 }

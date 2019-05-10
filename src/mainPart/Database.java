@@ -21,10 +21,11 @@ public class Database {
     static final String USER = "root";
     static final String PASS = "xiaocong310";
  
-    public static int dbNewRecipe(String recipeName, float recipeQuantity, String recipeUnit, ArrayList<RecipeIngredient> ingredients) {
+    public static boolean dbNewRecipe(String recipeName, float recipeQuantity, String recipeUnit, ArrayList<RecipeIngredient> ingredients) {
     	int recipeID = 0;
-    	String sql = "INSERT INTO recipe (RecipeName, Unit, Quantity) VALUES (?, ?, ?)";
+    	String sql = "INSERT INTO recipe (RecipeName, Unit, Quantity) VALUES (\"" + recipeName + "\", \"" + recipeUnit + "\", " + recipeQuantity + ")";
     	Connection conn = null;
+    	boolean flag = true;
     	
         try{
             // 注册 JDBC 驱动
@@ -34,22 +35,23 @@ public class Database {
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
             // 执行查询
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, recipeName);
-            ps.setString(2, recipeUnit);
-            ps.setObject(3, recipeQuantity);
-            ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            recipeID = rs.getInt(1);
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    
+		    while(rs.next()) {
+		    	recipeID = rs.getInt(1);
+		    }
             
             for (int i = 0; i < ingredients.size(); i++)
             {
-            	dbNewRecipeIngredient(recipeID,ingredients.get(i));
+            	flag = dbNewRecipeIngredient(recipeID,ingredients.get(i));
             }
 
             // 完成后关闭
-            ps.close();
+            stmt.close();
             conn.close();
+            
+            return true;
         } catch(SQLException e)
         {
             System.err.println("Error: " + e);
@@ -57,14 +59,15 @@ public class Database {
         } catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-    	return recipeID;
+    	return false;
     }
 
     public static boolean dbNewRecipeIngredient(int recipeID, RecipeIngredient ingredient) {
     	String ingredientName = ingredient.getIngredientName();
     	String ingredientUnit = ingredient.getUnit();
     	float ingredientQuantity = ingredient.getQuantity();
-    	String sql = "INSERT INTO RecipeIngredient (RecipeID IngredientName, Unit, Quantity) VALUES (?, ?, ?, ?)";
+    	String sql = "INSERT INTO RecipeIngredient (RecipeID IngredientName, Unit, Quantity) "
+    			+ "VALUES (" + recipeID + ", \"" + ingredientName + "\", \"" + ingredientUnit + "\", " + ingredientQuantity + ")";
     	boolean result = false;
     	Connection conn = null;
     	
