@@ -267,7 +267,6 @@ public class IngredientAddPage extends JFrame {
 						controllerUI.addIngredientQuantity("Yeasts",nYeasts);
 						controllerUI.addIngredientQuantity("Sugars",nSugars);
 						controllerUI.addIngredientQuantity("Additives",nAdditives);
-						// 如果操作成功，则修改数据库并且返回RecipePage
 						//If the operation is successful, modify the database and return to RecipePage
 						JOptionPane.showMessageDialog(null, "Success!");
 						closeThis();
