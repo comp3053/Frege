@@ -21,6 +21,9 @@ public class Recipe<ingredients> {
 	public static boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
 		return Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
+	public static boolean updateRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugarQ, float additiveQ) {
+		
+	}
 	
 	public void setRecipeName(String name) {
 		this.recipeName = name;
