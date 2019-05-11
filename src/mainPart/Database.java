@@ -412,8 +412,45 @@ public class Database {
 		return 0;
 	}
 	
+	public static ArrayList<Integer> dbGetAllRecipeID() {
+		ArrayList<Integer> res = new ArrayList<Integer>();
+    	String sql = "SELECT id FROM Recipe";
+    	System.out.println(sql);
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    
+		    int id = 0;
+		    while(rs.next()) {
+			    id = rs.getInt("id");
+			    res.add(id);
+		    }
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
+		   
+		    return res;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public static void main(String[] args) {
-		dbGetEquipmentCapacity();
+		System.out.println(dbGetAllRecipeID());
 	}
 
 }

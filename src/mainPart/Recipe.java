@@ -99,12 +99,20 @@ public class Recipe<ingredients> {
 		return ingredient;
 	}
 	
-	public boolean CheckIngredients(float batchSize) {
+	public boolean CheckIngredients(int recipeID, float batchSize) {
 		boolean flag = true;
+		ArrayList<Float> RecipeIngredient = convertToAbsoluteMeasure(recipeID, batchSize);
+		ArrayList<String> ingredientName = new ArrayList<String>();
+		ingredientName.add("malt");
+		ingredientName.add("hop");
+		ingredientName.add("yeast");
+		ingredientName.add("sugar");
+		ingredientName.add("additive");
 		for (int i = 0; i < ingredients.size(); i++)
 		{
-			if (ingredients.get(i).getQuantity() < batchSize)
+			if (Database.dbGetStorageingredientQuantity(ingredientName.get(i)) < RecipeIngredient.get(i))
 			{
+				System.out.println(ingredientName.get(i) + "is not enough.");
 				flag = false;
 			}
 		}
@@ -112,6 +120,9 @@ public class Recipe<ingredients> {
 	}	
 	
 	public static ArrayList<Recipe> recommandRecipe(float batchSize){
+		ArrayList<Recipe> result = null;
+		ArrayList<Integer> allRecipeID = Database.dbGetAllRecipeID();
 		
+		return result;
 	}
 }
