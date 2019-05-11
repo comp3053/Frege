@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.RecipesDeleteController;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -95,11 +98,19 @@ public class RecipesDeletePage extends JFrame {
 					closeThis();
 					new RecipesDeletePage().setVisible(true);
 				}else {
-					// 如果操作成功，则修改数据库并且返回RecipePage
-					//If the operation is successful, modify the database and return to RecipePage
-					JOptionPane.showMessageDialog(null, "Success!");
-					closeThis();
-					new RecipePage();
+					RecipesDeleteController controller = new RecipesDeleteController();
+					Boolean check = controller.deleteR(name);
+					if(check) {
+						// 如果操作成功，则修改数据库并且返回RecipePage
+						//If the operation is successful, modify the database and return to RecipePage
+						JOptionPane.showMessageDialog(null, "Success!");
+						closeThis();
+						new RecipePage();
+					}else {
+						JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
+						closeThis();
+						new RecipesDeletePage().setVisible(true);
+					}	
 				}
 	
 			}

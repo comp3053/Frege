@@ -15,7 +15,12 @@ public class Note {
 		this.title = title;
 		this.date = date;
 		this.content = content;
-		Database.dbAddNote(this);
+		//Database.dbAddNote(this);
+	}
+	
+	public static boolean addNote(String title, String content) {
+		Note note = new Note(title, content);
+		return Database.dbAddNote(note);
 	}
 	
 	public String getTitle() {
