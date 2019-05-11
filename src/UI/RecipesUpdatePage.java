@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.RecipesAddController;
+import Controller.RecipesUpdateController;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -196,11 +200,21 @@ public class RecipesUpdatePage extends JFrame {
 							// If input a negative number it will be error 
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
-							// 如果操作成功，则修改数据库并且返回RecipePage
-							//If the operation is successful, modify the database and return to RecipePage
-							JOptionPane.showMessageDialog(null, "Success!");
-							closeThis();
-							new RecipePage();
+							RecipesUpdateController controllerUI = new RecipesUpdateController();
+							boolean check = controllerUI.updateRecipe(cName, malts, hops, yeasts, sugars, additives);
+							
+							if(check) {
+								// 如果操作成功，则修改数据库并且返回RecipePage
+								//If the operation is successful, modify the database and return to RecipePage
+								JOptionPane.showMessageDialog(null, "Success!");
+								closeThis();
+								new RecipePage();
+							}else {
+								JOptionPane.showMessageDialog(null,"Update fail!","Warning",JOptionPane.ERROR_MESSAGE);
+								closeThis();
+								new RecipesUpdatePage().setVisible(true);
+							}
+							
 						}
 					}catch(NumberFormatException ex) {
 						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);

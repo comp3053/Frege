@@ -52,53 +52,37 @@ public class IngredientCheckPage extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("You Need :");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 30));
-		lblNewLabel.setBounds(45, 35, 175, 52);
+		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblNewLabel.setBounds(176, 30, 175, 31);
 		contentPane.add(lblNewLabel);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(14, 86, 554, 213);
+		layeredPane.setBounds(14, 74, 554, 213);
 		contentPane.add(layeredPane);
 		
-		JLabel lblNewLabel_1 = new JLabel("Ingredient 1");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblNewLabel_1 = new JLabel("Malts");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(14, 13, 115, 27);
+		lblNewLabel_1.setBounds(34, 13, 115, 27);
 		layeredPane.add(lblNewLabel_1);
 		
-		JLabel lblIngredient = new JLabel("Ingredient 2");
-		lblIngredient.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblIngredient = new JLabel("Hops");
+		lblIngredient.setHorizontalAlignment(SwingConstants.LEFT);
 		lblIngredient.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblIngredient.setBounds(14, 58, 115, 27);
+		lblIngredient.setBounds(34, 53, 115, 27);
 		layeredPane.add(lblIngredient);
 		
-		JLabel lblIngredient_1 = new JLabel("Ingredient 3");
-		lblIngredient_1.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblIngredient_1 = new JLabel("Yeasts");
+		lblIngredient_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblIngredient_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblIngredient_1.setBounds(14, 106, 115, 27);
+		lblIngredient_1.setBounds(34, 93, 115, 27);
 		layeredPane.add(lblIngredient_1);
 		
-		JLabel lblIngredient_2 = new JLabel("Ingredient 4");
-		lblIngredient_2.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblIngredient_2 = new JLabel("Sugars");
+		lblIngredient_2.setHorizontalAlignment(SwingConstants.LEFT);
 		lblIngredient_2.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblIngredient_2.setBounds(14, 157, 115, 27);
+		lblIngredient_2.setBounds(34, 133, 115, 27);
 		layeredPane.add(lblIngredient_2);
-		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setBounds(143, 13, 50, 27);
-		layeredPane.add(editorPane);
-		
-		JEditorPane editorPane_1 = new JEditorPane();
-		editorPane_1.setBounds(143, 58, 50, 27);
-		layeredPane.add(editorPane_1);
-		
-		JEditorPane editorPane_2 = new JEditorPane();
-		editorPane_2.setBounds(143, 106, 50, 27);
-		layeredPane.add(editorPane_2);
-		
-		JEditorPane editorPane_3 = new JEditorPane();
-		editorPane_3.setBounds(143, 157, 50, 27);
-		layeredPane.add(editorPane_3);
 		
 		JLabel lblKg = new JLabel("kg");
 		lblKg.setHorizontalAlignment(SwingConstants.CENTER);
@@ -124,26 +108,6 @@ public class IngredientCheckPage extends JFrame {
 		label_2.setBounds(204, 157, 36, 27);
 		layeredPane.add(label_2);
 		
-		JEditorPane editorPane_4 = new JEditorPane();
-		editorPane_4.setBounds(243, 13, 50, 27);
-		layeredPane.add(editorPane_4);
-		
-		JEditorPane editorPane_5 = new JEditorPane();
-		editorPane_5.setBounds(243, 58, 50, 27);
-		layeredPane.add(editorPane_5);
-		
-		JEditorPane editorPane_6 = new JEditorPane();
-		editorPane_6.setBounds(243, 106, 50, 27);
-		layeredPane.add(editorPane_6);
-		
-		JEditorPane editorPane_7 = new JEditorPane();
-		editorPane_7.setBounds(243, 157, 50, 27);
-		layeredPane.add(editorPane_7);
-		
-		JEditorPane editorPane_8 = new JEditorPane();
-		editorPane_8.setBounds(412, 106, 50, 27);
-		layeredPane.add(editorPane_8);
-		
 		JLabel lblMissed = new JLabel("Missed");
 		lblMissed.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -162,15 +126,17 @@ public class IngredientCheckPage extends JFrame {
 		label_4.setBounds(322, 157, 100, 27);
 		layeredPane.add(label_4);
 		
-		JEditorPane editorPane_9 = new JEditorPane();
-		editorPane_9.setBounds(412, 157, 50, 27);
-		layeredPane.add(editorPane_9);
-		
 		JLabel label_5 = new JLabel("kg");
 		label_5.setHorizontalAlignment(SwingConstants.CENTER);
 		label_5.setFont(new Font("Calibri", Font.PLAIN, 20));
 		label_5.setBounds(466, 157, 36, 27);
 		layeredPane.add(label_5);
+		
+		JLabel lblAdditives = new JLabel("Additives");
+		lblAdditives.setHorizontalAlignment(SwingConstants.LEFT);
+		lblAdditives.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblAdditives.setBounds(34, 173, 115, 27);
+		layeredPane.add(lblAdditives);
 		
 		JButton btnBrew = new JButton("Back");
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
@@ -180,7 +146,7 @@ public class IngredientCheckPage extends JFrame {
 				new CheckRecipesPage().setVisible(true);
 			}
 		});
-		btnBrew.setBounds(90, 311, 150, 45);
+		btnBrew.setBounds(69, 311, 150, 45);
 		contentPane.add(btnBrew);
 		
 		JButton btnCancel = new JButton("Cancel");
@@ -191,8 +157,14 @@ public class IngredientCheckPage extends JFrame {
 				new BrewPage().setVisible(true);
 			}
 		});
-		btnCancel.setBounds(347, 311, 150, 45);
+		btnCancel.setBounds(346, 311, 150, 45);
 		contentPane.add(btnCancel);
+		
+		JLabel lblName= new JLabel(Name);
+		lblName.setBounds(37, 30, 150, 31);
+		contentPane.add(lblName);
+		lblName.setHorizontalAlignment(SwingConstants.LEFT);
+		lblName.setFont(new Font("Calibri", Font.BOLD, 25));
 	}
 	// Close current UI page
 		protected void closeThis() {

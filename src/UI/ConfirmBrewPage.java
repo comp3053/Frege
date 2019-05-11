@@ -70,7 +70,7 @@ public class ConfirmBrewPage extends JFrame {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
-				new SelectRecipesPage().setVisible(true);;
+				new BrewPage().setVisible(true);;
 			}
 		});
 		btnCancel.setBounds(345, 248, 150, 45);

@@ -6,12 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import mainPart.Recipe;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -107,9 +111,17 @@ public class BrewPage extends JFrame {
 						if(batch < 0) {
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
+							ArrayList<String> RecipeList = new ArrayList<String>();
+							RecipeList.add("Recipe1");
+							RecipeList.add("Recipe2");
+							RecipeList.add("Recipe3");
+							//传过去一个batch size，返回一个arraylist
+							//将他们一直传下去
+							
+							//判断arraylist的长度，决定去哪个页面
 							// go to next page
 							closeThis();
-							new SelectRecipesPage().setVisible(true);
+							new SelectRecipesPage(batch,RecipeList).setVisible(true);
 						}
 					}catch(NumberFormatException ex) {
 						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);

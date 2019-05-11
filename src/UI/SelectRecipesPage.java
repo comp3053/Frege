@@ -17,12 +17,14 @@ import javax.swing.table.TableModel;
 import com.sun.glass.events.MouseEvent;
 
 import javafx.scene.control.TableColumn;
+import mainPart.Recipe;
 
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JLayeredPane;
@@ -41,7 +43,7 @@ public class SelectRecipesPage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -52,13 +54,14 @@ public class SelectRecipesPage extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 	
 
 	/**
 	 * Create the frame.
 	 */
-	public SelectRecipesPage() {
+	public SelectRecipesPage(float batchSize, ArrayList<String> RecipesList) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -90,10 +93,14 @@ public class SelectRecipesPage extends JFrame {
 			}
 		};	
 		tableModel.addColumn("Recipes");
-        for(int i = 0;i < 10;i++) {
+		
+		int size = RecipesList.size(); 
+		System.out.println(size);
+        for(int i = 0;i < size;i++) {
         	// should link to database
         	Vector v = new Vector();
-        	v.add("Recipe"+i);
+        	v.add(RecipesList.get(i));
+        	//v.add("Recipe"+i);
         	//v.add("");
         	tableModel.addRow(v);
         }
