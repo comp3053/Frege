@@ -91,9 +91,12 @@ public class Recipe<ingredients> {
 	}
 	
 	
-	public ingredients convertToAbsoluteMeasure(float batchSize) {
-		// unfinished method
-		return null;
+	public ArrayList<Float> convertToAbsoluteMeasure(int recipeID, float batchSize) {
+		ArrayList<Float> ingredient = Database.dbGetRecipeIngredientQuantity(recipeID);
+		for (int i = 0; i < 5; i++) {
+			ingredient.set(i, ingredient.get(i) * batchSize);
+		}
+		return ingredient;
 	}
 	
 	public boolean CheckIngredients(float batchSize) {
