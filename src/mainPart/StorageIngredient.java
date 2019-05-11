@@ -26,7 +26,7 @@ public class StorageIngredient extends Ingredient{
 		{
 			float oldQuantity = Database.dbGetStorageingredientQuantity(this.getIngredientName());
 			if (oldQuantity - quantity >= 0) {
-				super.setQuantity(quantity);
+				super.setQuantity(oldQuantity - quantity);
 				return Database.dbUpdateStorageIngredient(this);
 			} else {
 				System.out.println("Subtract too much!");

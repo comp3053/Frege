@@ -105,45 +105,8 @@ public class Database {
     public static boolean dbUpdateCapacity(Equipment equipment) {
     	String name = equipment.getName();
 	    float capacity = equipment.getCapacity();
-		String sql = "UPDATE Equipment SET Capacity = ? WHERE name = ?";
-		boolean result = false;
-		Connection conn = null;
-		
-		try{
-		    // 注册 JDBC 驱动
-		    Class.forName(JDBC_DRIVER);
-		
-		    // 打开链接
-		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
-		
-		    // 执行查询
-		    PreparedStatement ps = conn.prepareStatement(sql);
-		    ps.setFloat(1, capacity);
-		    ps.setString(2, name);
-		    ps.executeUpdate();
-		
-		    // 完成后关闭
-		    ps.close();
-		    conn.close();
-		    
-		    result = true;
-		    return result;
-		} catch(SQLException e)
-		{
-		    System.err.println("Error: " + e);
-		    e.printStackTrace(System.out);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return result;
-    }
-    
-    public static boolean dbUpdateStorageIngredient(StorageIngredient ingredient) {
-    	String name = ingredient.getIngredientName();
-	    float quantity = ingredient.getQuantity();
-		String sql = "UPDATE StorageIngredient SET Quantity = " + quantity + " WHERE IngredientName = \"" + name + "\"";
+		String sql = "UPDATE Equipment SET Capacity = " + capacity + " WHERE name = \"" + name + "\"";
 		System.out.println(sql);
-		boolean result = false;
 		Connection conn = null;
 		Statement stmt = null;
 		
@@ -162,8 +125,7 @@ public class Database {
 		    stmt.close();
 		    conn.close();
 		    
-		    result = true;
-		    return result;
+		    return true;
 		} catch(SQLException e)
 		{
 		    System.err.println("Error: " + e);
@@ -171,14 +133,47 @@ public class Database {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return result;
+		return false;
+    }
+    
+    public static boolean dbUpdateStorageIngredient(StorageIngredient ingredient) {
+    	String name = ingredient.getIngredientName();
+	    float quantity = ingredient.getQuantity();
+		String sql = "UPDATE StorageIngredient SET Quantity = " + quantity + " WHERE IngredientName = \"" + name + "\"";
+		System.out.println(sql);
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    stmt = conn.createStatement();
+		    stmt.executeUpdate(sql); 
+		
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
+		    
+		    return true;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return false;
     }
 
     public static boolean dbUpdateRecipeIngredient(RecipeIngredient ingredient) {
     	String name = ingredient.getIngredientName();
 	    float quantity = ingredient.getQuantity();
 		String sql = "UPDATE RecipeIngredient SET Quantity = " + quantity + " WHERE IngredientName = \"" + name + "\"";
-		boolean result = false;
 		Connection conn = null;
 		Statement stmt = null;
 		
@@ -197,8 +192,7 @@ public class Database {
 		    stmt.close();
 		    conn.close();
 		    
-		    result = true;
-		    return result;
+		    return true;
 		} catch(SQLException e)
 		{
 		    System.err.println("Error: " + e);
@@ -206,16 +200,18 @@ public class Database {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return result;
+		return false;
     }
     
     public static boolean dbAddNote(Note note) {
     	String noteTitle = note.getTitle();
     	java.sql.Date noteDate = note.getDate();
     	String noteContent = note.getContent();
-    	String sql = "INSERT INTO Note (title, date, content) VALUES (?, ?, ?)";
-    	boolean result = false;
+    	String sql = "INSERT INTO Note (title, date, content) VALUES "
+    			+ "(\"" + noteTitle + "\", \'" + noteDate + "\', \"" + noteContent + "\")";
+    	System.out.println(sql);
     	Connection conn = null;
+		Statement stmt = null;
     	
         try{
             // 注册 JDBC 驱动
@@ -225,18 +221,14 @@ public class Database {
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
             // 执行查询
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, noteTitle);
-            ps.setDate(2, noteDate);
-            ps.setString(3, noteContent);
-            ps.executeUpdate();
-
-            // 完成后关闭
-            ps.close();
-            conn.close();
+		    stmt = conn.createStatement(  );
+		    stmt.executeUpdate(sql); 
+		
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
             
-            result = true;
-            return result;
+            return true;
         } catch(SQLException e)
         {
             System.err.println("Error: " + e);
@@ -244,11 +236,11 @@ public class Database {
         } catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-        return result;
+        return false;
     }
 
-    public static float dbGetStorageingredientQuantity(String name) {
-		String sql = "SELECT Quantity FROM StorageIngredient WHERE IngredientName = \"" + name + "\";";
+    public static float dbGetStorageingredientQuantity(String IngredientName) {
+		String sql = "SELECT Quantity FROM StorageIngredient WHERE IngredientName = \"" + IngredientName + "\";";
 		Connection conn = null;
 		
 		try{
@@ -282,9 +274,84 @@ public class Database {
 		return 0;
     }
     
+    public static ArrayList dbGetRecipeingredientQuantity(Recipe recipe) {
+    	ArrayList res = new ArrayList();
+    	int RecipeID = dbGetRecipeID(recipe);
+    	String sql = "SELECT Quantity FROM RecipeIngredient WHERE RecipeID = \"" + RecipeID + "\";";
+    	System.out.println(sql);
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    
+		    float quantity = 0;
+		    while(rs.next()) {
+			    quantity  = rs.getFloat("Quantity");
+			    res.add(quantity);
+			    System.out.println(quantity);
+		    }
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
+		   
+		    return res;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+    
+	private static int dbGetRecipeID(Recipe recipe) {
+		String RecipeName = recipe.getRecipeName();
+		String sql = "SELECT id FROM Recipe WHERE RecipeName = \"" + RecipeName + "\";";
+		System.out.println(sql);
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    
+		    int id = 0;
+		    while(rs.next()) {
+			    id  = rs.getInt("id");
+		    }
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
+		   
+		    return id;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
 	public static void main(String[] args) {
-		StorageIngredient test = new StorageIngredient("malts", 40, "kg");
-		dbUpdateStorageIngredient(test);
+		Recipe r = new Recipe("bbb", 1, "ml", null);
+		System.out.println(dbGetRecipeingredientQuantity(r));
 	}
 
 }

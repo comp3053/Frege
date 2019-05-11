@@ -7,7 +7,11 @@ public class Note {
 	private java.sql.Date date;
 	private String content;
 	
-	public Note(String title, java.sql.Date date, String content) {
+	public Note(String title, String content) {
+		// automatically generate date
+		long time = System.currentTimeMillis();
+		java.sql.Date date = new java.sql.Date(time);
+		
 		this.title = title;
 		this.date = date;
 		this.content = content;
