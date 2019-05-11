@@ -25,42 +25,25 @@ public class Brew<recipes> {
 		this.date = date;
 	}
 	
-	public void Brew(String recipeName) {
-		//unfinished method
-		recipes = new ArrayList<Recipe>();
-		recipes = checkRecipes();
-		for(int i = 0; i < recipes.size(); i++) {
-			if(recipes.get(i).getRecipeName().equals(recipeName)) {
-				for(int j = 0; j < ingredient.size(); j++) {
-					String a = (String)recipes.get(i).getIngredients().get(j);
-					switch (a) {
-					case "malts":
-						recipes.get(i).getIngredients();
-						
-						break;
-					case "hops":
-						
-						break;
-					case "yeasts":
-						
-						break;
-					case "sugars":
-						
-						break;
-					case "additives":
-						
-						break;
-					default:
-						System.out.println("Ingredient invaild!");
-						break;
-					}
-				}
-			}
+	public static boolean brew(String recipeName) {
+		int recipeID = Database.dbGetRecipeID(recipeName);
+		if (recipeID == 0) return false;
+		
+		ArrayList<String> ingredientName = new ArrayList<String>();
+		ingredientName.add("malt");
+		ingredientName.add("hop");
+		ingredientName.add("yeast");
+		ingredientName.add("sugar");
+		ingredientName.add("additive");
+		
+		ArrayList<Float> recipeIngredients = Database.dbGetRecipeIngredientQuantity(recipeID);
+		for (int i = 0; i < 5 ; i++) {
+			StorageIngredient.subtractQuantity(ingredientName.get(i), recipeIngredients.get(i));
 		}
+		return true;
 	}
 	
 	public ArrayList<Recipe> checkRecipes() {
-		//unfinished method
 		ArrayList<Recipe> result = new ArrayList<Recipe>();
 		for (int i = 0; i < recipes.size(); i++){
 			if (recipes.get(i).CheckIngredients(this.batchSize) == true){

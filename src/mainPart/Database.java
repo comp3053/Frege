@@ -132,9 +132,7 @@ public class Database {
 		return false;
     }
     
-    public static boolean dbUpdateStorageIngredient(StorageIngredient ingredient) {
-    	String name = ingredient.getIngredientName();
-	    float quantity = ingredient.getQuantity();
+    public static boolean dbUpdateStorageIngredient(String name, float quantity) {
 		String sql = "UPDATE StorageIngredient SET Quantity = " + quantity + " WHERE IngredientName = \"" + name + "\"";
 		System.out.println(sql);
 		Connection conn = null;
@@ -167,7 +165,8 @@ public class Database {
     }
 
     public static boolean dbUpdateRecipeIngredient(int recipeID, String ingredient, float quantity) {
-		String sql = "UPDATE RecipeIngredient SET Quantity = " + quantity + " WHERE RecipeID = " + recipeID + "IngredientName = \"" + ingredient + "\"";
+		String sql = "UPDATE RecipeIngredient SET Quantity = " + quantity + 
+				" WHERE RecipeID = " + recipeID + " AND IngredientName = \"" + ingredient + "\"";
 		System.out.println(sql);
 		Connection conn = null;
 		Statement stmt = null;
@@ -269,9 +268,8 @@ public class Database {
 		return 0;
     }
     
-    public static ArrayList<Float> dbGetRecipeIngredientQuantity(Recipe recipe) {
+    public static ArrayList<Float> dbGetRecipeIngredientQuantity(int RecipeID) {
     	ArrayList<Float> res = new ArrayList<Float>();
-    	int RecipeID = dbGetRecipeID(recipe.getRecipeName());
     	String sql = "SELECT Quantity FROM RecipeIngredient WHERE RecipeID = \"" + RecipeID + "\";";
     	System.out.println(sql);
 		Connection conn = null;
