@@ -376,8 +376,44 @@ public class Database {
 		return false;
 	}
 	
+	public static float dbGetEquipmentCapacity() {
+		String sql = "SELECT Capacity FROM Equipment WHERE name = \"Frege\"";
+		System.out.println(sql);
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    
+		    float quantity = 0;
+		    while(rs.next()) {
+			    quantity  = rs.getFloat("Capacity");
+			    System.out.println(quantity);
+		    }
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
+		   
+		    return quantity;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
 	public static void main(String[] args) {
-		dbDeleteRecipe("Test3");
+		dbGetEquipmentCapacity();
 	}
 
 }
