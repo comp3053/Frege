@@ -6,7 +6,7 @@ public class Recipe<ingredients> {
 	private String recipeName;
 	private float quantity;
 	private String unit;
-	private ArrayList<RecipeIngredient> ingredients;
+	private static ArrayList<RecipeIngredient> ingredients;
 	private Map<String, Brew> Brews;
 	
 	public Recipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
@@ -91,7 +91,7 @@ public class Recipe<ingredients> {
 	}
 	
 	
-	public ArrayList<Float> convertToAbsoluteMeasure(int recipeID, float batchSize) {
+	public static ArrayList<Float> convertToAbsoluteMeasure(int recipeID, float batchSize) {
 		ArrayList<Float> ingredient = Database.dbGetRecipeIngredientQuantity(recipeID);
 		for (int i = 0; i < 5; i++) {
 			ingredient.set(i, ingredient.get(i) * batchSize);
@@ -99,7 +99,7 @@ public class Recipe<ingredients> {
 		return ingredient;
 	}
 	
-	public boolean CheckIngredients(int recipeID, float batchSize) {
+	public static boolean CheckIngredients(int recipeID, float batchSize) {
 		boolean flag = true;
 		ArrayList<Float> RecipeIngredient = convertToAbsoluteMeasure(recipeID, batchSize);
 		ArrayList<String> ingredientName = new ArrayList<String>();
@@ -119,10 +119,15 @@ public class Recipe<ingredients> {
 		return flag;
 	}	
 	
-	public static ArrayList<Recipe> recommandRecipe(float batchSize){
-		ArrayList<Recipe> result = null;
+	public static ArrayList<Integer> recommendRecipe(float batchSize){
+		ArrayList<Integer> result = null;
 		ArrayList<Integer> allRecipeID = Database.dbGetAllRecipeID();
 		
+		for (int i = 0; i < allRecipeID.size(); i++) {
+			if (CheckIngredients(allRecipeID.get(i), batchSize)) {
+				result.add(i);
+			}
+		}
 		return result;
 	}
 }
