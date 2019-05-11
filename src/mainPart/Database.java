@@ -274,8 +274,8 @@ public class Database {
 		return 0;
     }
     
-    public static ArrayList dbGetRecipeingredientQuantity(Recipe recipe) {
-    	ArrayList res = new ArrayList();
+    public static ArrayList<Float> dbGetRecipeingredientQuantity(Recipe recipe) {
+    	ArrayList<Float> res = new ArrayList<Float>();
     	int RecipeID = dbGetRecipeID(recipe);
     	String sql = "SELECT Quantity FROM RecipeIngredient WHERE RecipeID = \"" + RecipeID + "\";";
     	System.out.println(sql);
