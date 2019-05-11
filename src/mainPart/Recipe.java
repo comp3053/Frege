@@ -25,7 +25,7 @@ public class Recipe<ingredients> {
 		
 	}
 	public static boolean deleteRecipe(String name) {
-		
+		return Database.dbDeleteRecipe(name);
 	}
 	
 	public void setRecipeName(String name) {

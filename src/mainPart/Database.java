@@ -345,6 +345,9 @@ public class Database {
 	}
 
 	public static boolean dbDeleteRecipe(String RecipeName) {
+		// check whether the recipe is in the list
+		if (dbGetRecipeID(RecipeName) == 0) return false;
+		
 		String sql = "DELETE FROM Recipe Where RecipeName = \"" + RecipeName + "\"";
 		System.out.println(sql);
 		Connection conn = null;
@@ -377,7 +380,7 @@ public class Database {
 	}
 	
 	public static void main(String[] args) {
-		dbDeleteRecipe("test3");
+		dbDeleteRecipe("Test3");
 	}
 
 }
