@@ -108,7 +108,7 @@ public class Recipe<ingredients> {
 		return flag;
 	}	
 	
-	public ArrayList<Recipe> recommandRecipe(float batchSize){
+	public static ArrayList<Recipe> recommandRecipe(float batchSize){
 		
 	}
 }
