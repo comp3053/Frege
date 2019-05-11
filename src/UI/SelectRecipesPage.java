@@ -69,7 +69,7 @@ public class SelectRecipesPage extends JFrame {
 		JLabel lblRecipeList = new JLabel("Available Recipe List");
 		lblRecipeList.setFont(new Font("Calibri", Font.BOLD, 30));
 		lblRecipeList.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRecipeList.setBounds(119, 13, 322, 37);
+		lblRecipeList.setBounds(48, 13, 449, 37);
 		contentPane.add(lblRecipeList);
 		
 		JLayeredPane layeredPane = new JLayeredPane();

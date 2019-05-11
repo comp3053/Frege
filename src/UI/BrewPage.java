@@ -65,7 +65,7 @@ public class BrewPage extends JFrame {
 		JLabel lblBatchSizeL = new JLabel("Batch size                  L beer today~");
 		lblBatchSizeL.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBatchSizeL.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblBatchSizeL.setBounds(107, 190, 375, 47);
+		lblBatchSizeL.setBounds(24, 191, 533, 47);
 		contentPane.add(lblBatchSizeL);
 		
 		textField = new JTextField();
