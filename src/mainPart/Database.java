@@ -24,6 +24,7 @@ public class Database {
     public static boolean dbNewRecipe(String recipeName, float recipeQuantity, String recipeUnit, ArrayList<RecipeIngredient> ingredients) {
     	int recipeID = 0;
     	String sql = "INSERT INTO recipe (RecipeName, Unit, Quantity) VALUES (\"" + recipeName + "\", \"" + recipeUnit + "\", " + recipeQuantity + ")";
+    	System.out.println(sql);
     	Connection conn = null;
     	boolean flag = true;
     	
@@ -36,11 +37,10 @@ public class Database {
         
             // 执行查询
 		    Statement stmt = conn.createStatement();
-		    ResultSet rs = stmt.executeQuery(sql);
+		    stmt.executeUpdate(sql);
 		    
-		    while(rs.next()) {
-		    	recipeID = rs.getInt(1);
-		    }
+		    recipeID = dbGetRecipeID(recipeName);
+		    System.out.println("Id = " + recipeID);
             
             for (int i = 0; i < ingredients.size(); i++)
             {
@@ -68,6 +68,7 @@ public class Database {
     	float ingredientQuantity = ingredient.getQuantity();
     	String sql = "INSERT INTO RecipeIngredient (RecipeID IngredientName, Unit, Quantity) "
     			+ "VALUES (" + recipeID + ", \"" + ingredientName + "\", \"" + ingredientUnit + "\", " + ingredientQuantity + ")";
+    	System.out.println(sql);
     	boolean result = false;
     	Connection conn = null;
     	
@@ -79,19 +80,14 @@ public class Database {
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
             // 执行查询
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, recipeID);
-            ps.setString(2, ingredientName);
-            ps.setString(3, ingredientUnit);
-            ps.setFloat(4, ingredientQuantity);
-            ps.executeUpdate();
+		    Statement stmt = conn.createStatement();
+		    stmt.executeUpdate(sql);
 
             // 完成后关闭
-            ps.close();
+            stmt.close();
             conn.close();
             
-            result = true;
-            return result;
+            return true;
         } catch(SQLException e)
         {
             System.err.println("Error: " + e);
@@ -276,7 +272,7 @@ public class Database {
     
     public static ArrayList<Float> dbGetRecipeingredientQuantity(Recipe recipe) {
     	ArrayList<Float> res = new ArrayList<Float>();
-    	int RecipeID = dbGetRecipeID(recipe);
+    	int RecipeID = dbGetRecipeID(recipe.getRecipeName());
     	String sql = "SELECT Quantity FROM RecipeIngredient WHERE RecipeID = \"" + RecipeID + "\";";
     	System.out.println(sql);
 		Connection conn = null;
@@ -313,8 +309,7 @@ public class Database {
 		return null;
 	}
     
-	private static int dbGetRecipeID(Recipe recipe) {
-		String RecipeName = recipe.getRecipeName();
+	private static int dbGetRecipeID(String RecipeName) {
 		String sql = "SELECT id FROM Recipe WHERE RecipeName = \"" + RecipeName + "\";";
 		System.out.println(sql);
 		Connection conn = null;
@@ -350,8 +345,7 @@ public class Database {
 	}
 
 	public static void main(String[] args) {
-		Recipe r = new Recipe("bbb", 1, "ml", null);
-		System.out.println(dbGetRecipeingredientQuantity(r));
+		System.out.println(dbGetRecipeID("test2"));
 	}
 
 }
