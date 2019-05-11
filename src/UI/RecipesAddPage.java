@@ -188,6 +188,22 @@ public class RecipesAddPage extends JFrame {
 				String cAdditives = textField_5.getText().trim();
 				
 				if(cName.equals("")||cMalts.equals("")||cHops.equals("")||cYeasts.equals("")||cSugars.equals("")||cAdditives.equals("")) {
+					if(cMalts.equals("")) {
+						cMalts = "0";
+					}
+					if(cHops.equals("")) {
+						cHops = "0";
+					}
+					if(cYeasts.equals("")) {
+						cYeasts = "0";
+					}
+					if(cSugars.equals("")) {
+						cSugars = "0";
+					}
+					if(cAdditives.equals("")) {
+						cAdditives = "0";
+					}
+					
 					//如果操作失败，不改变数据库并且刷新当前页面
 					//If the operation fails, do not change the database and refresh the current page
 					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
