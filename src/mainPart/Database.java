@@ -234,7 +234,8 @@ public class Database {
     }
 
     public static float dbGetStorageingredientQuantity(String IngredientName) {
-		String sql = "SELECT Quantity FROM StorageIngredient WHERE IngredientName = \"" + IngredientName + "\";";
+		String sql = "SELECT Quantity FROM StorageIngredient WHERE IngredientName = \"" + IngredientName + "\"";
+		System.out.println(sql);
 		Connection conn = null;
 		
 		try{
@@ -251,7 +252,6 @@ public class Database {
 		    float quantity = 0;
 		    while(rs.next()) {
 			    quantity  = rs.getFloat("Quantity");
-			    System.out.println(quantity);
 		    }
 		    // 完成后关闭
 		    stmt.close();
@@ -450,7 +450,9 @@ public class Database {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(dbGetAllRecipeID());
+		if (Recipe.recommendRecipe(10).size() == 0) {
+			System.out.println("hi");
+		}
 	}
 
 }

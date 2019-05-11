@@ -93,6 +93,7 @@ public class Recipe<ingredients> {
 	
 	public static ArrayList<Float> convertToAbsoluteMeasure(int recipeID, float batchSize) {
 		ArrayList<Float> ingredient = Database.dbGetRecipeIngredientQuantity(recipeID);
+		System.out.println(ingredient);
 		for (int i = 0; i < 5; i++) {
 			ingredient.set(i, ingredient.get(i) * batchSize);
 		}
@@ -103,16 +104,17 @@ public class Recipe<ingredients> {
 		boolean flag = true;
 		ArrayList<Float> RecipeIngredient = convertToAbsoluteMeasure(recipeID, batchSize);
 		ArrayList<String> ingredientName = new ArrayList<String>();
-		ingredientName.add("malt");
-		ingredientName.add("hop");
-		ingredientName.add("yeast");
-		ingredientName.add("sugar");
-		ingredientName.add("additive");
-		for (int i = 0; i < ingredients.size(); i++)
+		ingredientName.add("malts");
+		ingredientName.add("hops");
+		ingredientName.add("yeasts");
+		ingredientName.add("sugars");
+		ingredientName.add("additives");
+		for (int i = 0; i < 5; i++)
 		{
 			if (Database.dbGetStorageingredientQuantity(ingredientName.get(i)) < RecipeIngredient.get(i))
 			{
-				System.out.println(ingredientName.get(i) + "is not enough.");
+				System.out.println("You have " + ingredientName.get(i) + " " + Database.dbGetStorageingredientQuantity(ingredientName.get(i))
+				+ "kg, but you need to have " + RecipeIngredient.get(i) + "kg.");
 				flag = false;
 			}
 		}
@@ -120,14 +122,17 @@ public class Recipe<ingredients> {
 	}	
 	
 	public static ArrayList<Integer> recommendRecipe(float batchSize){
-		ArrayList<Integer> result = null;
+		ArrayList<Integer> result = new ArrayList<Integer>();
 		ArrayList<Integer> allRecipeID = Database.dbGetAllRecipeID();
 		
 		for (int i = 0; i < allRecipeID.size(); i++) {
 			if (CheckIngredients(allRecipeID.get(i), batchSize)) {
-				result.add(i);
+				result.add(allRecipeID.get(i));
 			}
 		}
 		return result;
+		// if result is null, then call the function to compute every recipe's ingredient lack
 	}
+	
+	
 }
