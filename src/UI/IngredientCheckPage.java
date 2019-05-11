@@ -24,7 +24,7 @@ public class IngredientCheckPage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,12 +35,13 @@ public class IngredientCheckPage extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public IngredientCheckPage() {
+	public IngredientCheckPage(String Name) {
+		System.out.println(Name);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -170,12 +171,12 @@ public class IngredientCheckPage extends JFrame {
 		label_5.setBounds(466, 157, 36, 27);
 		layeredPane.add(label_5);
 		
-		JButton btnBrew = new JButton("Brew");
+		JButton btnBrew = new JButton("Back");
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnBrew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
-				new ConfirmBrewPage().setVisible(true);;
+				new CheckRecipesPage().setVisible(true);
 			}
 		});
 		btnBrew.setBounds(90, 311, 150, 45);
@@ -186,7 +187,7 @@ public class IngredientCheckPage extends JFrame {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
-				new CheckRecipesPage().setVisible(true);;
+				new BrewPage().setVisible(true);
 			}
 		});
 		btnCancel.setBounds(347, 311, 150, 45);

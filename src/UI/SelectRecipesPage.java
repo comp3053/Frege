@@ -137,7 +137,7 @@ public class SelectRecipesPage extends JFrame {
 					public void actionPerformed(ActionEvent arg0) {
 	
 						closeThis();
-						new IngredientCheckPage().setVisible(true);;
+						new ConfirmBrewPage(textField.getText()).setVisible(true);
 					}
 				});
 			}

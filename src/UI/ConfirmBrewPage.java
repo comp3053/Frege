@@ -21,7 +21,7 @@ public class ConfirmBrewPage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -32,12 +32,12 @@ public class ConfirmBrewPage extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public ConfirmBrewPage() {
+	public ConfirmBrewPage(String Name) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -55,6 +55,8 @@ public class ConfirmBrewPage extends JFrame {
 		btnYes.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//调用controller进行操作，并且返回成功与否的boolean
+				//通过boolean判断接下来的页面跳转
 				JOptionPane.showMessageDialog(null, "Success!");
 				closeThis();
 				new HomePage();
