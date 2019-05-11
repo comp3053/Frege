@@ -1,11 +1,13 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -25,9 +27,13 @@ public class NoteCheckPage extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			private String Date;
+			private String Recipe;
+			private String Content;
+
 			public void run() {
 				try {
-					NoteCheckPage frame = new NoteCheckPage();
+					NoteCheckPage frame = new NoteCheckPage(Date, Recipe, Content);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +45,7 @@ public class NoteCheckPage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NoteCheckPage() {
+	public NoteCheckPage(String Date, String Recipe, String Content) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -75,17 +81,22 @@ public class NoteCheckPage extends JFrame {
 		lblContent.setBounds(0, 79, 105, 32);
 		layeredPane.add(lblContent);
 		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setBounds(118, 13, 367, 32);
-		layeredPane.add(editorPane);
+		JTextField DateVal = new JTextField(Date);
+		DateVal.setPreferredSize(new Dimension(100, 23));
+		DateVal.setBounds(118, 13, 367, 32);
+		layeredPane.add(DateVal);
 		
-		JEditorPane editorPane_1 = new JEditorPane();
-		editorPane_1.setBounds(118, 46, 367, 32);
-		layeredPane.add(editorPane_1);
-		
-		JEditorPane editorPane_2 = new JEditorPane();
-		editorPane_2.setBounds(119, 79, 367, 162);
-		layeredPane.add(editorPane_2);
+        
+        JTextField RecipeVal = new JTextField(Recipe);
+        RecipeVal.setPreferredSize(new Dimension(100, 23));
+        RecipeVal.setBounds(118, 46, 367, 32);
+        layeredPane.add(RecipeVal);
+        
+        JTextField ContentVal = new JTextField(Content);
+        ContentVal.setPreferredSize(new Dimension(100, 23));
+        ContentVal.setBounds(119, 79, 367, 162);
+        layeredPane.add(ContentVal);
+        
 		
 		JButton btnUpdate = new JButton("Back");
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
