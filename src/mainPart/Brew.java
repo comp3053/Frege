@@ -15,12 +15,15 @@ public class Brew<recipes> {
 	public float getBatchSize() {
 		return batchSize;
 	}
+	
 	public void setBatchSize(float batchSize) {
 		this.batchSize = batchSize;
 	}
+	
 	public Date getDate() {
 		return date;
 	}
+	
 	public void setDate(Date date) {
 		this.date = date;
 	}
@@ -41,16 +44,6 @@ public class Brew<recipes> {
 			StorageIngredient.subtractQuantity(ingredientName.get(i), recipeIngredients.get(i));
 		}
 		return true;
-	}
-	
-	public ArrayList<Recipe> checkRecipes() {
-		ArrayList<Recipe> result = new ArrayList<Recipe>();
-		for (int i = 0; i < recipes.size(); i++){
-			if (recipes.get(i).CheckIngredients(this.batchSize) == true){
-				result.add(recipes.get(i));
-			}
-		}
-		return result;
 	}
 	
 	public void addRecipe(String recipeName, Recipe r) {
