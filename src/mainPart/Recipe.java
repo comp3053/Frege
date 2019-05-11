@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Recipe<ingredients> {
-	//private int id;
 	private String recipeName;
 	private float quantity;
 	private String unit;
@@ -21,9 +20,20 @@ public class Recipe<ingredients> {
 	public static boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
 		return Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
+	
 	public static boolean updateRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugarQ, float additiveQ) {
+		// check whether have this recipe in the list
+		int recipeID = Database.dbGetRecipeID(name);
+		if (recipeID == 0) return false;
 		
+		boolean flag1 = Database.dbUpdateRecipeIngredient(recipeID, "malt", maltQ);
+		boolean flag2 = Database.dbUpdateRecipeIngredient(recipeID, "hop", hopQ);
+		boolean flag3 = Database.dbUpdateRecipeIngredient(recipeID, "yeast", yeastQ);
+		boolean flag4 = Database.dbUpdateRecipeIngredient(recipeID, "sugar", sugarQ);
+		boolean flag5 = Database.dbUpdateRecipeIngredient(recipeID, "additive", additiveQ);
+		return (flag1 && flag2 && flag3 && flag4 && flag5);
 	}
+	
 	public static boolean deleteRecipe(String name) {
 		return Database.dbDeleteRecipe(name);
 	}
@@ -80,41 +90,6 @@ public class Recipe<ingredients> {
 		}
 	}
 	
-	public boolean updateRecipeIngredient(String ingreName, float quantity) {
-		if ((quantity >= 0))
-		{
-			switch (ingreName)
-			{
-			case "malts":
-				ingredients.get(0).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(0));
-				break;
-			case "hops":
-				ingredients.get(1).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(1));
-				break;
-			case "yeasts":
-				ingredients.get(2).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(2));
-				break;
-			case "sugars":
-				ingredients.get(3).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(3));
-				break;
-			case "additives":
-				ingredients.get(4).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(4));
-				break;
-			default:
-				System.out.println("Ingredient invaild!");
-				return false;
-			}
-		} else {
-			System.out.println("Ingredient amount should be non-negative!");
-			return false;
-		}
-		return true;
-	}
 	
 	public ingredients convertToAbsoluteMeasure(float batchSize) {
 		// unfinished method
