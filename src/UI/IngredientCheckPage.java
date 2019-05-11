@@ -24,18 +24,19 @@ public class IngredientCheckPage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
+		String name = "Recipes1";
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IngredientCheckPage frame = new IngredientCheckPage();
+					IngredientCheckPage frame = new IngredientCheckPage(name);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
-	}*/
+	}
 
 	/**
 	 * Create the frame.
