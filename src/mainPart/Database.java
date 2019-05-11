@@ -66,7 +66,7 @@ public class Database {
     	String ingredientName = ingredient.getIngredientName();
     	String ingredientUnit = ingredient.getUnit();
     	float ingredientQuantity = ingredient.getQuantity();
-    	String sql = "INSERT INTO RecipeIngredient (RecipeID IngredientName, Unit, Quantity) "
+    	String sql = "INSERT INTO RecipeIngredient (RecipeID, IngredientName, Unit, Quantity) "
     			+ "VALUES (" + recipeID + ", \"" + ingredientName + "\", \"" + ingredientUnit + "\", " + ingredientQuantity + ")";
     	System.out.println(sql);
     	boolean result = false;
