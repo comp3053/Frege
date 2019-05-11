@@ -50,6 +50,12 @@ public class IngredientCheckPage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblName= new JLabel(Name);
+		lblName.setBounds(37, 30, 150, 31);
+		contentPane.add(lblName);
+		lblName.setHorizontalAlignment(SwingConstants.LEFT);
+		lblName.setFont(new Font("Calibri", Font.BOLD, 25));
+		
 		JLabel lblNewLabel = new JLabel("You Need :");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 25));
@@ -84,6 +90,43 @@ public class IngredientCheckPage extends JFrame {
 		lblIngredient_2.setBounds(34, 133, 115, 27);
 		layeredPane.add(lblIngredient_2);
 		
+		// show the number in database
+		String cMalts = Float.toString(1);
+		JLabel lblAmountMalts= new JLabel(cMalts);
+		lblAmountMalts.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountMalts.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblAmountMalts.setBounds(133, 12, 71, 29);
+		layeredPane.add(lblAmountMalts);
+		
+		String cHops = Float.toString(2);
+		JLabel lblAmountHops = new JLabel(cHops);
+		lblAmountHops.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountHops.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblAmountHops.setBounds(133, 53, 71, 29);
+		layeredPane.add(lblAmountHops);
+		
+		String cYeasts = Float.toString(3);
+		JLabel lblAmountYeasts = new JLabel(cYeasts);
+		lblAmountYeasts.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountYeasts.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblAmountYeasts.setBounds(133, 92, 71, 29);
+		layeredPane.add(lblAmountYeasts);
+		
+		String cSugars = Float.toString(4);
+		JLabel lblAmountSugars = new JLabel(cSugars);
+		lblAmountSugars.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountSugars.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblAmountSugars.setBounds(133, 132, 71, 29);
+		layeredPane.add(lblAmountSugars);
+		
+		String cAdditives = Float.toString(5);
+		JLabel lblAmountAdditives = new JLabel(cAdditives);
+		lblAmountAdditives.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAmountAdditives.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblAmountAdditives.setBounds(133, 172, 71, 29);
+		layeredPane.add(lblAmountAdditives);
+		
+		// kg
 		JLabel lblKg = new JLabel("kg");
 		lblKg.setHorizontalAlignment(SwingConstants.CENTER);
 		lblKg.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -93,19 +136,19 @@ public class IngredientCheckPage extends JFrame {
 		JLabel label = new JLabel("kg");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label.setBounds(204, 58, 36, 27);
+		label.setBounds(204, 53, 36, 27);
 		layeredPane.add(label);
 		
 		JLabel label_1 = new JLabel("kg");
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_1.setBounds(204, 106, 36, 27);
+		label_1.setBounds(204, 93, 36, 27);
 		layeredPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("kg");
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_2.setBounds(204, 157, 36, 27);
+		label_2.setBounds(204, 133, 36, 27);
 		layeredPane.add(label_2);
 		
 		JLabel lblMissed = new JLabel("Missed");
@@ -138,6 +181,12 @@ public class IngredientCheckPage extends JFrame {
 		lblAdditives.setBounds(34, 173, 115, 27);
 		layeredPane.add(lblAdditives);
 		
+		JLabel label_6 = new JLabel("kg");
+		label_6.setHorizontalAlignment(SwingConstants.CENTER);
+		label_6.setFont(new Font("Calibri", Font.PLAIN, 20));
+		label_6.setBounds(204, 173, 36, 27);
+		layeredPane.add(label_6);
+		
 		JButton btnBrew = new JButton("Back");
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnBrew.addActionListener(new ActionListener() {
@@ -160,11 +209,6 @@ public class IngredientCheckPage extends JFrame {
 		btnCancel.setBounds(346, 311, 150, 45);
 		contentPane.add(btnCancel);
 		
-		JLabel lblName= new JLabel(Name);
-		lblName.setBounds(37, 30, 150, 31);
-		contentPane.add(lblName);
-		lblName.setHorizontalAlignment(SwingConstants.LEFT);
-		lblName.setFont(new Font("Calibri", Font.BOLD, 25));
 	}
 	// Close current UI page
 		protected void closeThis() {
