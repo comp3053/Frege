@@ -344,8 +344,40 @@ public class Database {
 		return 0;
 	}
 
+	public static boolean dbDeleteRecipe(String RecipeName) {
+		String sql = "DELETE FROM Recipe Where RecipeName = \"" + RecipeName + "\"";
+		System.out.println(sql);
+		Connection conn = null;
+		Statement stmt = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    stmt = conn.createStatement(  );
+		    stmt.executeUpdate(sql); 
+		
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
+		    
+		    return true;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(dbGetRecipeID("test2"));
+		dbDeleteRecipe("test3");
 	}
 
 }
