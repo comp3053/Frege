@@ -24,6 +24,9 @@ public class Recipe<ingredients> {
 	public static boolean updateRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugarQ, float additiveQ) {
 		
 	}
+	public static boolean deleteRecipe(String name) {
+		
+	}
 	
 	public void setRecipeName(String name) {
 		this.recipeName = name;
