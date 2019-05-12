@@ -230,7 +230,7 @@ public class Database {
 		return false;
     }
     
-    public static boolean dbAddNote(Note note) {
+    public static int dbAddNote(Note note) {
     	String noteTitle = note.getTitle();
     	java.sql.Date noteDate = note.getDate();
     	String noteContent = note.getContent();
@@ -239,6 +239,7 @@ public class Database {
     	System.out.println(sql);
     	Connection conn = null;
 		Statement stmt = null;
+		int noteID = 0;
     	
         try{
             // 注册 JDBC 驱动
@@ -248,14 +249,12 @@ public class Database {
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
             // 执行查询
-		    stmt = conn.createStatement(  );
-		    stmt.executeUpdate(sql); 
+		    stmt = conn.createStatement();
+		    noteID = stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
 		
 		    // 完成后关闭
 		    stmt.close();
 		    conn.close();
-            
-            return true;
         } catch(SQLException e)
         {
             System.err.println("Error: " + e);
@@ -263,7 +262,7 @@ public class Database {
         } catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-        return false;
+        return noteID;
     }
 
     public static float dbGetStorageingredientQuantity(String IngredientName) {
@@ -556,13 +555,44 @@ public class Database {
 		return null;
 	}
 	
+	public static boolean dbBrew(int recipeID, int noteID, float batchSize) {
+    	String sql = "INSERT INTO Brew (RecipeID, NoteID, BatchSize) VALUES (" + recipeID + ", " + noteID + ", " + batchSize + ")";
+    	System.out.println(sql);
+    	Connection conn = null;
+    	
+        try{
+            // 注册 JDBC 驱动
+            Class.forName(JDBC_DRIVER);
+
+            // 打开链接
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+        
+            // 执行查询
+		    Statement stmt = conn.createStatement();
+		    stmt.executeUpdate(sql);
+
+            // 完成后关闭
+            stmt.close();
+            conn.close();
+            
+            return true;
+        } catch(SQLException e)
+        {
+            System.err.println("Error: " + e);
+            e.printStackTrace(System.out);
+        } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+    	return false;
+	}
+	
 	public static void main(String[] args) {
 //		if (Recipe.recommendRecipe(10).size() == 0) {
 //			System.out.println(Recipe.checkMissing(12, 10));
 //		} else {
 //			System.out.println(Recipe.recommendRecipe(1));
 //		}
-		System.out.println(dbGetCapacity());
+		System.out.println(Note.addNote("test", 20, "fun", "None!"));
 	}
 
 }

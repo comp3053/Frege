@@ -28,7 +28,7 @@ public class Brew<recipes> {
 		this.date = date;
 	}
 	
-	public static boolean brew(String recipeName, float batchSize) {
+	public static boolean brew(String recipeName, int noteID, float batchSize) {
 		int recipeID = Database.dbGetRecipeID(recipeName);
 		if (recipeID == 0) return false;
 		
@@ -43,6 +43,7 @@ public class Brew<recipes> {
 		for (int i = 0; i < 5 ; i++) {
 			StorageIngredient.subtractQuantity(ingredientName.get(i), recipeIngredients.get(i) * batchSize);
 		}
+		Database.dbBrew(Database.dbGetRecipeID(recipeName), noteID, batchSize);
 		return true;
 	}
 	
