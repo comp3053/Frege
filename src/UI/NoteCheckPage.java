@@ -21,22 +21,6 @@ public class NoteCheckPage extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NoteCheckPage frame = new NoteCheckPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public NoteCheckPage() {
@@ -99,7 +83,8 @@ public class NoteCheckPage extends JFrame {
 		contentPane.add(btnUpdate);
 	}
 	// Close current UI page
-		protected void closeThis() {
-			contentPane.setVisible(false);
-		}
+	protected void closeThis() {
+		//contentPane.setVisible(false);
+		this.dispose();
+	}
 }

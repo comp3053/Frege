@@ -112,6 +112,7 @@ public class HomePage {
 	
 	// Close current UI page
 	protected void closeThis() {
-		frame.setVisible(false);
+		//frame.setVisible(false);
+		frame.dispose();
 	}
 }

@@ -27,22 +27,6 @@ public class IngredientSubtractPage extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IngredientSubtractPage frame = new IngredientSubtractPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public IngredientSubtractPage() {
@@ -222,8 +206,6 @@ public class IngredientSubtractPage extends JFrame {
 		contentPane.add(btnSubtract);
 		btnSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//暂时缺少对数据库的操作
-				//Temporarily missing operations on the database
 				
 				try {
 					float nMalts = (float) spinner.getValue();
@@ -234,7 +216,6 @@ public class IngredientSubtractPage extends JFrame {
 				
 					if(nMalts < 0||nHops < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
 					
-						//如果操作失败，不改变数据库并且刷新当前页面
 						//If the operation fails, do not change the database and refresh the current page
 						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
@@ -250,7 +231,6 @@ public class IngredientSubtractPage extends JFrame {
 						controllerUI.subtractIngredientQuantity("Yeasts",nYeasts);
 						controllerUI.subtractIngredientQuantity("Sugars",nSugars);
 						controllerUI.subtractIngredientQuantity("Additives",nAdditives);
-						// 如果操作成功，则修改数据库并且返回RecipePage
 						//If the operation is successful, modify the database and return to RecipePage
 						JOptionPane.showMessageDialog(null, "Success!");
 						closeThis();
@@ -277,6 +257,7 @@ public class IngredientSubtractPage extends JFrame {
 	}
 	// Close current UI page
 	protected void closeThis() {
-		contentPane.setVisible(false);
+		//contentPane.setVisible(false);
+		this.dispose();
 	}
 }

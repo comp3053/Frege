@@ -17,22 +17,6 @@ public class EquipmentPage extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EquipmentPage frame = new EquipmentPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public EquipmentPage() {
@@ -72,7 +56,8 @@ public class EquipmentPage extends JFrame {
 		contentPane.add(btnHome);
 	}
 	// Close current UI page
-		protected void closeThis() {
-			contentPane.setVisible(false);
-		}
+	protected void closeThis() {
+		//contentPane.setVisible(false);
+		this.dispose();
+	}
 }

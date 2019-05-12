@@ -33,22 +33,6 @@ public class RecipesUpdatePage extends JFrame {
 	private JTextField textField_5;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RecipesUpdatePage frame = new RecipesUpdatePage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public RecipesUpdatePage() {
@@ -169,10 +153,6 @@ public class RecipesUpdatePage extends JFrame {
 		// Page Jump
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// 暂时空缺修改数据库的行为或页面
-				//Temporary vacancies modify the behavior or page of the database
-				//应当有一个提示Update成功的页面(操作成功)
-				//There should be a page that prompts that Update is successful (operation is successful)
 				
 				String cName = textField.getText().trim();
 				String cMalts = textField_1.getText().trim();
@@ -182,7 +162,6 @@ public class RecipesUpdatePage extends JFrame {
 				String cAdditives = textField_5.getText().trim();
 				
 				if(cName.equals("")||cMalts.equals("")||cHops.equals("")||cYeasts.equals("")||cSugars.equals("")||cAdditives.equals("")) {
-					//如果操作失败，不改变数据库并且刷新当前页面
 					//If the operation fails, do not change the database and refresh the current page
 					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
 					closeThis();
@@ -204,7 +183,6 @@ public class RecipesUpdatePage extends JFrame {
 							boolean check = controllerUI.updateRecipe(cName, malts, hops, yeasts, sugars, additives);
 							
 							if(check) {
-								// 如果操作成功，则修改数据库并且返回RecipePage
 								//If the operation is successful, modify the database and return to RecipePage
 								JOptionPane.showMessageDialog(null, "Success!");
 								closeThis();
@@ -234,7 +212,8 @@ public class RecipesUpdatePage extends JFrame {
 	
 	// Close current UI page
 	protected void closeThis() {
-		contentPane.setVisible(false);
+		//contentPane.setVisible(false);
+		this.dispose();
 	}
 
 }

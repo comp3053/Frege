@@ -41,23 +41,6 @@ public class SelectRecipesPage extends JFrame {
 	private JTextField textField_1;
 
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SelectRecipesPage frame = new SelectRecipesPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-	
-
-	/**
 	 * Create the frame.
 	 */
 	public SelectRecipesPage(float batchSize, ArrayList<String> RecipesList) {
@@ -78,12 +61,6 @@ public class SelectRecipesPage extends JFrame {
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(14, 45, 554, 279);
 		contentPane.add(layeredPane);
-		
-		/*// Brew Button
-		JButton btnBrew = new JButton("Brew");
-		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnBrew.setBounds(359, 183, 110, 43);
-		layeredPane.add(btnBrew);*/
 		
 		// Table Model
 		// Rewrite the table can be select but can't be edited
@@ -148,8 +125,6 @@ public class SelectRecipesPage extends JFrame {
 			 
 		});
 		
-		
-		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(215, 325, 150, 45);
 		contentPane.add(btnCancel);
@@ -163,7 +138,8 @@ public class SelectRecipesPage extends JFrame {
 	}
 	// Close current UI page
 	protected void closeThis() {
-		contentPane.setVisible(false);
+		//contentPane.setVisible(false);
+		this.dispose();
 	}
 
 }

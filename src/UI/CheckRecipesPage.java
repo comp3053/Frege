@@ -33,21 +33,6 @@ public class CheckRecipesPage extends JFrame {
 	private JTable table;
 	private JTextField textField;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CheckRecipesPage frame = new CheckRecipesPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
 	/**
 	 * Create the frame.
@@ -149,7 +134,8 @@ public class CheckRecipesPage extends JFrame {
 		});
 	}
 	// Close current UI page
-			protected void closeThis() {
-				contentPane.setVisible(false);
-			}
+	protected void closeThis() {
+		//contentPane.setVisible(false);
+		this.dispose();
+	}
 }

@@ -23,22 +23,6 @@ public class EquipmentUpdatePage extends JFrame {
 	private JTextField textField;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EquipmentUpdatePage frame = new EquipmentUpdatePage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public EquipmentUpdatePage() {
@@ -105,7 +89,8 @@ public class EquipmentUpdatePage extends JFrame {
 		contentPane.add(btnCancel);
 	}
 	// Close current UI page
-		protected void closeThis() {
-			contentPane.setVisible(false);
-		}
+	protected void closeThis() {
+		//contentPane.setVisible(false);
+		this.dispose();
+	}
 }

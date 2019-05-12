@@ -27,22 +27,6 @@ public class RecipesDeletePage extends JFrame {
 	private JTextField textField;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RecipesDeletePage frame = new RecipesDeletePage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public RecipesDeletePage() {
@@ -84,15 +68,8 @@ public class RecipesDeletePage extends JFrame {
 		// Page Jump
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// 暂时空缺修改数据库的行为或页面
-				//Temporary vacancies modify the behavior or page of the database
-				//应当有一个提示delete成功的页面(操作成功)
-				//There should be a page that prompts delete success (operation is successful)
-				
 				String name = textField.getText().trim();
-				
 				if(name.equals("")) {
-					//如果操作失败，不改变数据库并且刷新当前页面
 					//If the operation fails, do not change the database and refresh the current page
 					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
 					closeThis();
@@ -101,7 +78,6 @@ public class RecipesDeletePage extends JFrame {
 					RecipesDeleteController controller = new RecipesDeleteController();
 					Boolean check = controller.deleteR(name);
 					if(check) {
-						// 如果操作成功，则修改数据库并且返回RecipePage
 						//If the operation is successful, modify the database and return to RecipePage
 						JOptionPane.showMessageDialog(null, "Success!");
 						closeThis();
@@ -127,6 +103,7 @@ public class RecipesDeletePage extends JFrame {
 					
 	// Close current UI page
 	protected void closeThis() {
-		contentPane.setVisible(false);
+		//contentPane.setVisible(false);
+		this.dispose();
 	}
 }

@@ -27,23 +27,6 @@ public class IngredientCheckPage extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		String name = "Recipes1";
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IngredientCheckPage frame = new IngredientCheckPage(name);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
 	 * Create the frame.
 	 */
 	public IngredientCheckPage(String Name, float batchSize) {
@@ -101,8 +84,7 @@ public class IngredientCheckPage extends JFrame {
 		lblAdditives.setBounds(34, 173, 115, 27);
 		layeredPane.add(lblAdditives);
 		
-		//1.2.3.4.5是从数据库得到的需要的材料
-		//定为 malts, hops, yeasts, sugars,additives
+		// Get ingredient amount we need from database 
 		ArrayList<Float> AbsoluteIngredient = new ArrayList<Float>();
 		IngredientCheckController controller1 = new IngredientCheckController();
 		AbsoluteIngredient = controller1.getAbsoluteIngredient(Name,batchSize);
@@ -351,7 +333,8 @@ public class IngredientCheckPage extends JFrame {
 		
 	}
 	// Close current UI page
-		protected void closeThis() {
-			contentPane.setVisible(false);
-		}
+	protected void closeThis() {
+		//contentPane.setVisible(false);
+		this.dispose();
+	}
 }
