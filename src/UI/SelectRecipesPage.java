@@ -124,7 +124,6 @@ public class SelectRecipesPage extends JFrame {
 			public void valueChanged(ListSelectionEvent arg0) {
 				// TODO Auto-generated method stub
 				index = table.getSelectedRow();
-				//String n = (String) table.getValueAt(index, 0);
 				textField = new JTextField();
 				textField.setEditable(false);
 				textField.setHorizontalAlignment(SwingConstants.CENTER);
@@ -160,7 +159,7 @@ public class SelectRecipesPage extends JFrame {
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
-				new BrewPage().setVisible(true);;
+				new BrewPage().setVisible(true);
 			}
 		});
 	}

@@ -97,9 +97,6 @@ public class BrewPage extends JFrame {
 		contentPane.add(btnCan);
 		btnCan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//closeThis();
-				//new RecipePage();
-				
 				//Get input String and transfer into integer
 				String cBatch = textField.getText().trim();
 				if(cBatch.equals("")) {
