@@ -116,6 +116,7 @@ public class Recipe<ingredients> {
 				System.out.println("You have " + ingredientName.get(i) + " " + Database.dbGetStorageingredientQuantity(ingredientName.get(i))
 				+ "kg, but you need to have " + RecipeIngredient.get(i) + "kg.");
 				flag = false;
+				break;
 			}
 		}
 		return flag;
@@ -134,5 +135,25 @@ public class Recipe<ingredients> {
 		// if result is null, then call the function to compute every recipe's ingredient lack
 	}
 	
+	public static ArrayList<Float> checkMissing(int recipeID, float batchSize) {
+		ArrayList<Float> missingIngredient = new ArrayList<Float>();
+		ArrayList<Float> RecipeIngredient = convertToAbsoluteMeasure(recipeID, batchSize);
+		ArrayList<String> ingredientName = new ArrayList<String>();
+		ingredientName.add("malts");
+		ingredientName.add("hops");
+		ingredientName.add("yeasts");
+		ingredientName.add("sugars");
+		ingredientName.add("additives");
+		for (int i = 0; i < 5; i++)
+		{
+			float missingQuantity = RecipeIngredient.get(i) - Database.dbGetStorageingredientQuantity(ingredientName.get(i)); 
+			if (missingQuantity > 0)
+			{
+				missingIngredient.add(i, missingQuantity);
+			}
+			missingIngredient.add(i, (float) 0);
+		}
+		return missingIngredient;
+	}
 	
 }
