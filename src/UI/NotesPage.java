@@ -102,24 +102,6 @@ public class NotesPage extends JFrame {
 		scroll.setEnabled(false);
 		scroll.setBounds(14, 43, 496, 223);
 		layeredPane.add(scroll);
-		table.setModel(tableModel);
-		 
-
-		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			int index;
-			@Override
-			public void valueChanged(ListSelectionEvent arg0) {
-				// TODO Auto-generated method stub
-				index = table.getSelectedRow();
-				String DateVal = (String) table.getValueAt(index, 0);
-				String RecipeVal = (String) table.getValueAt(index, 1);
-				String ContentVal = (String) table.getValueAt(index, 2);
-				//String n = (String) table.getValueAt(index, 0);
-				closeThis();
-				new NoteCheckPage(DateVal, RecipeVal, ContentVal).setVisible(true);
-			}
-			 
-		});
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));

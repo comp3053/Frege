@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -16,6 +17,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
+
+import Controller.EquipmentUpdateController;
+import javafx.scene.control.Spinner;
 
 public class EquipmentUpdatePage extends JFrame {
 
@@ -65,10 +70,15 @@ public class EquipmentUpdatePage extends JFrame {
 		lblCapacity.setFont(new Font("Calibri", Font.BOLD, 25));
 		lblCapacity.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		textField = new JTextField();
-		textField.setBounds(264, 74, 65, 38);
-		layeredPane.add(textField);
-		textField.setColumns(10);
+		JSpinner spinner = new JSpinner();
+		spinner.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
+		spinner.setFont(new Font("Calibri", Font.PLAIN, 18));
+		spinner.setBounds(264, 74, 65, 38);
+		layeredPane.add(spinner);
+		
+		EquipmentUpdateController controller = new EquipmentUpdateController();
+		float capacity = (float) spinner.getValue();
+		controller.updateEquipment(capacity);
 		
 		JLabel lblLiters = new JLabel("liters");
 		lblLiters.setFont(new Font("Calibri", Font.PLAIN, 18));
@@ -85,10 +95,24 @@ public class EquipmentUpdatePage extends JFrame {
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Success!");
-				closeThis();
-				new EquipmentPage().setVisible(true);;
+				try {
+					//Temporarily missing operations on the database
+					float size = (float) spinner.getValue();
+					if(size < 0) {
+						//If the operation fails, do not change the database and refresh the current page
+						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+						closeThis();
+						new EquipmentUpdatePage().setVisible(true);
+					}else {
+						EquipmentUpdateController controller = new EquipmentUpdateController();
+						JOptionPane.showMessageDialog(null, "Success!");
+						closeThis();
+						new EquipmentPage().setVisible(true);
+					}
+			}catch(NumberFormatException ex) {
+				JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
 			}
+		}
 		});
 		btnUpdate.setBounds(90, 311, 150, 45);
 		contentPane.add(btnUpdate);
