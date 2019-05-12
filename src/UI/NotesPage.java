@@ -13,11 +13,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+
+import Controller.NotesController;
+
 import javax.swing.JLayeredPane;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.util.Vector;
 
 import javax.swing.SwingConstants;
@@ -66,15 +70,16 @@ public class NotesPage extends JFrame {
 				return false;
 			}
 		};	
-		tableModel.addColumn("");
-		tableModel.addColumn("");
-		tableModel.addColumn("");
-        for(int i = 0;i < 10;i++) {
-        	// should link to database
-        	Vector v = new Vector();
-        	v.add("Brew"+i);
-        	//v.add("");
-        	tableModel.addRow(v);
+		
+		NotesController controller = new NotesController();
+        for(int i = 0;i < controller.showNote().size();i++) {
+        	Vector
+        	Date Date = controller.showNote().get(i).getDate();
+        	String Recipe = controller.showNote().get(i).getTitle();
+        	String Content = controller.showNote().get(i).getContent();
+        	tableModel.addColumn(Date);
+        	tableModel.addColumn(Recipe);
+        	tableModel.addColumn(Content);        	
         }
         
         // Table
