@@ -100,8 +100,6 @@ public class SelectRecipesPage extends JFrame {
         	// should link to database
         	Vector v = new Vector();
         	v.add(RecipesList.get(i));
-        	//v.add("Recipe"+i);
-        	//v.add("");
         	tableModel.addRow(v);
         }
         
@@ -143,7 +141,7 @@ public class SelectRecipesPage extends JFrame {
 					public void actionPerformed(ActionEvent arg0) {
 	
 						closeThis();
-						new ConfirmBrewPage(textField.getText()).setVisible(true);
+						new ConfirmBrewPage(textField.getText(),batchSize).setVisible(true);
 					}
 				});
 			}

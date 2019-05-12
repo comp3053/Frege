@@ -40,7 +40,7 @@ public class ConfirmBrewPage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ConfirmBrewPage(String Name) {
+	public ConfirmBrewPage(String Name,float batchSize) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -61,7 +61,7 @@ public class ConfirmBrewPage extends JFrame {
 				//operation with controller£¬then it  will return the boolean for operation
 				//decide the page jump by boolean
 				SelectRecipesController controller = new SelectRecipesController();
-				boolean check = controller.brewRecipe(Name);
+				boolean check = controller.brewRecipe(Name,batchSize);
 				if(check) {
 					JOptionPane.showMessageDialog(null, "Success!");
 					closeThis();

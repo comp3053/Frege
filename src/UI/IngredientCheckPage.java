@@ -6,10 +6,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.BrewController;
+import Controller.IngredientCheckController;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
 import javax.swing.JLayeredPane;
@@ -90,13 +95,22 @@ public class IngredientCheckPage extends JFrame {
 		lblIngredient_2.setBounds(34, 133, 115, 27);
 		layeredPane.add(lblIngredient_2);
 		
+		JLabel lblAdditives = new JLabel("Additives");
+		lblAdditives.setHorizontalAlignment(SwingConstants.LEFT);
+		lblAdditives.setFont(new Font("Calibri", Font.PLAIN, 20));
+		lblAdditives.setBounds(34, 173, 115, 27);
+		layeredPane.add(lblAdditives);
+		
 		//1.2.3.4.5是从数据库得到的需要的材料
 		//定为 malts, hops, yeasts, sugars,additives
-		float malts = 1;
-		float hops = 2;
-		float yeasts = 3;
-		float sugars = 4;
-		float additives = 5;
+		ArrayList<Float> AbsoluteIngredient = new ArrayList<Float>();
+		IngredientCheckController controller1 = new IngredientCheckController();
+		AbsoluteIngredient = controller1.getAbsoluteIngredient(Name,batchSize);
+		float malts = AbsoluteIngredient.get(0);
+		float hops = AbsoluteIngredient.get(1);
+		float yeasts = AbsoluteIngredient.get(2);
+		float sugars = AbsoluteIngredient.get(3);
+		float additives = AbsoluteIngredient.get(4);
 		// show the number in database
 		String cMalts = Float.toString(malts);
 		JLabel lblAmountMalts= new JLabel(cMalts);
@@ -158,12 +172,6 @@ public class IngredientCheckPage extends JFrame {
 		label_2.setBounds(204, 133, 36, 27);
 		layeredPane.add(label_2);
 		
-		JLabel lblAdditives = new JLabel("Additives");
-		lblAdditives.setHorizontalAlignment(SwingConstants.LEFT);
-		lblAdditives.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblAdditives.setBounds(34, 173, 115, 27);
-		layeredPane.add(lblAdditives);
-		
 		JLabel label_6 = new JLabel("kg");
 		label_6.setHorizontalAlignment(SwingConstants.CENTER);
 		label_6.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -174,11 +182,14 @@ public class IngredientCheckPage extends JFrame {
 		
 		
 		// Valid or missed
-		float x1 = 5; //malts
-		float x2 = 0; //hops
-		float x3 = 0; //yeasts
-		float x4 = 0; //sugars
-		float x5 = 0; //additives
+		ArrayList<Float> MissedAmount = new ArrayList<Float>();
+		IngredientCheckController controller2 = new IngredientCheckController();
+		MissedAmount = controller2.checkMissing(Name,batchSize);
+		float x1 = MissedAmount.get(0); //malts
+		float x2 = MissedAmount.get(1); //hops
+		float x3 = MissedAmount.get(2); //yeasts
+		float x4 = MissedAmount.get(3); //sugars
+		float x5 = MissedAmount.get(4); //additives
 		
 		if(x1 == 0) {
 			JLabel lblAvailable = new JLabel("Available");
@@ -315,14 +326,7 @@ public class IngredientCheckPage extends JFrame {
 			layeredPane.add(lblkg);
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		JButton btnBrew = new JButton("Back");
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnBrew.addActionListener(new ActionListener() {
