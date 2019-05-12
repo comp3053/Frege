@@ -28,20 +28,20 @@ public class Brew<recipes> {
 		this.date = date;
 	}
 	
-	public static boolean brew(String recipeName) {
+	public static boolean brew(String recipeName, float batchSize) {
 		int recipeID = Database.dbGetRecipeID(recipeName);
 		if (recipeID == 0) return false;
 		
 		ArrayList<String> ingredientName = new ArrayList<String>();
-		ingredientName.add("malt");
-		ingredientName.add("hop");
-		ingredientName.add("yeast");
-		ingredientName.add("sugar");
-		ingredientName.add("additive");
+		ingredientName.add("malts");
+		ingredientName.add("hops");
+		ingredientName.add("yeasts");
+		ingredientName.add("sugars");
+		ingredientName.add("additives");
 		
 		ArrayList<Float> recipeIngredients = Database.dbGetRecipeIngredientQuantity(recipeID);
 		for (int i = 0; i < 5 ; i++) {
-			StorageIngredient.subtractQuantity(ingredientName.get(i), recipeIngredients.get(i));
+			StorageIngredient.subtractQuantity(ingredientName.get(i), recipeIngredients.get(i) * batchSize);
 		}
 		return true;
 	}

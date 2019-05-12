@@ -7,7 +7,7 @@ public class SelectRecipesController {
 		
 	}
 	
-	public boolean brewRecipe(String recipeName) {
-		return Brew.brew(recipeName);
+	public boolean brewRecipe(String recipeName, float batchSize) {
+		return Brew.brew(recipeName, batchSize);
 	}
 }
