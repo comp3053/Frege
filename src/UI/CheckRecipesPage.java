@@ -120,7 +120,7 @@ public class CheckRecipesPage extends JFrame {
 					public void actionPerformed(ActionEvent arg0) {
 			
 						closeThis();
-						new IngredientCheckPage(textField.getText()).setVisible(true);;
+						new IngredientCheckPage(textField.getText(),batchSize).setVisible(true);;
 					}
 				});
 			}

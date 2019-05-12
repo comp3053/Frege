@@ -24,7 +24,7 @@ public class IngredientCheckPage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		String name = "Recipes1";
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -36,12 +36,12 @@ public class IngredientCheckPage extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public IngredientCheckPage(String Name) {
+	public IngredientCheckPage(String Name, float batchSize) {
 		System.out.println(Name);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
@@ -328,7 +328,7 @@ public class IngredientCheckPage extends JFrame {
 		btnBrew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
-				new CheckRecipesPage().setVisible(true);
+				new CheckRecipesPage(batchSize).setVisible(true);
 			}
 		});
 		btnBrew.setBounds(69, 311, 150, 45);
