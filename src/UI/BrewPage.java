@@ -95,8 +95,12 @@ public class BrewPage extends JFrame {
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
 							ArrayList<String> RecipeList = new ArrayList<String>();
-							BrewController controller = new BrewController();
-							RecipeList = controller.recommandRecipe(batch);
+							//BrewController controller = new BrewController();
+							//RecipeList = controller.recommandRecipe(batch);
+							RecipeList.add("Recipe 1");
+							RecipeList.add("Recipe 2");
+							RecipeList.add("Recipe 3");
+							RecipeList.add("Recipe 4");
 							int length = RecipeList.size();
 							
 							if(length > 0) {
