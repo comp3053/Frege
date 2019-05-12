@@ -68,7 +68,7 @@ public class SelectRecipesPage extends JFrame {
 			public boolean isCellEditable(int row, int column) {
 				return false;
 			}
-		};	
+		};
 		tableModel.addColumn("Recipes");
 		
 		int size = RecipesList.size(); 
@@ -108,7 +108,7 @@ public class SelectRecipesPage extends JFrame {
 				textField.setText((String) table.getValueAt(index, 0));
 				layeredPane.add(textField);
 				textField.setColumns(10);*/
-				String name = (String) table.getValueAt(index, 0)
+				String name = (String) table.getValueAt(index, 0);
 				
 				// Brew Button
 				JButton btnBrew = new JButton("Brew");
