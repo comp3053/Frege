@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import Controller.EquipmentUpdateController;
+import Controller.NotesWriteController;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -67,14 +68,8 @@ public class NotesWritePage extends JFrame {
 		contentPane.add(lblNote);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(14, 61, 554, 254);
+		layeredPane.setBounds(14, 37, 554, 272);
 		contentPane.add(layeredPane);
-		
-		JLabel lblDate = new JLabel("Date");
-		lblDate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDate.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblDate.setBounds(0, 13, 105, 32);
-		layeredPane.add(lblDate);
 		
 		JLabel lblRecipe = new JLabel("Recipe");
 		lblRecipe.setHorizontalAlignment(SwingConstants.CENTER);
@@ -87,12 +82,6 @@ public class NotesWritePage extends JFrame {
 		lblContent.setFont(new Font("Calibri", Font.PLAIN, 25));
 		lblContent.setBounds(0, 79, 105, 32);
 		layeredPane.add(lblContent);
-		
-		JTextField DateVal = new JTextField(Date);
-		DateVal.setPreferredSize(new Dimension(100, 23));
-		DateVal.setBounds(118, 13, 367, 32);
-		layeredPane.add(DateVal);
-		
         
         JTextField RecipeVal = new JTextField(Recipe);
         RecipeVal.setPreferredSize(new Dimension(100, 23));
@@ -110,15 +99,23 @@ public class NotesWritePage extends JFrame {
         btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if(Date == null || Recipe == null) {
+					if(Recipe == null) {
 						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
 						new NotesWritePage().setVisible(true);
 					}else {
-						EquipmentUpdateController controller = new EquipmentUpdateController();
-						JOptionPane.showMessageDialog(null, "Success!");
-						closeThis();
-						new HomePage();
+						NotesWriteController controller = new NotesWriteController();
+						controller.addNote(Recipe, Content);
+						boolean add = controller.addNote(Recipe, Content);
+						if(add) {
+							JOptionPane.showMessageDialog(null, "Success!");
+							closeThis();
+							new HomePage();
+						}else {
+							JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
+							closeThis();
+							new NotesWritePage().setVisible(true);
+						}
 					}
 			}catch(NullPointerException ex) {
 				JOptionPane.showMessageDialog(null,"Please input right information!","Warning",JOptionPane.ERROR_MESSAGE);
