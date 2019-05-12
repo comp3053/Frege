@@ -90,36 +90,43 @@ public class IngredientCheckPage extends JFrame {
 		lblIngredient_2.setBounds(34, 133, 115, 27);
 		layeredPane.add(lblIngredient_2);
 		
+		//1.2.3.4.5是从数据库得到的需要的材料
+		//定为 malts, hops, yeasts, sugars,additives
+		float malts = 1;
+		float hops = 2;
+		float yeasts = 3;
+		float sugars = 4;
+		float additives = 5;
 		// show the number in database
-		String cMalts = Float.toString(1);
+		String cMalts = Float.toString(malts);
 		JLabel lblAmountMalts= new JLabel(cMalts);
 		lblAmountMalts.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountMalts.setFont(new Font("Calibri", Font.PLAIN, 20));
 		lblAmountMalts.setBounds(133, 12, 71, 29);
 		layeredPane.add(lblAmountMalts);
 		
-		String cHops = Float.toString(2);
+		String cHops = Float.toString(hops);
 		JLabel lblAmountHops = new JLabel(cHops);
 		lblAmountHops.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountHops.setFont(new Font("Calibri", Font.PLAIN, 20));
 		lblAmountHops.setBounds(133, 53, 71, 29);
 		layeredPane.add(lblAmountHops);
 		
-		String cYeasts = Float.toString(3);
+		String cYeasts = Float.toString(yeasts);
 		JLabel lblAmountYeasts = new JLabel(cYeasts);
 		lblAmountYeasts.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountYeasts.setFont(new Font("Calibri", Font.PLAIN, 20));
 		lblAmountYeasts.setBounds(133, 92, 71, 29);
 		layeredPane.add(lblAmountYeasts);
 		
-		String cSugars = Float.toString(4);
+		String cSugars = Float.toString(sugars);
 		JLabel lblAmountSugars = new JLabel(cSugars);
 		lblAmountSugars.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountSugars.setFont(new Font("Calibri", Font.PLAIN, 20));
 		lblAmountSugars.setBounds(133, 132, 71, 29);
 		layeredPane.add(lblAmountSugars);
 		
-		String cAdditives = Float.toString(5);
+		String cAdditives = Float.toString(additives);
 		JLabel lblAmountAdditives = new JLabel(cAdditives);
 		lblAmountAdditives.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountAdditives.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -151,30 +158,6 @@ public class IngredientCheckPage extends JFrame {
 		label_2.setBounds(204, 133, 36, 27);
 		layeredPane.add(label_2);
 		
-		JLabel lblMissed = new JLabel("Missed");
-		lblMissed.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblMissed.setBounds(322, 106, 100, 27);
-		layeredPane.add(lblMissed);
-		
-		JLabel label_3 = new JLabel("kg");
-		label_3.setHorizontalAlignment(SwingConstants.CENTER);
-		label_3.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_3.setBounds(466, 106, 36, 27);
-		layeredPane.add(label_3);
-		
-		JLabel label_4 = new JLabel("Missed");
-		label_4.setHorizontalAlignment(SwingConstants.CENTER);
-		label_4.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_4.setBounds(322, 157, 100, 27);
-		layeredPane.add(label_4);
-		
-		JLabel label_5 = new JLabel("kg");
-		label_5.setHorizontalAlignment(SwingConstants.CENTER);
-		label_5.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_5.setBounds(466, 157, 36, 27);
-		layeredPane.add(label_5);
-		
 		JLabel lblAdditives = new JLabel("Additives");
 		lblAdditives.setHorizontalAlignment(SwingConstants.LEFT);
 		lblAdditives.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -186,6 +169,159 @@ public class IngredientCheckPage extends JFrame {
 		label_6.setFont(new Font("Calibri", Font.PLAIN, 20));
 		label_6.setBounds(204, 173, 36, 27);
 		layeredPane.add(label_6);
+		
+		String cA = Float.toString(15);
+		
+		
+		// Valid or missed
+		float x1 = 5; //malts
+		float x2 = 0; //hops
+		float x3 = 0; //yeasts
+		float x4 = 0; //sugars
+		float x5 = 0; //additives
+		
+		if(x1 == 0) {
+			JLabel lblAvailable = new JLabel("Available");
+			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
+			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblAvailable.setBounds(284, 13, 89, 27);
+			layeredPane.add(lblAvailable);
+		}else {
+			JLabel lblMissed = new JLabel("Missed");
+			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
+			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblMissed.setBounds(284, 13, 89, 27);
+			layeredPane.add(lblMissed);
+			
+			String num = Float.toString(x1);
+			JLabel lblNum = new JLabel(num);
+			lblNum.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNum.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblNum.setBounds(365, 13, 83, 27);
+			layeredPane.add(lblNum);
+			
+			JLabel lblkg= new JLabel("kg");
+			lblkg.setHorizontalAlignment(SwingConstants.CENTER);
+			lblkg.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblkg.setBounds(450, 13, 36, 27);
+			layeredPane.add(lblkg);
+		}
+		
+		if(x2 == 0) {
+			JLabel lblAvailable= new JLabel("Available");
+			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
+			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblAvailable.setBounds(284, 55, 89, 27);
+			layeredPane.add(lblAvailable);
+		}else {
+			JLabel lblMissed = new JLabel("Missed");
+			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
+			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblMissed.setBounds(284, 55, 89, 27);
+			layeredPane.add(lblMissed);
+			
+			String num = Float.toString(x2);
+			JLabel lblNum = new JLabel(num);
+			lblNum.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNum.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblNum.setBounds(365, 55, 83, 27);
+			layeredPane.add(lblNum);
+			
+			JLabel lblkg= new JLabel("kg");
+			lblkg.setHorizontalAlignment(SwingConstants.CENTER);
+			lblkg.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblkg.setBounds(450, 55, 36, 27);
+			layeredPane.add(lblkg);
+		}
+		
+		if(x3 == 0) {
+			JLabel lblAvailable = new JLabel("Available");
+			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
+			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblAvailable.setBounds(284, 93, 89, 27);
+			layeredPane.add(lblAvailable);
+		}else {
+			JLabel lblMissed = new JLabel("Missed");
+			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
+			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblMissed.setBounds(284, 93, 89, 27);
+			layeredPane.add(lblMissed);
+			
+			String num = Float.toString(x3);
+			JLabel lblNum = new JLabel(num);
+			lblNum.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNum.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblNum.setBounds(365, 93, 83, 27);
+			layeredPane.add(lblNum);
+			
+			JLabel lblkg= new JLabel("kg");
+			lblkg.setHorizontalAlignment(SwingConstants.CENTER);
+			lblkg.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblkg.setBounds(450, 93, 36, 27);
+			layeredPane.add(lblkg);
+		}
+		
+		if(x4 == 0) {
+			JLabel lblAvailable = new JLabel("Available");
+			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
+			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblAvailable.setBounds(284, 133, 89, 27);
+			layeredPane.add(lblAvailable);
+		}else {
+			JLabel lblMissed = new JLabel("Missed");
+			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
+			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblMissed.setBounds(284, 133, 89, 27);
+			layeredPane.add(lblMissed);
+			
+			String num = Float.toString(x4);
+			JLabel lblNum = new JLabel(num);
+			lblNum.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNum.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblNum.setBounds(365, 133, 83, 27);
+			layeredPane.add(lblNum);
+			
+			JLabel lblkg= new JLabel("kg");
+			lblkg.setHorizontalAlignment(SwingConstants.CENTER);
+			lblkg.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblkg.setBounds(450, 133, 36, 27);
+			layeredPane.add(lblkg);
+		}
+		
+		if(x5 == 0) {
+			JLabel lblAvailable = new JLabel("Available");
+			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
+			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblAvailable.setBounds(284, 173, 89, 27);
+			layeredPane.add(lblAvailable);
+		}else {
+			JLabel lblMissed = new JLabel("Missed");
+			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
+			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblMissed.setBounds(284, 173, 89, 27);
+			layeredPane.add(lblMissed);
+			
+			String num = Float.toString(x5);
+			JLabel lblNum = new JLabel(num);
+			lblNum.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNum.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblNum.setBounds(365, 173, 83, 27);
+			layeredPane.add(lblNum);
+			
+			JLabel lblkg= new JLabel("kg");
+			lblkg.setHorizontalAlignment(SwingConstants.CENTER);
+			lblkg.setFont(new Font("Calibri", Font.PLAIN, 20));
+			lblkg.setBounds(450, 173, 36, 27);
+			layeredPane.add(lblkg);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		JButton btnBrew = new JButton("Back");
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
