@@ -135,7 +135,7 @@ public class CheckRecipesPage extends JFrame {
 	}
 	// Close current UI page
 	protected void closeThis() {
-		contentPane.setVisible(false);
-		//this.dispose();
+		//contentPane.setVisible(false);
+		this.dispose();
 	}
 }
