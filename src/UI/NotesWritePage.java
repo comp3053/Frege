@@ -88,6 +88,7 @@ public class NotesWritePage extends JFrame {
         RecipeVal.setBounds(118, 46, 367, 32);
         RecipeVal.setText(RecipeName);
         layeredPane.add(RecipeVal);
+        RecipeVal.setEditable(false);
         
         JTextField ContentVal = new JTextField(Content);
         ContentVal.setPreferredSize(new Dimension(100, 23));
@@ -100,14 +101,14 @@ public class NotesWritePage extends JFrame {
         btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if(Recipe == null) {
+					if( ContentVal.getText()== null) {
 						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
 						new NotesWritePage(RecipeName, batchSize).setVisible(true);
 					}else {
 						// pass the title and content of notes
 						NotesWriteController controller = new NotesWriteController();
-						controller.addNote(RecipeName, batchSize, ContentVal.getText());
+						//controller.addNote(RecipeName, batchSize, ContentVal.getText());
 						boolean add = controller.addNote(RecipeName, batchSize, ContentVal.getText());
 						if(add) {
 							JOptionPane.showMessageDialog(null, "Success!");
