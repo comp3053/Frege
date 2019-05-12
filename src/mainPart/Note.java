@@ -24,8 +24,8 @@ public class Note {
 		this.content = content;
 	}
 	
-	public static boolean addNote(String recipeName, float batchSize, String title, String content) {
-		Note note = new Note(title, content);
+	public static boolean addNote(String recipeName, float batchSize, String content) {
+		Note note = new Note(recipeName, content);
 		return Brew.brew(recipeName, Database.dbAddNote(note), batchSize);
 	}
 	

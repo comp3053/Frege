@@ -592,7 +592,7 @@ public class Database {
 //		} else {
 //			System.out.println(Recipe.recommendRecipe(1));
 //		}
-		System.out.println(Note.addNote("test", 20, "fun", "None!"));
+		System.out.println(Note.addNote("test", 20, "None!"));
 	}
 
 }
