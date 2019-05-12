@@ -44,17 +44,9 @@ public class ConfirmBrewPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//operation with controller£¬then it  will return the boolean for operation
 				//decide the page jump by boolean
-				SelectRecipesController controller = new SelectRecipesController();
-				boolean check = controller.brewRecipe(Name,batchSize);
-				if(check) {
-					JOptionPane.showMessageDialog(null, "Success!");
-					closeThis();
-					new NotesWritePage(Name,batchSize).setVisible(true);
-				}else {
-					JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
-					closeThis();
-					new HomePage();
-				}
+
+				closeThis();
+				new NotesWritePage(Name,batchSize).setVisible(true);
 				
 			}
 		});
