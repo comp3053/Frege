@@ -55,6 +55,7 @@ public class EquipmentUpdatePage extends JFrame {
 		lblCapacity.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		textField = new JTextField();
+		textField.setFont(new Font("Calibri", Font.PLAIN, 20));
 		textField.setBounds(264, 74, 65, 38);
 		layeredPane.add(textField);
 		textField.setColumns(10);
@@ -70,13 +71,15 @@ public class EquipmentUpdatePage extends JFrame {
 		label.setBounds(220, 85, 44, 18);
 		layeredPane.add(label);
 		
-		// get the number
-		String cEquipment = textField.getText().trim();
 		
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// get the number
+				String cEquipment = textField.getText().trim();
+				System.out.println(cEquipment);
+				
 				if(cEquipment.equals("")) {
 					//warning
 					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
