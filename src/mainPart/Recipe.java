@@ -121,13 +121,13 @@ public class Recipe<ingredients> {
 		return flag;
 	}	
 	
-	public static ArrayList<Integer> recommendRecipe(float batchSize){
-		ArrayList<Integer> result = new ArrayList<Integer>();
+	public static ArrayList<String> recommendRecipe(float batchSize){
+		ArrayList<String> result = new ArrayList<String>();
 		ArrayList<Integer> allRecipeID = Database.dbGetAllRecipeID();
 		
 		for (int i = 0; i < allRecipeID.size(); i++) {
 			if (CheckIngredients(allRecipeID.get(i), batchSize)) {
-				result.add(allRecipeID.get(i));
+				result.add(Database.dbGetRecipeName(allRecipeID.get(i)));
 			}
 		}
 		return result;

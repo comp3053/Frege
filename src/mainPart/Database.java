@@ -449,9 +449,46 @@ public class Database {
 		return null;
 	}
 	
+	public static String dbGetRecipeName(int recipeID) {
+		String sql = "SELECT RecipeName FROM Recipe WHERE id = " + recipeID;
+		System.out.println(sql);
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    
+		    String name = new String();
+		    while(rs.next()) {
+			    name = rs.getString("RecipeName");
+		    }
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
+		   
+		    return name;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public static void main(String[] args) {
-		if (Recipe.recommendRecipe(10).size() == 0) {
+		if (Recipe.recommendRecipe(1).size() == 0) {
 			System.out.println("hi");
+		} else {
+			System.out.println(Recipe.recommendRecipe(1));
 		}
 	}
 
