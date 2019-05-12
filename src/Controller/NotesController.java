@@ -10,6 +10,6 @@ public class NotesController {
 	}
 	
 	public ArrayList<Note> showNote(){
-		return Note.showNote();
+		return Note.showAllNotes();
 	}
 }
