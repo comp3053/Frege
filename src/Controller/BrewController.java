@@ -10,6 +10,6 @@ public class BrewController {
 	}
 	
 	public ArrayList<String> recommandRecipe(float batchSize) {
-		return Recipe.recommandRecipe(batchSize);
+		return Recipe.recommendRecipe(batchSize);
 	}
 }
