@@ -31,9 +31,9 @@ public class StorageIngredient extends Ingredient{
 			} else {
 				System.out.println("Subtract too much!");
 			}
+		} else { // if number is negative, then amount unchanged
+			System.out.println("Invalid amount!");
 		}
-		// if number is negative, then amount unchanged
-		System.out.println("Invalid amount!");
 		return false;
 	}
 	

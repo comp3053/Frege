@@ -490,7 +490,7 @@ public class Database {
 //		} else {
 //			System.out.println(Recipe.recommendRecipe(1));
 //		}
-		System.out.println(Recipe.checkMissing(12, 10));
+		System.out.println(Recipe.getAllRecipeName());
 	}
 
 }

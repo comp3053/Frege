@@ -157,4 +157,12 @@ public class Recipe<ingredients> {
 		return missingIngredient;
 	}
 	
+	public static ArrayList<String> getAllRecipeName() {
+		ArrayList<String> allRecipeName = new ArrayList<String>();
+		ArrayList<Integer> allRecipeID = Database.dbGetAllRecipeID();
+		for (int i = 0; i < allRecipeID.size(); i++) {
+			allRecipeName.add(Database.dbGetRecipeName(allRecipeID.get(i)));
+		}
+		return allRecipeName;
+	}
 }
