@@ -8,7 +8,6 @@ public class EquipmentUpdateController {
 	}
 	
 	public boolean updateEquipment(float capacity) {
-		Equipment equipment = new Equipment("Frege", capacity);
-		return equipment.updateCapacity(capacity);
+		return Equipment.updateCapacity(capacity);
 	}
 }

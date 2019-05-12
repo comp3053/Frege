@@ -18,22 +18,6 @@ public class RecipePage {
 	private JFrame frame;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RecipePage window = new RecipePage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the application.
 	 */
 	public RecipePage() {
@@ -110,7 +94,8 @@ public class RecipePage {
 	
 	// Close current UI page
 	protected void closeThis() {
-		frame.setVisible(false);
+		//frame.setVisible(false);
+		frame.dispose();
 	}
 
 }

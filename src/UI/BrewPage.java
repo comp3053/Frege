@@ -29,22 +29,6 @@ public class BrewPage extends JFrame {
 	private JTextField textField;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					BrewPage frame = new BrewPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public BrewPage() {
@@ -134,6 +118,7 @@ public class BrewPage extends JFrame {
 	
 	// Close current UI page
 	protected void closeThis() {
-		contentPane.setVisible(false);
+		//contentPane.setVisible(false);
+		this.dispose();
 	}
 }

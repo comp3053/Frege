@@ -12,11 +12,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+
+import Controller.BrewController;
+import Controller.CheckRecipesController;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JLayeredPane;
@@ -28,21 +33,6 @@ public class CheckRecipesPage extends JFrame {
 	private JTable table;
 	private JTextField textField;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CheckRecipesPage frame = new CheckRecipesPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
 	/**
 	 * Create the frame.
@@ -61,6 +51,11 @@ public class CheckRecipesPage extends JFrame {
 		lblRecipeList.setBounds(113, 13, 336, 37);
 		contentPane.add(lblRecipeList);
 		
+		ArrayList<String> AllRecipeList = new ArrayList<String>();
+		CheckRecipesController controller = new CheckRecipesController();
+		AllRecipeList = controller.getAllRecipeName();
+		int length = AllRecipeList.size();
+		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(14, 50, 554, 279);
 		contentPane.add(layeredPane);
@@ -73,11 +68,10 @@ public class CheckRecipesPage extends JFrame {
 			}
 		};	
 		tableModel.addColumn("Recipes");
-		for(int i = 0;i < 10;i++) {
+		for(int i = 0;i < length;i++) {
 			// should link to database
 			Vector v = new Vector();
-			v.add("Recipe"+i);
-			//v.add("");
+			v.add(AllRecipeList.get(i));
 			tableModel.addRow(v);
 		}
 		        
@@ -140,7 +134,8 @@ public class CheckRecipesPage extends JFrame {
 		});
 	}
 	// Close current UI page
-			protected void closeThis() {
-				contentPane.setVisible(false);
-			}
+	protected void closeThis() {
+		//contentPane.setVisible(false);
+		this.dispose();
+	}
 }

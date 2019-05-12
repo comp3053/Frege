@@ -1,4 +1,5 @@
 package mainPart;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -15,7 +16,12 @@ public class Note {
 		this.title = title;
 		this.date = date;
 		this.content = content;
-		//Database.dbAddNote(this);
+	}
+	
+	public Note(String title, java.sql.Date date, String content) {
+		this.title = title;
+		this.date = date;
+		this.content = content;
 	}
 	
 	public static boolean addNote(String title, String content) {
@@ -44,5 +50,9 @@ public class Note {
 	
 	public void setContent(String content) {
 		this.content = content;
+	}
+	
+	public static ArrayList<Note> showAllNotes() {
+		return Database.dbGetAllNotes();
 	}
 }

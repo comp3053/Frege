@@ -23,13 +23,10 @@ public class Equipment {
 		this.capacity = capacity;
 	}
 	
-	public boolean updateCapacity(float capacity) {
+	public static boolean updateCapacity(float capacity) {
 		if (capacity >= 0)
 		{
-			Scanner inputCapacity = new Scanner(System.in);
-	        float newCapacity = inputCapacity.nextFloat();
-	        this.capacity = newCapacity;
-	        return Database.dbUpdateCapacity(this);
+	        return Database.dbUpdateCapacity(capacity);
 		}
 		else 
 		{

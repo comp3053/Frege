@@ -98,10 +98,8 @@ public class Database {
         return result;
     }
     
-    public static boolean dbUpdateCapacity(Equipment equipment) {
-    	String name = equipment.getName();
-	    float capacity = equipment.getCapacity();
-		String sql = "UPDATE Equipment SET Capacity = " + capacity + " WHERE name = \"" + name + "\"";
+    public static boolean dbUpdateCapacity(float capacity) {
+		String sql = "UPDATE Equipment SET Capacity = " + capacity + " WHERE name = \"Frege\"";
 		System.out.println(sql);
 		Connection conn = null;
 		Statement stmt = null;
@@ -484,13 +482,52 @@ public class Database {
 		return null;
 	}
 	
+	public static ArrayList<Note> dbGetAllNotes() {
+		ArrayList<Note> allNotes = new ArrayList<Note>();
+		String sql = "SELECT * FROM Note";
+		System.out.println(sql);
+		Connection conn = null;
+		
+		try{
+		    // 注册 JDBC 驱动
+		    Class.forName(JDBC_DRIVER);
+		
+		    // 打开链接
+		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
+		
+		    // 执行查询
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs = stmt.executeQuery(sql);
+		    
+		    while(rs.next()) {
+			    String title = rs.getString("title");
+			    java.sql.Date date = rs.getDate("date");
+			    String content = rs.getString("content");
+			    Note note = new Note(title, date, content);
+			    allNotes.add(note);
+		    }
+		    // 完成后关闭
+		    stmt.close();
+		    conn.close();
+		   
+		    return allNotes;
+		} catch(SQLException e)
+		{
+		    System.err.println("Error: " + e);
+		    e.printStackTrace(System.out);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public static void main(String[] args) {
 //		if (Recipe.recommendRecipe(10).size() == 0) {
 //			System.out.println(Recipe.checkMissing(12, 10));
 //		} else {
 //			System.out.println(Recipe.recommendRecipe(1));
 //		}
-		System.out.println(Recipe.checkMissing(12, 10));
+		System.out.println(dbGetAllNotes().get(0).getTitle());
 	}
 
 }

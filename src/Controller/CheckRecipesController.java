@@ -11,10 +11,7 @@ public class CheckRecipesController {
 		
 	}
 	
-	public ArrayList<Float> getAbsoluteIngredient(String recipeName, float batchSize) {
-		return Recipe.convertToAbsoluteMeasure(Database.dbGetRecipeID(recipeName), batchSize);
-	}
-	public ArrayList<Float> checkMissing(String recipeName, float batchSize) {
-		return Recipe.checkMissing(Database.dbGetRecipeID(recipeName), batchSize);
+	public ArrayList<String> getAllRecipeName(){
+		return Recipe.getAllRecipeName();
 	}
 }

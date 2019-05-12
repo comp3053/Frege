@@ -41,23 +41,6 @@ public class SelectRecipesPage extends JFrame {
 	private JTextField textField_1;
 
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SelectRecipesPage frame = new SelectRecipesPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-	
-
-	/**
 	 * Create the frame.
 	 */
 	public SelectRecipesPage(float batchSize, ArrayList<String> RecipesList) {
@@ -79,12 +62,6 @@ public class SelectRecipesPage extends JFrame {
 		layeredPane.setBounds(14, 45, 554, 279);
 		contentPane.add(layeredPane);
 		
-		/*// Brew Button
-		JButton btnBrew = new JButton("Brew");
-		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnBrew.setBounds(359, 183, 110, 43);
-		layeredPane.add(btnBrew);*/
-		
 		// Table Model
 		// Rewrite the table can be select but can't be edited
 		DefaultTableModel tableModel=new DefaultTableModel() {
@@ -100,8 +77,6 @@ public class SelectRecipesPage extends JFrame {
         	// should link to database
         	Vector v = new Vector();
         	v.add(RecipesList.get(i));
-        	//v.add("Recipe"+i);
-        	//v.add("");
         	tableModel.addRow(v);
         }
         
@@ -143,14 +118,12 @@ public class SelectRecipesPage extends JFrame {
 					public void actionPerformed(ActionEvent arg0) {
 	
 						closeThis();
-						new ConfirmBrewPage(textField.getText()).setVisible(true);
+						new ConfirmBrewPage(textField.getText(),batchSize).setVisible(true);
 					}
 				});
 			}
 			 
 		});
-		
-		
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(215, 325, 150, 45);
@@ -165,7 +138,8 @@ public class SelectRecipesPage extends JFrame {
 	}
 	// Close current UI page
 	protected void closeThis() {
-		contentPane.setVisible(false);
+		//contentPane.setVisible(false);
+		this.dispose();
 	}
 
 }

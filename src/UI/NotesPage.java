@@ -29,22 +29,6 @@ public class NotesPage extends JFrame {
 	private JTable table;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NotesPage frame = new NotesPage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public NotesPage() {
@@ -121,7 +105,8 @@ public class NotesPage extends JFrame {
 		contentPane.add(lblNotesPage);
 	}
 	// Close current UI page
-		protected void closeThis() {
-			contentPane.setVisible(false);
-		}
+	protected void closeThis() {
+		//contentPane.setVisible(false);
+		this.dispose();
+	}
 }
