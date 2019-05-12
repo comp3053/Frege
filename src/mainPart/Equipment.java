@@ -34,4 +34,8 @@ public class Equipment {
 		}
 		return false;
 	}
+	
+	public static float getEquipmentCapacity() {
+		return Database.dbGetCapacity();
+	}
 }
