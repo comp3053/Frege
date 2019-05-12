@@ -485,11 +485,12 @@ public class Database {
 	}
 	
 	public static void main(String[] args) {
-		if (Recipe.recommendRecipe(1).size() == 0) {
-			System.out.println("hi");
-		} else {
-			System.out.println(Recipe.recommendRecipe(1));
-		}
+//		if (Recipe.recommendRecipe(10).size() == 0) {
+//			System.out.println(Recipe.checkMissing(12, 10));
+//		} else {
+//			System.out.println(Recipe.recommendRecipe(1));
+//		}
+		System.out.println(Recipe.checkMissing(12, 10));
 	}
 
 }

@@ -150,8 +150,9 @@ public class Recipe<ingredients> {
 			if (missingQuantity > 0)
 			{
 				missingIngredient.add(i, missingQuantity);
+			} else {
+				missingIngredient.add(i, (float) 0);
 			}
-			missingIngredient.add(i, (float) 0);
 		}
 		return missingIngredient;
 	}
