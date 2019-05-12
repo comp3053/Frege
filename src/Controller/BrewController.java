@@ -9,6 +9,9 @@ public class BrewController {
 		
 	}
 	
+	public float getCapacity() {
+		return Equipment.getEquipmentCapacity();
+	}
 	public ArrayList<String> recommandRecipe(float batchSize) {
 		return Recipe.recommendRecipe(batchSize);
 	}
