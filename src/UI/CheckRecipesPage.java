@@ -31,7 +31,7 @@ public class CheckRecipesPage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -42,12 +42,12 @@ public class CheckRecipesPage extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public CheckRecipesPage() {
+	public CheckRecipesPage(float batchSize) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -120,7 +120,7 @@ public class CheckRecipesPage extends JFrame {
 					public void actionPerformed(ActionEvent arg0) {
 			
 						closeThis();
-						new IngredientCheckPage(textField.getText()).setVisible(true);;
+						new IngredientCheckPage(textField.getText(),batchSize).setVisible(true);;
 					}
 				});
 			}

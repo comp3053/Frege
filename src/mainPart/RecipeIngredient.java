@@ -6,12 +6,12 @@ public class RecipeIngredient extends Ingredient{
 		super(name, quantity, unit);
 	}
 	
-	public boolean updateQuantity(float quantity) {
+	public boolean updateQuantity(int recipeID, String ingredientName, float quantity) {
 		// only accept non-negative numbers
 		if(quantity >= 0)
 		{
 			super.setQuantity(quantity);
-			return Database.dbUpdateRecipeIngredient(this);
+			return Database.dbUpdateRecipeIngredient(recipeID, ingredientName, quantity);
 		}
 		// if number is negative, then amount unchanged
 		System.out.println("Invalid amount!");

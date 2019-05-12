@@ -240,7 +240,10 @@ public class IngredientSubtractPage extends JFrame {
 						closeThis();
 						new IngredientAddPage().setVisible(true);
 					
+					}else if (nMalts > x1 || nHops > x2 || nYeasts > x3 || nSugars > x4 || nAdditives > x5){
+						JOptionPane.showMessageDialog(null,"Not enough!","Warning",JOptionPane.ERROR_MESSAGE);
 					}else {
+					
 						IngredientSubtractController controllerUI = new IngredientSubtractController();
 						controllerUI.subtractIngredientQuantity("Malts",nMalts);
 						controllerUI.subtractIngredientQuantity("Hops",nHops);

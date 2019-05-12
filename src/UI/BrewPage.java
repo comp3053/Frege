@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Controller.BrewController;
+import Controller.IngredientSubtractController;
 import mainPart.Recipe;
 
 import javax.swing.JLabel;
@@ -95,9 +97,6 @@ public class BrewPage extends JFrame {
 		contentPane.add(btnCan);
 		btnCan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//closeThis();
-				//new RecipePage();
-				
 				//Get input String and transfer into integer
 				String cBatch = textField.getText().trim();
 				if(cBatch.equals("")) {
@@ -112,16 +111,17 @@ public class BrewPage extends JFrame {
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
 							ArrayList<String> RecipeList = new ArrayList<String>();
-							RecipeList.add("Recipe1");
-							RecipeList.add("Recipe2");
-							RecipeList.add("Recipe3");
-							//传过去一个batch size，返回一个arraylist
-							//将他们一直传下去
+							BrewController controller = new BrewController();
+							RecipeList = controller.recommandRecipe(batch);
+							int length = RecipeList.size();
 							
-							//判断arraylist的长度，决定去哪个页面
-							// go to next page
-							closeThis();
-							new SelectRecipesPage(batch,RecipeList).setVisible(true);
+							if(length > 0) {
+								closeThis();
+								new SelectRecipesPage(batch,RecipeList).setVisible(true);
+							}else {
+								closeThis();
+								new CheckRecipesPage(batch).setVisible(true);
+							}
 						}
 					}catch(NumberFormatException ex) {
 						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);

@@ -7,27 +7,27 @@ public class StorageIngredient extends Ingredient{
 		super(name, quantity, unit);
 	}
 	
-	public boolean addQuantity(float quantity) {
+	public static boolean addQuantity(String ingredientName, float quantity) {
 		// only accept non-negative numbers
 		if(quantity >= 0)
 		{
-			float oldQuantity = Database.dbGetStorageingredientQuantity(this.getIngredientName());
-			super.setQuantity(oldQuantity + quantity);
-			return Database.dbUpdateStorageIngredient(this);
+			float oldQuantity = Database.dbGetStorageingredientQuantity(ingredientName);
+			quantity = oldQuantity + quantity;
+			return Database.dbUpdateStorageIngredient(ingredientName, quantity);
 		}
 		// if number is negative, then amount unchanged
 		System.out.println("Invalid amount!");
 		return false;
 	}
 	
-	public boolean subtractQuantity(float quantity) {
+	public static boolean subtractQuantity(String ingredientName, float quantity) {
 		// only accept non-negative numbers
 		if(quantity >= 0)
 		{
-			float oldQuantity = Database.dbGetStorageingredientQuantity(this.getIngredientName());
+			float oldQuantity = Database.dbGetStorageingredientQuantity(ingredientName);
 			if (oldQuantity - quantity >= 0) {
-				super.setQuantity(oldQuantity - quantity);
-				return Database.dbUpdateStorageIngredient(this);
+				quantity = oldQuantity - quantity;
+				return Database.dbUpdateStorageIngredient(ingredientName, quantity);
 			} else {
 				System.out.println("Subtract too much!");
 			}

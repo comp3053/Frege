@@ -3,11 +3,10 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Recipe<ingredients> {
-	//private int id;
 	private String recipeName;
 	private float quantity;
 	private String unit;
-	private ArrayList<RecipeIngredient> ingredients;
+	private static ArrayList<RecipeIngredient> ingredients;
 	private Map<String, Brew> Brews;
 	
 	public Recipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
@@ -21,9 +20,20 @@ public class Recipe<ingredients> {
 	public static boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
 		return Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
+	
 	public static boolean updateRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugarQ, float additiveQ) {
+		// check whether have this recipe in the list
+		int recipeID = Database.dbGetRecipeID(name);
+		if (recipeID == 0) return false;
 		
+		boolean flag1 = Database.dbUpdateRecipeIngredient(recipeID, "malt", maltQ);
+		boolean flag2 = Database.dbUpdateRecipeIngredient(recipeID, "hop", hopQ);
+		boolean flag3 = Database.dbUpdateRecipeIngredient(recipeID, "yeast", yeastQ);
+		boolean flag4 = Database.dbUpdateRecipeIngredient(recipeID, "sugar", sugarQ);
+		boolean flag5 = Database.dbUpdateRecipeIngredient(recipeID, "additive", additiveQ);
+		return (flag1 && flag2 && flag3 && flag4 && flag5);
 	}
+	
 	public static boolean deleteRecipe(String name) {
 		return Database.dbDeleteRecipe(name);
 	}
@@ -80,56 +90,71 @@ public class Recipe<ingredients> {
 		}
 	}
 	
-	public boolean updateRecipeIngredient(String ingreName, float quantity) {
-		if ((quantity >= 0))
-		{
-			switch (ingreName)
-			{
-			case "malts":
-				ingredients.get(0).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(0));
-				break;
-			case "hops":
-				ingredients.get(1).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(1));
-				break;
-			case "yeasts":
-				ingredients.get(2).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(2));
-				break;
-			case "sugars":
-				ingredients.get(3).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(3));
-				break;
-			case "additives":
-				ingredients.get(4).updateQuantity(quantity);
-				Database.dbUpdateRecipeIngredient(ingredients.get(4));
-				break;
-			default:
-				System.out.println("Ingredient invaild!");
-				return false;
-			}
-		} else {
-			System.out.println("Ingredient amount should be non-negative!");
-			return false;
+	
+	public static ArrayList<Float> convertToAbsoluteMeasure(int recipeID, float batchSize) {
+		ArrayList<Float> ingredient = Database.dbGetRecipeIngredientQuantity(recipeID);
+		System.out.println(ingredient);
+		for (int i = 0; i < 5; i++) {
+			ingredient.set(i, ingredient.get(i) * batchSize);
 		}
-		return true;
+		return ingredient;
 	}
 	
-	public ingredients convertToAbsoluteMeasure(float batchSize) {
-		// unfinished method
-		return null;
-	}
-	
-	public boolean CheckIngredients(float batchSize) {
+	public static boolean CheckIngredients(int recipeID, float batchSize) {
 		boolean flag = true;
-		for (int i = 0; i < ingredients.size(); i++)
+		ArrayList<Float> RecipeIngredient = convertToAbsoluteMeasure(recipeID, batchSize);
+		ArrayList<String> ingredientName = new ArrayList<String>();
+		ingredientName.add("malts");
+		ingredientName.add("hops");
+		ingredientName.add("yeasts");
+		ingredientName.add("sugars");
+		ingredientName.add("additives");
+		for (int i = 0; i < 5; i++)
 		{
-			if (ingredients.get(i).getQuantity() < batchSize)
+			if (Database.dbGetStorageingredientQuantity(ingredientName.get(i)) < RecipeIngredient.get(i))
 			{
+				System.out.println("You have " + ingredientName.get(i) + " " + Database.dbGetStorageingredientQuantity(ingredientName.get(i))
+				+ "kg, but you need to have " + RecipeIngredient.get(i) + "kg.");
 				flag = false;
+				break;
 			}
 		}
 		return flag;
 	}	
+	
+	public static ArrayList<String> recommendRecipe(float batchSize){
+		ArrayList<String> result = new ArrayList<String>();
+		ArrayList<Integer> allRecipeID = Database.dbGetAllRecipeID();
+		
+		for (int i = 0; i < allRecipeID.size(); i++) {
+			if (CheckIngredients(allRecipeID.get(i), batchSize)) {
+				result.add(Database.dbGetRecipeName(allRecipeID.get(i)));
+			}
+		}
+		return result;
+		// if result is null, then call the function to compute every recipe's ingredient lack
+	}
+	
+	public static ArrayList<Float> checkMissing(int recipeID, float batchSize) {
+		ArrayList<Float> missingIngredient = new ArrayList<Float>();
+		ArrayList<Float> RecipeIngredient = convertToAbsoluteMeasure(recipeID, batchSize);
+		ArrayList<String> ingredientName = new ArrayList<String>();
+		ingredientName.add("malts");
+		ingredientName.add("hops");
+		ingredientName.add("yeasts");
+		ingredientName.add("sugars");
+		ingredientName.add("additives");
+		for (int i = 0; i < 5; i++)
+		{
+			float missingQuantity = RecipeIngredient.get(i) - Database.dbGetStorageingredientQuantity(ingredientName.get(i)); 
+			if (missingQuantity > 0)
+			{
+				missingIngredient.add(i, missingQuantity);
+			} else {
+				missingIngredient.add(i, (float) 0);
+			}
+		}
+		return missingIngredient;
+	}
+	
 }

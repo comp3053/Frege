@@ -7,6 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.SelectRecipesController;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -55,11 +58,20 @@ public class ConfirmBrewPage extends JFrame {
 		btnYes.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//调用controller进行操作，并且返回成功与否的boolean
-				//通过boolean判断接下来的页面跳转
-				JOptionPane.showMessageDialog(null, "Success!");
-				closeThis();
-				new HomePage();
+				//operation with controller，then it  will return the boolean for operation
+				//decide the page jump by boolean
+				SelectRecipesController controller = new SelectRecipesController();
+				boolean check = controller.brewRecipe(Name);
+				if(check) {
+					JOptionPane.showMessageDialog(null, "Success!");
+					closeThis();
+					new HomePage();
+				}else {
+					JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
+					closeThis();
+					new HomePage();
+				}
+				
 			}
 		});
 		btnYes.setBounds(89, 248, 150, 45);
