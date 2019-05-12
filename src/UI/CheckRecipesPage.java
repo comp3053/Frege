@@ -95,14 +95,14 @@ public class CheckRecipesPage extends JFrame {
 				// TODO Auto-generated method stub
 				index = table.getSelectedRow();
 				//String n = (String) table.getValueAt(index, 0);
-				/*textField = new JTextField();
+				textField = new JTextField();
 				textField.setEditable(false);
 				textField.setHorizontalAlignment(SwingConstants.CENTER);
 				textField.setFont(new Font("Calibri", Font.PLAIN, 25));
 				textField.setBounds(332, 87, 141, 46);
 				textField.setText((String) table.getValueAt(index, 0));
 				layeredPane.add(textField);
-				textField.setColumns(10);*/
+				textField.setColumns(10);
 						
 				// Brew Button
 				JButton btnCheck = new JButton("Check");
@@ -135,7 +135,7 @@ public class CheckRecipesPage extends JFrame {
 	}
 	// Close current UI page
 	protected void closeThis() {
-		//contentPane.setVisible(false);
-		this.dispose();
+		contentPane.setVisible(false);
+		//this.dispose();
 	}
 }
