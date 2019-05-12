@@ -53,7 +53,6 @@ public class Note {
 	}
 	
 	public static ArrayList<Note> showAllNotes() {
-		ArrayList<Note> allNotes = Database.dbGetAllNotes();
-		return allNotes;
+		return Database.dbGetAllNotes();
 	}
 }
