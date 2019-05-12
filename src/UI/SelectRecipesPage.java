@@ -99,14 +99,14 @@ public class SelectRecipesPage extends JFrame {
 			public void valueChanged(ListSelectionEvent arg0) {
 				// TODO Auto-generated method stub
 				index = table.getSelectedRow();
-				textField = new JTextField();
+				/*textField = new JTextField();
 				textField.setEditable(false);
 				textField.setHorizontalAlignment(SwingConstants.CENTER);
 				textField.setFont(new Font("Calibri", Font.PLAIN, 25));
 				textField.setBounds(332, 87, 141, 46);
 				textField.setText((String) table.getValueAt(index, 0));
 				layeredPane.add(textField);
-				textField.setColumns(10);
+				textField.setColumns(10);*/
 				
 				// Brew Button
 				JButton btnBrew = new JButton("Brew");

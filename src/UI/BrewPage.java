@@ -58,6 +58,9 @@ public class BrewPage extends JFrame {
 		lblBatchSizeL.setBounds(24, 191, 533, 47);
 		contentPane.add(lblBatchSizeL);
 		
+		BrewController EquipController = new BrewController();
+		float capacity= EquipController.getCapacity();
+		
 		textField = new JTextField();
 		textField.setFont(new Font("Calibri", Font.PLAIN, 20));
 		textField.setBounds(234, 201, 86, 29);
@@ -93,14 +96,12 @@ public class BrewPage extends JFrame {
 						float batch = Integer.parseInt(cBatch);
 						if(batch < 0) {
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+						}else if(batch > capacity) {
+							JOptionPane.showMessageDialog(null,"Can't brew more than "+capacity+" L!","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
 							ArrayList<String> RecipeList = new ArrayList<String>();
-							//BrewController controller = new BrewController();
-							//RecipeList = controller.recommandRecipe(batch);
-							RecipeList.add("Recipe 1");
-							RecipeList.add("Recipe 2");
-							RecipeList.add("Recipe 3");
-							RecipeList.add("Recipe 4");
+							BrewController controller = new BrewController();
+							RecipeList = controller.recommandRecipe(batch);
 							int length = RecipeList.size();
 							
 							if(length > 0) {
