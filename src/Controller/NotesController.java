@@ -1,5 +1,7 @@
 package Controller;
 
+import java.util.ArrayList;
+
 import mainPart.Note;
 
 public class NotesController {
@@ -7,7 +9,7 @@ public class NotesController {
 		
 	}
 	
-	public boolean addNote(String title, String content) {
-		return Note.addNote(title, content);
+	public ArrayList<Note> showNote(){
+		return Note.showNote();
 	}
 }
