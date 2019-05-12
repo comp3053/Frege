@@ -33,7 +33,7 @@ public class NotesWritePage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			private String Date;
 			private String Recipe;
@@ -48,12 +48,12 @@ public class NotesWritePage extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public NotesWritePage() {
+	public NotesWritePage(String RecipeName, float batchSize) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -102,12 +102,12 @@ public class NotesWritePage extends JFrame {
 					if(Recipe == null) {
 						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
-						new NotesWritePage().setVisible(true);
+						new NotesWritePage(RecipeName, batchSize).setVisible(true);
 					}else {
 						// pass the title and content of notes
 						NotesWriteController controller = new NotesWriteController();
-						controller.addNote(Recipe, Content);
-						boolean add = controller.addNote(Recipe, Content);
+						controller.addNote(RecipeName, batchSize, Content);
+						boolean add = controller.addNote(RecipeName, batchSize, Content);
 						if(add) {
 							JOptionPane.showMessageDialog(null, "Success!");
 							closeThis();
@@ -115,7 +115,7 @@ public class NotesWritePage extends JFrame {
 						}else {
 							JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
 							closeThis();
-							new NotesWritePage().setVisible(true);
+							new NotesWritePage(RecipeName, batchSize).setVisible(true);
 						}
 					}
 			}catch(NullPointerException ex) {
