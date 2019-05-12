@@ -49,7 +49,7 @@ public class ConfirmBrewPage extends JFrame {
 				if(check) {
 					JOptionPane.showMessageDialog(null, "Success!");
 					closeThis();
-					new HomePage();
+					new NotesWritePage().setVisible(true);
 				}else {
 					JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
 					closeThis();

@@ -89,7 +89,7 @@ public class EquipmentUpdatePage extends JFrame {
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
 							EquipmentUpdateController controller = new EquipmentUpdateController();
-							boolean check = controller.equals(l);
+							boolean check = controller.updateEquipment(l);
 							
 							if(check) {
 								JOptionPane.showMessageDialog(null, "Success!");
