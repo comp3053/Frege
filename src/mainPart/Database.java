@@ -98,10 +98,8 @@ public class Database {
         return result;
     }
     
-    public static boolean dbUpdateCapacity(Equipment equipment) {
-    	String name = equipment.getName();
-	    float capacity = equipment.getCapacity();
-		String sql = "UPDATE Equipment SET Capacity = " + capacity + " WHERE name = \"" + name + "\"";
+    public static boolean dbUpdateCapacity(float capacity) {
+		String sql = "UPDATE Equipment SET Capacity = " + capacity + " WHERE name = \"Frege\"";
 		System.out.println(sql);
 		Connection conn = null;
 		Statement stmt = null;
