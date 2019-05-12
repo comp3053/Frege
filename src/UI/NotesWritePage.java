@@ -104,7 +104,7 @@ public class NotesWritePage extends JFrame {
 						closeThis();
 						new NotesWritePage().setVisible(true);
 					}else {
-						// pass the title and content of note
+						// pass the title and content of notes
 						NotesWriteController controller = new NotesWriteController();
 						controller.addNote(Recipe, Content);
 						boolean add = controller.addNote(Recipe, Content);
