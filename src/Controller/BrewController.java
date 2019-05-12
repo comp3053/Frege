@@ -2,6 +2,7 @@ package Controller;
 
 import java.util.ArrayList;
 
+import mainPart.Equipment;
 import mainPart.Recipe;
 
 public class BrewController {
