@@ -7,10 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.BrewController;
+import Controller.EquipmentUpdateController;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.SwingConstants;
 import javax.swing.JLayeredPane;
@@ -65,13 +70,41 @@ public class EquipmentUpdatePage extends JFrame {
 		label.setBounds(220, 85, 44, 18);
 		layeredPane.add(label);
 		
+		String cEquipment = textField.getText().trim();
+		
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Success!");
-				closeThis();
-				new EquipmentPage().setVisible(true);;
+				if(cEquipment.equals("")) {
+					//warning
+					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+					closeThis();
+					new EquipmentUpdatePage().setVisible(true);
+				}else {
+					try {
+						float l = Integer.parseInt(cEquipment);
+						if(l < 0) {
+							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+						}else {
+							EquipmentUpdateController controller = new EquipmentUpdateController();
+							boolean check = controller.equals(l);
+							
+							if(check) {
+								JOptionPane.showMessageDialog(null, "Success!");
+								closeThis();
+								new EquipmentPage().setVisible(true);
+							}else {
+								JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
+								closeThis();
+								new EquipmentPage().setVisible(true);
+							}
+						}
+					}catch(NumberFormatException ex) {
+						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+					}	
+				}
+				
 			}
 		});
 		btnUpdate.setBounds(90, 311, 150, 45);
