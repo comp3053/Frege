@@ -1,21 +1,28 @@
 package UI;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.Window.Type;
+
+
 
 public class HomePage {
 
-	private JFrame frame;
+	private JFrame frmBrewdayfrege;
 
 	/**
 	 * Launch the application.
@@ -25,7 +32,7 @@ public class HomePage {
 			public void run() {
 				try {
 					HomePage window = new HomePage();
-					window.frame.setVisible(true);
+					window.frmBrewdayfrege.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,31 +51,35 @@ public class HomePage {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 600, 430);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setVisible(true);
+		
+		frmBrewdayfrege = new JFrame();
+		frmBrewdayfrege.getContentPane().setBackground(new Color(255, 255, 255));
+		frmBrewdayfrege.setTitle("BrewDay! [Frege]");
+		frmBrewdayfrege.setBounds(100, 100, 600, 430);
+		frmBrewdayfrege.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBrewdayfrege.getContentPane().setLayout(null);
+		frmBrewdayfrege.setVisible(true);
 		
 		// Put in center
-		int windowWidth = frame.getWidth();
-		int windowHeight = frame.getHeight();
+		int windowWidth = frmBrewdayfrege.getWidth();
+		int windowHeight = frmBrewdayfrege.getHeight();
 		Toolkit kit = Toolkit.getDefaultToolkit();
 		Dimension screenSize = kit.getScreenSize();
 		int screenWidth = screenSize.width;
 		int screenHeight = screenSize.height;
-		frame.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
+		frmBrewdayfrege.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
 		
 		JLabel lblBrewDay = new JLabel("Brew Day!");
+		lblBrewDay.setForeground(new Color(153, 50, 204));
 		lblBrewDay.setFont(new Font("Calibri", Font.BOLD, 35));
 		lblBrewDay.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBrewDay.setBounds(188, 67, 187, 65);
-		frame.getContentPane().add(lblBrewDay);
+		frmBrewdayfrege.getContentPane().add(lblBrewDay);
 		
-		JButton btnRecipes = new JButton("Recipes");
+		MyRoundButton btnRecipes = new MyRoundButton("Recipes",new Color(151, 112, 212), new Color(164, 135, 217));
 		btnRecipes.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnRecipes.setBounds(57, 145, 201, 39);
-		frame.getContentPane().add(btnRecipes);
+		frmBrewdayfrege.getContentPane().add(btnRecipes);
 		btnRecipes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
@@ -76,10 +87,10 @@ public class HomePage {
 			}
 		});
 		
-		JButton btnIngredients = new JButton("Ingredients");
+		MyRoundButton btnIngredients = new MyRoundButton("Ingredients",new Color(151, 112, 212), new Color(164, 135, 217));
 		btnIngredients.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnIngredients.setBounds(321, 145, 204, 39);
-		frame.getContentPane().add(btnIngredients);
+		frmBrewdayfrege.getContentPane().add(btnIngredients);
 		btnIngredients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
@@ -87,10 +98,10 @@ public class HomePage {
 			}
 		});
 		
-		JButton btnBrew = new JButton("Brew");
+		MyRoundButton btnBrew = new MyRoundButton("Brew",new Color(151, 112, 212), new Color(164, 135, 217));
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnBrew.setBounds(188, 208, 204, 39);
-		frame.getContentPane().add(btnBrew);
+		frmBrewdayfrege.getContentPane().add(btnBrew);
 		btnBrew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
@@ -98,10 +109,10 @@ public class HomePage {
 			}
 		});
 		
-		JButton btnNotes = new JButton("Notes");
+		MyRoundButton btnNotes = new MyRoundButton("Notes",new Color(151, 112, 212), new Color(164, 135, 217));
 		btnNotes.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnNotes.setBounds(57, 270, 204, 39);
-		frame.getContentPane().add(btnNotes);
+		frmBrewdayfrege.getContentPane().add(btnNotes);
 		btnNotes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
@@ -109,10 +120,10 @@ public class HomePage {
 			}
 		});
 		
-		JButton btnEquipemnt = new JButton("Equipemnt");
+		MyRoundButton btnEquipemnt = new MyRoundButton("Equipemnt",new Color(151, 112, 212), new Color(164, 135, 217));
 		btnEquipemnt.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnEquipemnt.setBounds(321, 270, 204, 39);
-		frame.getContentPane().add(btnEquipemnt);
+		frmBrewdayfrege.getContentPane().add(btnEquipemnt);
 		btnEquipemnt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
@@ -124,6 +135,6 @@ public class HomePage {
 	// Close current UI page
 	protected void closeThis() {
 		//frame.setVisible(false);
-		frame.dispose();
+		frmBrewdayfrege.dispose();
 	}
 }
