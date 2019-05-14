@@ -52,40 +52,27 @@ public class NotesPage extends JFrame {
 		layeredPane.setBounds(29, 67, 524, 290);
 		contentPane.add(layeredPane);
 		
-		JLabel lblDate = new JLabel("Date");
-		lblDate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDate.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblDate.setBounds(14, 13, 137, 31);
-		layeredPane.add(lblDate);
-		
-		JLabel lblRecipe = new JLabel("Recipe");
-		lblRecipe.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRecipe.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblRecipe.setBounds(191, 13, 144, 31);
-		layeredPane.add(lblRecipe);
-		
-		JLabel lblTitle = new JLabel("Title");
-		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblTitle.setBounds(367, 13, 143, 31);
-		layeredPane.add(lblTitle);
 		
 		DefaultTableModel tableModel=new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
 				return false;
 			}
 		};	
+		tableModel.addColumn("Date");
+		tableModel.addColumn("Recipe");
+		tableModel.addColumn("Title");
+
+		
 		
 		NotesController controller = new NotesController();
 		ArrayList<Note> note = controller.showNote();
-		int size = note.size(); 
-		System.out.println(size);
-        for(int i = 0;i < size;i++) {
-        	Vector v = new Vector();
-        	v.add(note.get(i).getDate());
-        	v.add(note.get(i).getRecipeName());
-        	v.add(note.get(i).getTitle());
-        	tableModel.addRow(v);     	
+        for(int i = 0;i < note.size();i++) {
+        	Vector row = new Vector();
+        	Vector vData = new Vector();
+        	vData.add(note.get(i).getDate());
+        	vData.add(note.get(i).getRecipeName());
+        	vData.add(note.get(i).getTitle());
+        	tableModel.addRow(vData);  	
         }
         
         // Table
@@ -104,8 +91,9 @@ public class NotesPage extends JFrame {
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
 				index = table.getSelectedRow();
+				System.out.println(index);
 				closeThis();
-				new NoteCheckPage(controller.showNote().get(index).getDate(), controller.showNote().get(index).getRecipeName(), controller.showNote().get(index).getTitle(), controller.showNote().get(index).getContent()).setVisible(true);
+				new NoteCheckPage(note.get(index).getDate(), note.get(index).getRecipeName(), note.get(index).getTitle(), note.get(index).getContent()).setVisible(true);
 			}
 		});
 		
