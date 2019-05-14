@@ -49,33 +49,40 @@ public class EquipmentUpdatePage extends JFrame {
 		contentPane.add(lblEquipment);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(90, 119, 407, 181);
+		layeredPane.setBounds(14, 121, 554, 181);
 		contentPane.add(layeredPane);
 		
 		JLabel lblCapacity = new JLabel("Capacity:");
-		lblCapacity.setBounds(39, 72, 112, 40);
+		lblCapacity.setBounds(14, 71, 151, 40);
 		layeredPane.add(lblCapacity);
 		lblCapacity.setFont(new Font("Calibri", Font.BOLD, 25));
 		lblCapacity.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		EquipmentController controller1 = new EquipmentController();
 		textField = new JTextField();
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField.setFont(new Font("Calibri", Font.PLAIN, 20));
-		textField.setBounds(264, 74, 65, 38);
-		textField.setText(Float.toString(controller1.getCapacity()));
+		textField.setBounds(353, 74, 101, 38);
 		layeredPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblLiters = new JLabel("liters");
 		lblLiters.setFont(new Font("Calibri", Font.PLAIN, 18));
-		lblLiters.setBounds(335, 85, 58, 18);
+		lblLiters.setBounds(468, 85, 72, 18);
 		layeredPane.add(lblLiters);
 		
 		JLabel label = new JLabel("\u2192");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setFont(new Font("Calibri", Font.PLAIN, 18));
-		label.setBounds(220, 85, 44, 18);
+		label.setBounds(299, 84, 44, 18);
 		layeredPane.add(label);
+		
+		EquipmentController controller1 = new EquipmentController();
+		JLabel lblNumber = new JLabel("number");
+		lblNumber.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNumber.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblNumber.setBounds(191, 71, 94, 40);
+		lblNumber.setText(Float.toString(controller1.getCapacity()));
+		layeredPane.add(lblNumber);
 		
 		
 		JButton btnUpdate = new JButton("Update");

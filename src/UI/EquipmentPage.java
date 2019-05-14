@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Controller.EquipmentController;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
@@ -32,10 +35,18 @@ public class EquipmentPage extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Equipment");
-		lblNewLabel.setBounds(204, 122, 176, 70);
+		lblNewLabel.setBounds(165, 89, 254, 71);
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblCapacity = new JLabel("Capacity:");
+		lblCapacity.setBounds(59, 193, 179, 40);
+		contentPane.add(lblCapacity);
+		lblCapacity.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblCapacity.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		
 		
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
@@ -58,6 +69,14 @@ public class EquipmentPage extends JFrame {
 		});
 		btnHome.setBounds(460, 28, 89, 27);
 		contentPane.add(btnHome);
+		
+		EquipmentController controller1 = new EquipmentController();
+		JLabel lblNumber = new JLabel("number");
+		lblNumber.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNumber.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblNumber.setBounds(281, 193, 169, 40);
+		lblNumber.setText(Float.toString(controller1.getCapacity()));
+		contentPane.add(lblNumber);
 	}
 	// Close current UI page
 	protected void closeThis() {
