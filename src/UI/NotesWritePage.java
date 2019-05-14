@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -23,6 +25,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JEditorPane;
+import javax.swing.JList;
 
 public class NotesWritePage extends JFrame {
 
@@ -30,6 +33,7 @@ public class NotesWritePage extends JFrame {
 	private String Date;
 	private String Recipe;
 	private String Content;
+	private JTextField textField;
 
 	/**
 	 * Create the frame.
@@ -46,7 +50,7 @@ public class NotesWritePage extends JFrame {
 		JLabel lblNote = new JLabel("Note");
 		lblNote.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNote.setFont(new Font("Calibri", Font.BOLD, 30));
-		lblNote.setBounds(219, 13, 153, 46);
+		lblNote.setBounds(217, 0, 153, 46);
 		contentPane.add(lblNote);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -54,56 +58,81 @@ public class NotesWritePage extends JFrame {
 		contentPane.add(layeredPane);
 		
 		JLabel lblRecipe = new JLabel("Recipe");
-		lblRecipe.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRecipe.setHorizontalAlignment(SwingConstants.LEFT);
 		lblRecipe.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblRecipe.setBounds(0, 46, 105, 32);
+		lblRecipe.setBounds(16, 14, 94, 32);
 		layeredPane.add(lblRecipe);
 		
+		JLabel lblTitle = new JLabel("Title");
+        lblTitle.setHorizontalAlignment(SwingConstants.LEFT);
+        lblTitle.setFont(new Font("Calibri", Font.PLAIN, 25));
+        lblTitle.setBounds(16, 49, 94, 32);
+        layeredPane.add(lblTitle);
+		
 		JLabel lblContent = new JLabel("Content");
-		lblContent.setHorizontalAlignment(SwingConstants.CENTER);
+		lblContent.setHorizontalAlignment(SwingConstants.LEFT);
 		lblContent.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblContent.setBounds(0, 79, 105, 32);
+		lblContent.setBounds(16, 83, 99, 32);
 		layeredPane.add(lblContent);
         
-        JTextField RecipeVal = new JTextField(Recipe);
+		JTextField RecipeVal = new JTextField(Recipe);
         RecipeVal.setFont(new Font("Calibri", Font.PLAIN, 20));
         RecipeVal.setPreferredSize(new Dimension(100, 23));
-        RecipeVal.setBounds(118, 46, 367, 32);
+        RecipeVal.setBounds(118, 14, 367, 32);
         RecipeVal.setText(RecipeName);
         layeredPane.add(RecipeVal);
         RecipeVal.setEditable(false);
         
-        JTextField ContentVal = new JTextField(Content);
-        ContentVal.setFont(new Font("Calibri", Font.PLAIN, 20));
-        ContentVal.setPreferredSize(new Dimension(100, 23));
-        ContentVal.setBounds(119, 79, 367, 162);
-        layeredPane.add(ContentVal);
+        // Title
+        JTextField TitleVal = new JTextField();
+        TitleVal.setFont(new Font("Calibri", Font.PLAIN, 20));
+        TitleVal.setBounds(118, 49, 367, 32);
+        layeredPane.add(TitleVal);
+        TitleVal.setColumns(10);
         
+        JLayeredPane layeredPane2 = new JLayeredPane();
+        layeredPane2.setBounds(118, 84, 367, 174);
+        layeredPane.add(layeredPane2);
+        JTextArea ContentVal = new JTextArea(4, 180);
+        ContentVal.setFont(new Font("Calibri", Font.PLAIN, 20)); 
+        ContentVal.setLineWrap(true);
+        JScrollPane scr = new JScrollPane(ContentVal, 
+        								// Hide the horizontal scroll bar policy
+        								JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+        								JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        layeredPane2.setLayout(new BorderLayout());
+        layeredPane2.add(scr, BorderLayout.CENTER);
 		
         JButton btnSave = new JButton("Save");
         btnSave.setFont(new Font("Calibri", Font.PLAIN, 25));
         btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					if( ContentVal.getText()== null) {
+					if(TitleVal.getText() == null) {
 						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
-						closeThis();
-						new NotesWritePage(RecipeName, batchSize).setVisible(true);
+					}else if(TitleVal.getText().length() > 20){
+						JOptionPane.showMessageDialog(null,"Input Title is too long!","Warning",JOptionPane.ERROR_MESSAGE);
 					}else {
-						// pass the title and content of notes
-						NotesWriteController controller = new NotesWriteController();
-						//controller.addNote(RecipeName, batchSize, ContentVal.getText());
-						boolean add = controller.addNote(RecipeName, batchSize, ContentVal.getText());
-						if(add) {
-							JOptionPane.showMessageDialog(null, "Success!");
-							closeThis();
-							new HomePage();
+						if( ContentVal.getText()== null) {
+							JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+						
 						}else {
-							JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
-							closeThis();
-							new NotesWritePage(RecipeName, batchSize).setVisible(true);
+							// pass the title and content of notes
+							NotesWriteController controller = new NotesWriteController();
+							//controller.addNote(RecipeName, batchSize, ContentVal.getText());
+							boolean add = controller.addNote(RecipeName, TitleVal.getText(),batchSize, ContentVal.getText());
+							if(add) {
+								JOptionPane.showMessageDialog(null, "Success!");
+								closeThis();
+								new HomePage();
+							}else {
+								JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
+								closeThis();
+								new NotesWritePage(RecipeName, batchSize).setVisible(true);
+							}
 						}
 					}
+					
 			}catch(NullPointerException ex) {
 				JOptionPane.showMessageDialog(null,"Please input right information!","Warning",JOptionPane.ERROR_MESSAGE);
 			}
