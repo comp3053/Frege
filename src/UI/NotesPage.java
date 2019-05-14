@@ -16,6 +16,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.NotesController;
+import mainPart.Note;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.SwingConstants;
@@ -75,12 +77,13 @@ public class NotesPage extends JFrame {
 		};	
 		
 		NotesController controller = new NotesController();
-        for(int i = 0;i < controller.showNote().size();i++) {
+		ArrayList<Note> note = controller.showNote();
+        for(int i = 0;i < note.size();i++) {
         	Vector v = new Vector();
-        	Date Date = controller.showNote().get(i).getDate();
-        	String Recipe = controller.showNote().get(i).getRecipeName();
-        	String Title = controller.showNote().get(i).getTitle();
-        	String Content = controller.showNote().get(i).getContent();
+        	Date Date = note.get(i).getDate();
+        	String Recipe = note.get(i).getRecipeName();
+        	String Title = note.get(i).getTitle();
+        	String Content = note.get(i).getContent();
         	v.add(0, Date);
         	v.add(1, Recipe);
         	v.add(2, Content);
