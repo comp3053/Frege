@@ -36,17 +36,9 @@ public class IngredientSubtractPage extends JFrame {
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		// Put in center
-		int windowWidth = contentPane.getWidth();
-		int windowHeight = contentPane.getHeight();
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
-		int screenWidth = screenSize.width;
-		int screenHeight = screenSize.height;
-		contentPane.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
 		
 		JLabel lblAddIngredientList = new JLabel("Subtract Ingredient List");
 		lblAddIngredientList.setBounds(14, 13, 303, 27);
