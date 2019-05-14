@@ -71,9 +71,9 @@ public class HomePage {
 		
 		JLabel lblBrewDay = new JLabel("Brew Day!");
 		lblBrewDay.setForeground(new Color(153, 50, 204));
-		lblBrewDay.setFont(new Font("Calibri", Font.BOLD, 35));
+		lblBrewDay.setFont(new Font("Lithos Pro Regular", Font.BOLD, 40));
 		lblBrewDay.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBrewDay.setBounds(188, 67, 187, 65);
+		lblBrewDay.setBounds(130, 41, 310, 91);
 		frmBrewdayfrege.getContentPane().add(lblBrewDay);
 		
 		MyRoundButton btnRecipes = new MyRoundButton("Recipes",new Color(151, 112, 212), new Color(164, 135, 217));
