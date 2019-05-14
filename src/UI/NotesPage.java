@@ -84,9 +84,9 @@ public class NotesPage extends JFrame {
         	String Recipe = note.get(i).getRecipeName();
         	String Title = note.get(i).getTitle();
         	String Content = note.get(i).getContent();
-        	v.add(0, Date);
-        	v.add(1, Recipe);
-        	v.add(2, Content);
+        	v.add(Date);
+        	//v.add(1, Recipe);
+        	//v.add(2, Content);
         	tableModel.addRow(v);     	
         }
         
