@@ -94,6 +94,7 @@ public class NotesWritePage extends JFrame {
 		layeredPane.add(lblContent);
         
         JTextField RecipeVal = new JTextField(Recipe);
+        RecipeVal.setFont(new Font("Calibri", Font.PLAIN, 20));
         RecipeVal.setPreferredSize(new Dimension(100, 23));
         RecipeVal.setBounds(118, 46, 367, 32);
         RecipeVal.setText(RecipeName);
@@ -101,6 +102,7 @@ public class NotesWritePage extends JFrame {
         RecipeVal.setEditable(false);
         
         JTextField ContentVal = new JTextField(Content);
+        ContentVal.setFont(new Font("Calibri", Font.PLAIN, 20));
         ContentVal.setPreferredSize(new Dimension(100, 23));
         ContentVal.setBounds(119, 79, 367, 162);
         layeredPane.add(ContentVal);
