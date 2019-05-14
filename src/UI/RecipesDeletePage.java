@@ -13,11 +13,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import java.awt.Choice;
+import java.awt.Dimension;
+
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 
@@ -36,6 +39,15 @@ public class RecipesDeletePage extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		// Put in center
+		int windowWidth = contentPane.getWidth();
+		int windowHeight = contentPane.getHeight();
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = kit.getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+		contentPane.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
 		
 		JLabel lblDeleteRecipe = new JLabel("Delete Recipe");
 		lblDeleteRecipe.setFont(new Font("Calibri", Font.BOLD, 30));

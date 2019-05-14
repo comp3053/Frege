@@ -1,5 +1,6 @@
 package UI;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Panel;
+import java.awt.Toolkit;
 import java.awt.Label;
 
 public class RecipePage {
@@ -33,6 +35,15 @@ public class RecipePage {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
+		
+		// Put in center
+		int windowWidth = frame.getWidth();
+		int windowHeight = frame.getHeight();
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = kit.getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+		frame.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
 		
 		JLabel lblRecipes = new JLabel("Recipes");
 		lblRecipes.setHorizontalAlignment(SwingConstants.CENTER);

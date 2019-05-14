@@ -1,11 +1,13 @@
 package UI;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -47,6 +49,15 @@ public class HomePage {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
+		
+		// Put in center
+		int windowWidth = frame.getWidth();
+		int windowHeight = frame.getHeight();
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = kit.getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+		frame.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
 		
 		JLabel lblBrewDay = new JLabel("Brew Day!");
 		lblBrewDay.setFont(new Font("Calibri", Font.BOLD, 35));

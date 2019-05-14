@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -15,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -39,6 +41,15 @@ public class BrewPage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.setVisible(true);
+		
+		// Put in center
+		int windowWidth = contentPane.getWidth();
+		int windowHeight = contentPane.getHeight();
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = kit.getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+		contentPane.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
 		
 		JLabel lblBrew = new JLabel("Brew");
 		lblBrew.setHorizontalAlignment(SwingConstants.CENTER);

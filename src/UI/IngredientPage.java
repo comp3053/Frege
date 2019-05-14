@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -11,6 +12,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.Label;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,6 +31,15 @@ public class IngredientPage extends JFrame {
 		contentPane.setVisible(true);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		// Put in center
+		int windowWidth = contentPane.getWidth();
+		int windowHeight = contentPane.getHeight();
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = kit.getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+		contentPane.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
 		
 		JLabel lblIngredient = new JLabel("Ingredient");
 		lblIngredient.setHorizontalAlignment(SwingConstants.CENTER);

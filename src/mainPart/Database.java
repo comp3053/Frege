@@ -13,13 +13,13 @@ import UI.HomePage;
  
 public class Database {
  
-    // JDBC 驱动名及数据库 URL
+    // JDBC 椹卞姩鍚嶅強鏁版嵁搴� URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
     static final String DB_URL = "jdbc:mysql://localhost:3306/BrewDay";
  
-    // 数据库的用户名与密码，需要根据自己的设置
+    // 鏁版嵁搴撶殑鐢ㄦ埛鍚嶄笌瀵嗙爜锛岄渶瑕佹牴鎹嚜宸辩殑璁剧疆
     static final String USER = "root";
-    static final String PASS = "xiaocong310";
+    static final String PASS = "131032";
  
     public static boolean dbNewRecipe(String recipeName, float recipeQuantity, String recipeUnit, ArrayList<RecipeIngredient> ingredients) {
     	int recipeID = 0;
@@ -29,13 +29,13 @@ public class Database {
     	boolean flag = true;
     	
         try{
-            // 注册 JDBC 驱动
+            // 娉ㄥ唽 JDBC 椹卞姩
             Class.forName(JDBC_DRIVER);
 
-            // 打开链接
+            // 鎵撳紑閾炬帴
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
-            // 执行查询
+            // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    stmt.executeUpdate(sql);
 		    
@@ -47,7 +47,7 @@ public class Database {
             	flag = dbNewRecipeIngredient(recipeID,ingredients.get(i));
             }
 
-            // 完成后关闭
+            // 瀹屾垚鍚庡叧闂�
             stmt.close();
             conn.close();
             
@@ -73,17 +73,17 @@ public class Database {
     	Connection conn = null;
     	
         try{
-            // 注册 JDBC 驱动
+            // 娉ㄥ唽 JDBC 椹卞姩
             Class.forName(JDBC_DRIVER);
 
-            // 打开链接
+            // 鎵撳紑閾炬帴
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
-            // 执行查询
+            // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    stmt.executeUpdate(sql);
 
-            // 完成后关闭
+            // 瀹屾垚鍚庡叧闂�
             stmt.close();
             conn.close();
             
@@ -105,17 +105,17 @@ public class Database {
 		Statement stmt = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    stmt = conn.createStatement();
 		    stmt.executeUpdate(sql); 
 		
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		    
@@ -136,13 +136,13 @@ public class Database {
 		Connection conn = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 		    
@@ -150,7 +150,7 @@ public class Database {
 		    while(rs.next()) {
 		    	capacity  = rs.getFloat("Capacity");
 		    }
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		   
@@ -172,17 +172,17 @@ public class Database {
 		Statement stmt = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    stmt = conn.createStatement();
 		    stmt.executeUpdate(sql); 
 		
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		    
@@ -205,17 +205,17 @@ public class Database {
 		Statement stmt = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    stmt = conn.createStatement(  );
 		    stmt.executeUpdate(sql); 
 		
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		    
@@ -243,13 +243,13 @@ public class Database {
 		int noteID = 0;
     	
         try{
-            // 注册 JDBC 驱动
+            // 娉ㄥ唽 JDBC 椹卞姩
             Class.forName(JDBC_DRIVER);
 
-            // 打开链接
+            // 鎵撳紑閾炬帴
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
-            // 执行查询
+            // 鎵ц鏌ヨ
             
             
 		    stmt = conn.createStatement();
@@ -261,7 +261,7 @@ public class Database {
 		        // throw an exception from here  
 		    }  
 		    
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
         } catch(SQLException e)
@@ -280,13 +280,13 @@ public class Database {
 		Connection conn = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 		    
@@ -294,7 +294,7 @@ public class Database {
 		    while(rs.next()) {
 			    quantity  = rs.getFloat("Quantity");
 		    }
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		   
@@ -316,13 +316,13 @@ public class Database {
 		Connection conn = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 		    
@@ -332,7 +332,7 @@ public class Database {
 			    res.add(quantity);
 			    System.out.println(quantity);
 		    }
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		   
@@ -353,13 +353,13 @@ public class Database {
 		Connection conn = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 		    
@@ -367,7 +367,7 @@ public class Database {
 		    while(rs.next()) {
 			    id  = rs.getInt("id");
 		    }
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		   
@@ -392,17 +392,17 @@ public class Database {
 		Statement stmt = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    stmt = conn.createStatement(  );
 		    stmt.executeUpdate(sql); 
 		
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		    
@@ -423,13 +423,13 @@ public class Database {
 		Connection conn = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 		    
@@ -438,7 +438,7 @@ public class Database {
 			    quantity  = rs.getFloat("Capacity");
 			    System.out.println(quantity);
 		    }
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		   
@@ -460,13 +460,13 @@ public class Database {
 		Connection conn = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 		    
@@ -475,7 +475,7 @@ public class Database {
 			    id = rs.getInt("id");
 			    res.add(id);
 		    }
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		   
@@ -496,13 +496,13 @@ public class Database {
 		Connection conn = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 		    
@@ -510,7 +510,7 @@ public class Database {
 		    while(rs.next()) {
 			    name = rs.getString("RecipeName");
 		    }
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		   
@@ -532,13 +532,13 @@ public class Database {
 		Connection conn = null;
 		
 		try{
-		    // 注册 JDBC 驱动
+		    // 娉ㄥ唽 JDBC 椹卞姩
 		    Class.forName(JDBC_DRIVER);
 		
-		    // 打开链接
+		    // 鎵撳紑閾炬帴
 		    conn = DriverManager.getConnection(DB_URL,USER,PASS);
 		
-		    // 执行查询
+		    // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    ResultSet rs = stmt.executeQuery(sql);
 		    
@@ -549,7 +549,7 @@ public class Database {
 			    Note note = new Note(title, date, content);
 			    allNotes.add(note);
 		    }
-		    // 完成后关闭
+		    // 瀹屾垚鍚庡叧闂�
 		    stmt.close();
 		    conn.close();
 		   
@@ -570,17 +570,17 @@ public class Database {
     	Connection conn = null;
     	
         try{
-            // 注册 JDBC 驱动
+            // 娉ㄥ唽 JDBC 椹卞姩
             Class.forName(JDBC_DRIVER);
 
-            // 打开链接
+            // 鎵撳紑閾炬帴
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
-            // 执行查询
+            // 鎵ц鏌ヨ
 		    Statement stmt = conn.createStatement();
 		    stmt.executeUpdate(sql);
 
-            // 完成后关闭
+            // 瀹屾垚鍚庡叧闂�
             stmt.close();
             conn.close();
             

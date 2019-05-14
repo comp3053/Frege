@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 
@@ -26,6 +27,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import java.awt.ScrollPane;
+import java.awt.Toolkit;
+
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JDesktopPane;
@@ -56,6 +59,15 @@ public class IngredientAddPage extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		// Put in center
+		int windowWidth = contentPane.getWidth();
+		int windowHeight = contentPane.getHeight();
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = kit.getScreenSize();
+		int screenWidth = screenSize.width;
+		int screenHeight = screenSize.height;
+		contentPane.setLocation(screenWidth/2-windowWidth/2, screenHeight/2-windowHeight/2);
 		
 		JLabel lblAddIngredientList = new JLabel("Add Ingredient List");
 		lblAddIngredientList.setBounds(14, 13, 303, 27);
