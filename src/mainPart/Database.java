@@ -239,6 +239,7 @@ public class Database {
     	System.out.println(sql);
     	Connection conn = null;
 		Statement stmt = null;
+		ResultSet rs = null; 
 		int noteID = 0;
     	
         try{
@@ -249,9 +250,17 @@ public class Database {
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
         
             // 执行查询
+            
+            
 		    stmt = conn.createStatement();
-		    noteID = stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
-		
+		    stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+		    rs = stmt.getGeneratedKeys();
+		    if (rs.next()) {  
+		        noteID = rs.getInt(1);  
+		    }  else {  
+		        // throw an exception from here  
+		    }  
+		    
 		    // 完成后关闭
 		    stmt.close();
 		    conn.close();
@@ -592,7 +601,8 @@ public class Database {
 //		} else {
 //			System.out.println(Recipe.recommendRecipe(1));
 //		}
-		System.out.println(Note.addNote("test", 20, "None!"));
+		Note note = new Note("zy", "gggg");
+		System.out.println(dbAddNote(note));
 	}
 
 }
