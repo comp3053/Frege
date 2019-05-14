@@ -62,11 +62,11 @@ public class NotesPage extends JFrame {
 		lblRecipe.setBounds(218, 13, 79, 31);
 		layeredPane.add(lblRecipe);
 		
-		JLabel lblContent = new JLabel("Content");
-		lblContent.setHorizontalAlignment(SwingConstants.CENTER);
-		lblContent.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblContent.setBounds(367, 13, 95, 31);
-		layeredPane.add(lblContent);
+		JLabel lblTitle = new JLabel("Title");
+		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitle.setFont(new Font("Calibri", Font.PLAIN, 25));
+		lblTitle.setBounds(367, 13, 95, 31);
+		layeredPane.add(lblTitle);
 		
 		DefaultTableModel tableModel=new DefaultTableModel() {
 			public boolean isCellEditable(int row, int column) {
@@ -78,7 +78,8 @@ public class NotesPage extends JFrame {
         for(int i = 0;i < controller.showNote().size();i++) {
         	Vector v = new Vector();
         	Date Date = controller.showNote().get(i).getDate();
-        	String Recipe = controller.showNote().get(i).getTitle();
+        	String Recipe = controller.showNote().get(i).getRecipeName();
+        	String Title = controller.showNote().get(i).getTitle();
         	String Content = controller.showNote().get(i).getContent();
         	v.add(0, Date);
         	v.add(1, Recipe);
@@ -95,6 +96,17 @@ public class NotesPage extends JFrame {
 		scroll.setEnabled(false);
 		scroll.setBounds(14, 43, 496, 223);
 		layeredPane.add(scroll);
+		table.setModel(tableModel);
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			int index;
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				index = table.getSelectedRow();
+				closeThis();
+				new NoteCheckPage(controller.showNote().get(index).getDate(), controller.showNote().get(index).getRecipeName(), controller.showNote().get(index).getTitle(), controller.showNote().get(index).getContent()).setVisible(true);
+			}
+		});
 		
 		JButton btnHome = new JButton("Home");
 		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
