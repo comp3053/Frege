@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Controller.BrewController;
+import Controller.EquipmentController;
 import Controller.EquipmentUpdateController;
 
 import javax.swing.JLabel;
@@ -57,9 +58,11 @@ public class EquipmentUpdatePage extends JFrame {
 		lblCapacity.setFont(new Font("Calibri", Font.BOLD, 25));
 		lblCapacity.setHorizontalAlignment(SwingConstants.CENTER);
 		
+		EquipmentController controller1 = new EquipmentController();
 		textField = new JTextField();
 		textField.setFont(new Font("Calibri", Font.PLAIN, 20));
 		textField.setBounds(264, 74, 65, 38);
+		textField.setText(Float.toString(controller1.getCapacity()));
 		layeredPane.add(textField);
 		textField.setColumns(10);
 		

@@ -43,7 +43,7 @@ public class Brew<recipes> {
 		for (int i = 0; i < 5 ; i++) {
 			StorageIngredient.subtractQuantity(ingredientName.get(i), recipeIngredients.get(i) * batchSize);
 		}
-		Database.dbBrew(Database.dbGetRecipeID(recipeName), noteID, batchSize);
+		Database.dbBrew(recipeID, noteID, batchSize);
 		return true;
 	}
 	
