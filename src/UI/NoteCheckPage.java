@@ -3,6 +3,7 @@ package UI;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JFrame;
@@ -43,9 +44,9 @@ public class NoteCheckPage extends JFrame {
 		lblDate.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDate.setFont(new Font("Calibri", Font.PLAIN, 25));
 		lblDate.setBounds(418, 54, 106, 42);
-		String DateText = "yyyy-MM-dd HH:mm:ss";
-		SimpleDateFormat sdf = new SimpleDateFormat(DateText);
-		lblDate.setText(sdf.format(DateText));
+		DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String outputText = outputFormat.format(Date);
+		lblDate.setText(outputText);
 		contentPane.add(lblDate);
 		
 		JLabel lblContent = new JLabel("Content");
