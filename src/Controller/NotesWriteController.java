@@ -7,7 +7,7 @@ public class NotesWriteController {
 		
 	}
 	
-	public boolean addNote(String recipeName, float batchSize, String content) {
-		return Note.addNote(recipeName, batchSize, content);
+	public boolean addNote(String recipeName, String title, float batchSize, String content) {
+		return Note.addNote(recipeName, title, batchSize, content);
 	}
 }
