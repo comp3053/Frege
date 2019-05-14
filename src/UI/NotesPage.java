@@ -53,19 +53,19 @@ public class NotesPage extends JFrame {
 		JLabel lblDate = new JLabel("Date");
 		lblDate.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDate.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblDate.setBounds(59, 13, 79, 31);
+		lblDate.setBounds(14, 13, 137, 31);
 		layeredPane.add(lblDate);
 		
 		JLabel lblRecipe = new JLabel("Recipe");
 		lblRecipe.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRecipe.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblRecipe.setBounds(218, 13, 79, 31);
+		lblRecipe.setBounds(191, 13, 144, 31);
 		layeredPane.add(lblRecipe);
 		
 		JLabel lblTitle = new JLabel("Title");
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitle.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblTitle.setBounds(367, 13, 95, 31);
+		lblTitle.setBounds(367, 13, 143, 31);
 		layeredPane.add(lblTitle);
 		
 		DefaultTableModel tableModel=new DefaultTableModel() {
@@ -122,7 +122,7 @@ public class NotesPage extends JFrame {
 		JLabel lblNotesPage = new JLabel("Notes Page");
 		lblNotesPage.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNotesPage.setFont(new Font("Calibri", Font.BOLD, 30));
-		lblNotesPage.setBounds(210, 13, 153, 46);
+		lblNotesPage.setBounds(149, 14, 246, 46);
 		contentPane.add(lblNotesPage);
 	}
 	// Close current UI page
