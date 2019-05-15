@@ -23,6 +23,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
+import java.awt.Color;
 
 public class IngredientCheckPage extends JFrame {
 
@@ -32,10 +33,12 @@ public class IngredientCheckPage extends JFrame {
 	 * Create the frame.
 	 */
 	public IngredientCheckPage(String Name, float batchSize) {
+		setTitle("BrewDay! [Frege]");
 		System.out.println(Name);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -312,7 +315,7 @@ public class IngredientCheckPage extends JFrame {
 		}
 		
 
-		JButton btnBrew = new JButton("Back");
+		MyRoundButton btnBrew = new MyRoundButton("Back");
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnBrew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -323,7 +326,7 @@ public class IngredientCheckPage extends JFrame {
 		btnBrew.setBounds(69, 311, 150, 45);
 		contentPane.add(btnBrew);
 		
-		JButton btnCancel = new JButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

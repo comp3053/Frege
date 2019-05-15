@@ -28,6 +28,7 @@ import java.util.Vector;
 
 import javax.swing.JLayeredPane;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class CheckRecipesPage extends JFrame {
 
@@ -40,9 +41,11 @@ public class CheckRecipesPage extends JFrame {
 	 * Create the frame.
 	 */
 	public CheckRecipesPage(float batchSize) {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -109,7 +112,7 @@ public class CheckRecipesPage extends JFrame {
 				String name = (String) table.getValueAt(index, 0);
 						
 				// Brew Button
-				JButton btnCheck = new JButton("Check");
+				MyRoundButton btnCheck = new MyRoundButton("Check");
 				btnCheck.setFont(new Font("Calibri", Font.PLAIN, 25));
 				btnCheck.setBounds(359, 183, 110, 43);
 				layeredPane.add(btnCheck);
@@ -127,7 +130,7 @@ public class CheckRecipesPage extends JFrame {
 		});
 
 		
-		JButton btnCancel = new JButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setBounds(208, 331, 150, 45);
 		contentPane.add(btnCancel);
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));

@@ -26,6 +26,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JEditorPane;
 import javax.swing.JList;
+import java.awt.Color;
 
 public class NotesWritePage extends JFrame {
 
@@ -39,9 +40,11 @@ public class NotesWritePage extends JFrame {
 	 * Create the frame.
 	 */
 	public NotesWritePage(String RecipeName, float batchSize) {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -103,7 +106,7 @@ public class NotesWritePage extends JFrame {
         layeredPane2.setLayout(new BorderLayout());
         layeredPane2.add(scr, BorderLayout.CENTER);
 		
-        JButton btnSave = new JButton("Save");
+        MyRoundButton btnSave = new MyRoundButton("Save");
         btnSave.setFont(new Font("Calibri", Font.PLAIN, 25));
         btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -141,7 +144,7 @@ public class NotesWritePage extends JFrame {
         btnSave.setBounds(90, 311, 150, 45);
 		contentPane.add(btnSave);
 		
-		JButton btnCancel = new JButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

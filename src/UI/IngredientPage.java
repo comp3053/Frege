@@ -15,6 +15,7 @@ import java.awt.Label;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 
 public class IngredientPage extends JFrame {
 
@@ -24,9 +25,11 @@ public class IngredientPage extends JFrame {
 	 * Create the frame.
 	 */
 	public IngredientPage() {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		contentPane.setVisible(true);
@@ -40,17 +43,17 @@ public class IngredientPage extends JFrame {
 		contentPane.add(lblIngredient);
 		
 		// Set Buttons
-		JButton btnAdd = new JButton("Add");
+		MyRoundButton btnAdd = new MyRoundButton("Add");
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnAdd.setBounds(96, 230, 137, 52);
 		contentPane.add(btnAdd);
 		
-		JButton btnSubtract = new JButton("Subtract");
+		MyRoundButton btnSubtract = new MyRoundButton("Subtract");
 		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnSubtract.setBounds(334, 230, 137, 52);
 		contentPane.add(btnSubtract);
 		
-		JButton btnHome = new JButton("Home");
+		MyRoundButton btnHome = new MyRoundButton("Home");
 		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
 		btnHome.setBounds(482, 10, 90, 32);
 		contentPane.add(btnHome);

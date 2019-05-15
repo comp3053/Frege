@@ -23,6 +23,7 @@ import javax.swing.border.LineBorder;
 import Controller.IngredientAddController;
 import Controller.IngredientSubtractController;
 import mainPart.Database;
+import java.awt.Color;
 
 public class IngredientSubtractPage extends JFrame {
 
@@ -32,9 +33,11 @@ public class IngredientSubtractPage extends JFrame {
 	 * Create the frame.
 	 */
 	public IngredientSubtractPage() {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -203,7 +206,7 @@ public class IngredientSubtractPage extends JFrame {
 		spinner_4.setBounds(414, 198, 55, 24);
 		layeredPane.add(spinner_4);
 		
-		JButton btnSubtract = new JButton("Subtract");
+		MyRoundButton btnSubtract = new MyRoundButton("Subtract");
 		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnSubtract.setBounds(94, 332, 136, 38);
 		contentPane.add(btnSubtract);
@@ -247,7 +250,7 @@ public class IngredientSubtractPage extends JFrame {
 			}
 		});
 		
-		JButton btnCancel = new JButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.setBounds(344, 332, 136, 38);
 		contentPane.add(btnCancel);

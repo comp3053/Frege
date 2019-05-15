@@ -18,6 +18,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 
 public class ConfirmBrewPage extends JFrame {
 
@@ -27,9 +28,11 @@ public class ConfirmBrewPage extends JFrame {
 	 * Create the frame.
 	 */
 	public ConfirmBrewPage(String Name,float batchSize) {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -38,10 +41,10 @@ public class ConfirmBrewPage extends JFrame {
 		JLabel lblConfirm = new JLabel("Confirm?");
 		lblConfirm.setFont(new Font("Calibri", Font.BOLD, 35));
 		lblConfirm.setHorizontalAlignment(SwingConstants.CENTER);
-		lblConfirm.setBounds(204, 98, 200, 70);
+		lblConfirm.setBounds(185, 99, 200, 70);
 		contentPane.add(lblConfirm);
 		
-		JButton btnYes = new JButton("Yes");
+		MyRoundButton btnYes = new MyRoundButton("Yes");
 		btnYes.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -56,7 +59,7 @@ public class ConfirmBrewPage extends JFrame {
 		btnYes.setBounds(89, 248, 150, 45);
 		contentPane.add(btnYes);
 		
-		JButton btnCancel = new JButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

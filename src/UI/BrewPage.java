@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class BrewPage extends JFrame {
 
@@ -34,9 +35,11 @@ public class BrewPage extends JFrame {
 	 * Create the frame.
 	 */
 	public BrewPage() {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -70,7 +73,7 @@ public class BrewPage extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnHome = new JButton("Home");
+		MyRoundButton btnHome = new MyRoundButton("Home");
 		btnHome.setBounds(478, 29, 90, 32);
 		contentPane.add(btnHome);
 		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
@@ -81,7 +84,7 @@ public class BrewPage extends JFrame {
 			}
 		});
 		
-		JButton btnCan = new JButton("Go!");
+		MyRoundButton btnCan = new MyRoundButton("Go!");
 		btnCan.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCan.setBounds(208, 273, 153, 39);
 		contentPane.add(btnCan);

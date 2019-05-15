@@ -76,7 +76,7 @@ public class HomePage {
 		lblBrewDay.setBounds(130, 41, 310, 91);
 		frmBrewdayfrege.getContentPane().add(lblBrewDay);
 		
-		MyRoundButton btnRecipes = new MyRoundButton("Recipes",new Color(151, 112, 212), new Color(164, 135, 217));
+		MyRoundButton btnRecipes = new MyRoundButton("Recipes");
 		btnRecipes.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnRecipes.setBounds(57, 145, 201, 39);
 		frmBrewdayfrege.getContentPane().add(btnRecipes);
@@ -87,7 +87,7 @@ public class HomePage {
 			}
 		});
 		
-		MyRoundButton btnIngredients = new MyRoundButton("Ingredients",new Color(151, 112, 212), new Color(164, 135, 217));
+		MyRoundButton btnIngredients = new MyRoundButton("Ingredients");
 		btnIngredients.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnIngredients.setBounds(321, 145, 204, 39);
 		frmBrewdayfrege.getContentPane().add(btnIngredients);
@@ -98,7 +98,7 @@ public class HomePage {
 			}
 		});
 		
-		MyRoundButton btnBrew = new MyRoundButton("Brew",new Color(151, 112, 212), new Color(164, 135, 217));
+		MyRoundButton btnBrew = new MyRoundButton("Brew");
 		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnBrew.setBounds(188, 208, 204, 39);
 		frmBrewdayfrege.getContentPane().add(btnBrew);
@@ -109,7 +109,7 @@ public class HomePage {
 			}
 		});
 		
-		MyRoundButton btnNotes = new MyRoundButton("Notes",new Color(151, 112, 212), new Color(164, 135, 217));
+		MyRoundButton btnNotes = new MyRoundButton("Notes");
 		btnNotes.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnNotes.setBounds(57, 270, 204, 39);
 		frmBrewdayfrege.getContentPane().add(btnNotes);
@@ -120,7 +120,7 @@ public class HomePage {
 			}
 		});
 		
-		MyRoundButton btnEquipemnt = new MyRoundButton("Equipemnt",new Color(151, 112, 212), new Color(164, 135, 217));
+		MyRoundButton btnEquipemnt = new MyRoundButton("Equipemnt");
 		btnEquipemnt.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnEquipemnt.setBounds(321, 270, 204, 39);
 		frmBrewdayfrege.getContentPane().add(btnEquipemnt);

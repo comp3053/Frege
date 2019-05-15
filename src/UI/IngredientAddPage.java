@@ -53,9 +53,11 @@ public class IngredientAddPage extends JFrame {
 	 * Create the frame.
 	 */
 	public IngredientAddPage() {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new java.awt.Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -67,7 +69,7 @@ public class IngredientAddPage extends JFrame {
 		contentPane.add(lblAddIngredientList);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBackground(java.awt.Color.WHITE);
+		layeredPane.setBackground(new java.awt.Color(255, 255, 255));
 		layeredPane.setBorder(new LineBorder(new java.awt.Color(0, 0, 0)));
 		layeredPane.setBounds(24, 53, 527, 266);
 		contentPane.add(layeredPane);
@@ -226,7 +228,7 @@ public class IngredientAddPage extends JFrame {
 		layeredPane.add(spinner_4);
 		
 		
-		JButton btnAdd = new JButton("Add");
+		MyRoundButton btnAdd = new MyRoundButton("Add");
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnAdd.setBounds(99, 332, 113, 38);
 		contentPane.add(btnAdd);
@@ -266,7 +268,7 @@ public class IngredientAddPage extends JFrame {
 			}
 		});
 		
-		JButton btnCancel = new JButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.setBounds(357, 332, 113, 38);
 		contentPane.add(btnCancel);
