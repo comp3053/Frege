@@ -5,6 +5,7 @@ public class Ingredient {
 	private float quantity;
 	private String unit;
 	
+	// constructor
 	public Ingredient(String name, float quantity, String unit) {
 		this.ingredientName = name;
 		this.quantity = quantity;
@@ -32,9 +33,8 @@ public class Ingredient {
 		if (unit.equals("kg") || unit.equals("g") || unit.equals("ml") || unit.equals("l")) {
 			this.unit = unit;
 			return true;
-		}
-		else	// if they give a wrong type of unit, give a warning 
-		{
+		} else {
+			// if they give a wrong type of unit, give a warning 
 			System.out.println("Unit Invalid! (Must be \"kg\" or \"g\" or \"ml\" or \"l\")");
 			return false;
 		}
