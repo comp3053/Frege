@@ -7,11 +7,9 @@ public class Brew<recipes> {
 	private float batchSize;
 	private Date date;
 	private Map<String, Recipe> recipe;
-	private ArrayList<Recipe> recipes;
-	private ArrayList<Ingredient> ingredient;
-	private ArrayList<RecipeIngredient> RIn;
 	
 	
+	// ----- getters and setters -----
 	public float getBatchSize() {
 		return batchSize;
 	}
@@ -28,8 +26,12 @@ public class Brew<recipes> {
 		this.date = date;
 	}
 	
+	// ------- methods --------
 	public static boolean brew(String recipeName, int noteID, float batchSize) {
+		// call this function to add a brew record into the database
+		// get the recipe id of current recipe
 		int recipeID = Database.dbGetRecipeID(recipeName);
+		// if cannot find the recipe
 		if (recipeID == 0) return false;
 		
 		ArrayList<String> ingredientName = new ArrayList<String>();
@@ -39,10 +41,13 @@ public class Brew<recipes> {
 		ingredientName.add("sugars");
 		ingredientName.add("additives");
 		
+		// get the quantity of each ingredient that needed in current recipe per liter
 		ArrayList<Float> recipeIngredients = Database.dbGetRecipeIngredientQuantity(recipeID);
 		for (int i = 0; i < 5 ; i++) {
+			// subtract the quantity of ingredient to brew current recipe basing on the batch size
 			StorageIngredient.subtractQuantity(ingredientName.get(i), recipeIngredients.get(i) * batchSize);
 		}
+		// write a record into the database
 		Database.dbBrew(recipeID, noteID, batchSize);
 		return true;
 	}
