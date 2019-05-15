@@ -9,6 +9,7 @@ public class Note {
 	private java.sql.Date date;
 	private String content;
 	
+	// -------- constructors --------
 	public Note(String recipeName, String title, String content) {
 		// automatically generate date
 		long time = System.currentTimeMillis();
@@ -27,11 +28,7 @@ public class Note {
 		this.content = content;
 	}
 	
-	public static boolean addNote(String recipeName, String title, float batchSize, String content) {
-		Note note = new Note(recipeName, title, content);
-		return Brew.brew(recipeName, Database.dbAddNote(note), batchSize);
-	}
-	
+	// ------ getters and setters -------
 	public String getTitle() {
 		return title;
 	}
@@ -63,7 +60,16 @@ public class Note {
 		this.content = content;
 	}
 	
+	// ----- methods -----
+	public static boolean addNote(String recipeName, String title, float batchSize, String content) {
+		// after brew, user need to write a note
+		Note note = new Note(recipeName, title, content);
+		// add current brew record into database
+		return Brew.brew(recipeName, Database.dbAddNote(note), batchSize);
+	}
+	
 	public static ArrayList<Note> showAllNotes() {
+		// call this function and get all the notes from database
 		return Database.dbGetAllNotes();
 	}
 }
