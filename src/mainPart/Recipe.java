@@ -6,38 +6,18 @@ public class Recipe<ingredients> {
 	private String recipeName;
 	private float quantity;
 	private String unit;
-	private static ArrayList<RecipeIngredient> ingredients;
+	private ArrayList<RecipeIngredient> ingredients;
 	private Map<String, Brew> Brews;
 	
+	// ------- constructor -------
 	public Recipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
 		this.recipeName = recipeName;
 		this.quantity = quantity;
 		this.unit = unit;
 		this.ingredients = ingredients;
-		//this.id = Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
 	
-	public static boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
-		return Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
-	}
-	
-	public static boolean updateRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugarQ, float additiveQ) {
-		// check whether have this recipe in the list
-		int recipeID = Database.dbGetRecipeID(name);
-		if (recipeID == 0) return false;
-		
-		boolean flag1 = Database.dbUpdateRecipeIngredient(recipeID, "malt", maltQ);
-		boolean flag2 = Database.dbUpdateRecipeIngredient(recipeID, "hop", hopQ);
-		boolean flag3 = Database.dbUpdateRecipeIngredient(recipeID, "yeast", yeastQ);
-		boolean flag4 = Database.dbUpdateRecipeIngredient(recipeID, "sugar", sugarQ);
-		boolean flag5 = Database.dbUpdateRecipeIngredient(recipeID, "additive", additiveQ);
-		return (flag1 && flag2 && flag3 && flag4 && flag5);
-	}
-	
-	public static boolean deleteRecipe(String name) {
-		return Database.dbDeleteRecipe(name);
-	}
-	
+	// ------- getters and setters -------
 	public void setRecipeName(String name) {
 		this.recipeName = name;
 	}
@@ -81,27 +61,47 @@ public class Recipe<ingredients> {
 		return this.unit;
 	}
 	
-	// Qualifier with Brew class
-	public void addBrew(String name, Brew b) {
-		if (!Brews.containsKey(b))
-		{
-			Brews.put(name, b);
-			b.addRecipe(name, this);
-		}
+	// ------- methods ---------
+	public static boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
+		// add a recipe into the database
+		return Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
 	
+	public static boolean updateRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugarQ, float additiveQ) {
+		// check whether have this recipe in the list
+		int recipeID = Database.dbGetRecipeID(name);
+		if (recipeID == 0) return false; // if cannot find the recipe
+		
+		// start to update the recipe's ingredient quantity one by one
+		boolean flag1 = Database.dbUpdateRecipeIngredient(recipeID, "malt", maltQ);
+		boolean flag2 = Database.dbUpdateRecipeIngredient(recipeID, "hop", hopQ);
+		boolean flag3 = Database.dbUpdateRecipeIngredient(recipeID, "yeast", yeastQ);
+		boolean flag4 = Database.dbUpdateRecipeIngredient(recipeID, "sugar", sugarQ);
+		boolean flag5 = Database.dbUpdateRecipeIngredient(recipeID, "additive", additiveQ);
+		// if all the update successfully, return true
+		return (flag1 && flag2 && flag3 && flag4 && flag5);
+	}
+	
+	public static boolean deleteRecipe(String name) {
+		// call this function to delete specific recipe
+		return Database.dbDeleteRecipe(name);
+	}
 	
 	public static ArrayList<Float> convertToAbsoluteMeasure(int recipeID, float batchSize) {
+		// call this function to get the absolute quantity of each ingredient that exactly needs basing on the batch size
+		// get the quantity need of each ingredient per liter
 		ArrayList<Float> ingredient = Database.dbGetRecipeIngredientQuantity(recipeID);
-		System.out.println(ingredient);
 		for (int i = 0; i < 5; i++) {
+			// compute the absolute quantity of each ingredient
 			ingredient.set(i, ingredient.get(i) * batchSize);
 		}
 		return ingredient;
 	}
 	
 	public static boolean CheckIngredients(int recipeID, float batchSize) {
+		// call this function to check whether the storage ingredient is enough for this recipe basing on the batch size
 		boolean flag = true;
+		// get the absolute quantity of each ingredient
 		ArrayList<Float> RecipeIngredient = convertToAbsoluteMeasure(recipeID, batchSize);
 		ArrayList<String> ingredientName = new ArrayList<String>();
 		ingredientName.add("malts");
@@ -110,24 +110,29 @@ public class Recipe<ingredients> {
 		ingredientName.add("sugars");
 		ingredientName.add("additives");
 		for (int i = 0; i < 5; i++)
-		{
+		{	// get the quantity of ingredient in the storage, and compare whether it's enough
 			if (Database.dbGetStorageingredientQuantity(ingredientName.get(i)) < RecipeIngredient.get(i))
 			{
+				// if current ingredient in storage is not enough, that means this recipe cannot be brew now
 				System.out.println("You have " + ingredientName.get(i) + " " + Database.dbGetStorageingredientQuantity(ingredientName.get(i))
 				+ "kg, but you need to have " + RecipeIngredient.get(i) + "kg.");
+				// it will return false
 				flag = false;
 				break;
 			}
+			// if every ingredient in the storage is enough, then return
 		}
 		return flag;
 	}	
 	
 	public static ArrayList<String> recommendRecipe(float batchSize){
 		ArrayList<String> result = new ArrayList<String>();
+		// get all the recipe from the database
 		ArrayList<Integer> allRecipeID = Database.dbGetAllRecipeID();
 		
 		for (int i = 0; i < allRecipeID.size(); i++) {
 			if (CheckIngredients(allRecipeID.get(i), batchSize)) {
+				// if the ingredients in the storage is enough for the current recipe, then recommend it
 				result.add(Database.dbGetRecipeName(allRecipeID.get(i)));
 			}
 		}
@@ -137,6 +142,7 @@ public class Recipe<ingredients> {
 	
 	public static ArrayList<Float> checkMissing(int recipeID, float batchSize) {
 		ArrayList<Float> missingIngredient = new ArrayList<Float>();
+		// get the absolute quantity of each ingredient
 		ArrayList<Float> RecipeIngredient = convertToAbsoluteMeasure(recipeID, batchSize);
 		ArrayList<String> ingredientName = new ArrayList<String>();
 		ingredientName.add("malts");
@@ -145,12 +151,13 @@ public class Recipe<ingredients> {
 		ingredientName.add("sugars");
 		ingredientName.add("additives");
 		for (int i = 0; i < 5; i++)
-		{
+		{	// compute the missing quantity of each ingredient
 			float missingQuantity = RecipeIngredient.get(i) - Database.dbGetStorageingredientQuantity(ingredientName.get(i)); 
 			if (missingQuantity > 0)
-			{
+			{	// set the missing quantity of current ingredient
 				missingIngredient.add(i, missingQuantity);
 			} else {
+				// if the current ingredient is enough, set to 0
 				missingIngredient.add(i, (float) 0);
 			}
 		}
@@ -159,10 +166,21 @@ public class Recipe<ingredients> {
 	
 	public static ArrayList<String> getAllRecipeName() {
 		ArrayList<String> allRecipeName = new ArrayList<String>();
+		// get all the recipe id from the database
 		ArrayList<Integer> allRecipeID = Database.dbGetAllRecipeID();
 		for (int i = 0; i < allRecipeID.size(); i++) {
+			// convert each recipe id into it's corresponding name
 			allRecipeName.add(Database.dbGetRecipeName(allRecipeID.get(i)));
 		}
 		return allRecipeName;
+	}
+	
+	// ------ Qualifier with Brew class -------
+	public void addBrew(String name, Brew b) {
+		if (!Brews.containsKey(b))
+		{
+			Brews.put(name, b);
+			b.addRecipe(name, this);
+		}
 	}
 }
