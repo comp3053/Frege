@@ -1,15 +1,16 @@
 package mainPart;
-import java.util.Scanner;
 
 public class Equipment {
 	private String name;
 	public float capacity;
 	
+	// constructor
 	public Equipment(String name, float capacity) {
 		this.name = name;
 		this.capacity = capacity;
 	}
 	
+	// getters and setters
 	public String getName() {
 		return name;
 	}
@@ -23,19 +24,22 @@ public class Equipment {
 		this.capacity = capacity;
 	}
 	
+	// methods
 	public static boolean updateCapacity(float capacity) {
-		if (capacity >= 0)
+		// call this function to update the capacity of equipment in the database
+		if (capacity >= 0) 
 		{
+			// update the capacity in the database
 	        return Database.dbUpdateCapacity(capacity);
-		}
-		else 
-		{
+		} else {
+			// the capacity can only larger than zero
 			System.out.println("Capacity should be non-negative!");
 		}
 		return false;
 	}
 	
 	public static float getEquipmentCapacity() {
+		// call this function to get the capacity of equipment in the database
 		return Database.dbGetCapacity();
 	}
 }
