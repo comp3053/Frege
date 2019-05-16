@@ -19,11 +19,11 @@ import javax.swing.JPanel;
 public class RoundButton {
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("²âÊÔÔ²½Ç°´Å¥´°¿Ú");
+		JFrame frame = new JFrame("button");
 		frame.setBounds(100, 100, 400, 400);
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 40, 30));
 		panel.setBackground(Color.white);
-		MyRoundButton myButton = new MyRoundButton("°´ Å¥");
+		MyRoundButton myButton = new MyRoundButton("button");
 		panel.add(myButton);
 		frame.add(panel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,7 +37,7 @@ class MyRoundButton extends JButton {
 
 	public MyRoundButton(String s) {
 		super(s);
-		//×ÏÉ«
+		//ï¿½ï¿½É«
 		Color c_initial = new Color(151, 112, 212);
 		Color c_enter = new Color(164, 135, 217);
 		
@@ -45,8 +45,20 @@ class MyRoundButton extends JButton {
 		color_initial = c_initial;
 		color_enter = c_enter;
 		setPreferredSize(new Dimension(150, 55));// define the size of button
-		setFont(new Font("ËÎÌå", Font.BOLD, 18));// define the font and size
+		setFont(new Font("ï¿½ï¿½ï¿½ï¿½", Font.BOLD, 18));// define the font and size
+		
 		setForeground(Color.white);// define the color of text on button
+		
+		//way 1
+	    setBackground(color);
+	    setOpaque(true);//è®¾ç½®é€æ˜èƒŒå½±
+	    setBorderPainted(false);
+		
+		//way 2
+		//setBackground(color);
+		//setForeground(color);
+		//setBorderPainted(false);
+		
 		setFocusPainted(false);// delete the line when click the button
 		setContentAreaFilled(false);// The button itself is set to be transparent so that we can display our own defined colors.
 		addMouseListener(new MouseAdapter() {// Use mouse monitoring to set the color change of the button when the mouse is moved in and removed.
@@ -78,15 +90,14 @@ class MyRoundButton extends JButton {
 		// Set the color of the fill button
 		g2d.setColor(color);
 		// Set fill fillet rectangle area
-		g2d.fillRoundRect(0, 0, getSize().width - 1, getSize().height - 1, 28,
-				28);
+		g2d.fillRoundRect(0, 0, getSize().width - 1, getSize().height - 1, 28, 28);
 		super.paintComponent(g);
 	}
 
-	public void paintBorder(Graphics g) {// »æÖÆ°´Å¥±ß¿ò£ºÔ²½Ç¾ØĞÎ±ß¿ò
-		// ×¢Òâ£º´ËÀàÖĞµÄ¾ßÌåÊµÏÖ£¬¼´ÒÔÏÂÁ½¾ä£¬¿ÉÒÔÓĞ£¬Ò²¿ÉÒÔÃ»ÓĞ£¬¶Ô×îÖÕµÄÏÔÊ¾Ğ§¹ûÃ»ÓĞ¶à´óÓ°Ïì¡£µ«ÊÇÕâ¸ö·½·¨±ØĞëÓĞ£¬·ñÔò»æÖÆ³öµÄ¾ÍÊÇÄ¬ÈÏµÄ¾ØĞÎ±ß¿ò£¬¶ø²»ÊÇÔ²½Ç±ß¿òÁË¡£
+	public void paintBorder(Graphics g) {// ï¿½ï¿½ï¿½Æ°ï¿½Å¥ï¿½ß¿ï¿½Ô²ï¿½Ç¾ï¿½ï¿½Î±ß¿ï¿½
+		// ×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄ¾ï¿½ï¿½ï¿½Êµï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Ê¾Ğ§ï¿½ï¿½Ã»ï¿½Ğ¶ï¿½ï¿½Ó°ï¿½ì¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½Ä¬ï¿½ÏµÄ¾ï¿½ï¿½Î±ß¿ò£¬¶ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ç±ß¿ï¿½ï¿½Ë¡ï¿½
 		// g.setColor(color);
-		// »­±ß½çÇøÓò
+		// ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ï¿½ï¿½
 		// g.drawRoundRect(0, 0, getSize().width-1 , getSize().height-1, 28, 28);
 	}
 }

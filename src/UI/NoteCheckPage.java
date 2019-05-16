@@ -77,7 +77,7 @@ public class NoteCheckPage extends JFrame {
 		contentPane.add(lblRecipe);
 		
 		
-		JButton btnBack = new JButton("Back");
+		MyRoundButton btnBack = new MyRoundButton("Back");
 		btnBack.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

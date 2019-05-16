@@ -1,5 +1,6 @@
 package UI;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
@@ -26,9 +27,11 @@ public class EquipmentPage extends JFrame {
 	 * Create the frame.
 	 */
 	public EquipmentPage() {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -48,7 +51,7 @@ public class EquipmentPage extends JFrame {
 		
 		
 		
-		JButton btnUpdate = new JButton("Update");
+		MyRoundButton btnUpdate = new MyRoundButton("Update");
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -59,7 +62,7 @@ public class EquipmentPage extends JFrame {
 		btnUpdate.setBounds(219, 266, 150, 45);
 		contentPane.add(btnUpdate);
 		
-		JButton btnHome = new JButton("Home");
+		MyRoundButton btnHome = new MyRoundButton("Home");
 		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
