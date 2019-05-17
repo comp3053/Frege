@@ -44,13 +44,13 @@ public class IngredientPage extends JFrame {
 		
 		// Set Buttons
 		MyRoundButton btnAdd = new MyRoundButton("Add");
-		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnAdd.setBounds(96, 230, 137, 52);
+		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnAdd.setBounds(64, 229, 188, 52);
 		contentPane.add(btnAdd);
 		
 		MyRoundButton btnSubtract = new MyRoundButton("Subtract");
-		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnSubtract.setBounds(334, 230, 137, 52);
+		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnSubtract.setBounds(323, 229, 188, 52);
 		contentPane.add(btnSubtract);
 		
 		MyRoundButton btnHome = new MyRoundButton("Home");

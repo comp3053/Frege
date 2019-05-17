@@ -60,7 +60,8 @@ public class NoteCheckPage extends JFrame {
         layeredPane.setBounds(14, 105, 554, 202);
         contentPane.add(layeredPane);
         JTextArea ContentVal = new JTextArea(4, 180);
-        ContentVal.setFont(new Font("Calibri", Font.PLAIN, 20)); 
+        ContentVal.setEditable(false);
+        ContentVal.setFont(new Font("Calibri", Font.PLAIN, 20));
         ContentVal.setLineWrap(true);
         ContentVal.setText(Content);
         JScrollPane scr = new JScrollPane(ContentVal, 

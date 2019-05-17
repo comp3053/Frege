@@ -57,9 +57,11 @@ public class CheckRecipesPage extends JFrame {
 		lblRecipeList.setBounds(113, 13, 336, 37);
 		contentPane.add(lblRecipeList);
 		
+		// call controller to get all the Recipes List, it return an ArrayList
 		ArrayList<String> AllRecipeList = new ArrayList<String>();
 		CheckRecipesController controller = new CheckRecipesController();
 		AllRecipeList = controller.getAllRecipeName();
+		// get the length of returning list
 		int length = AllRecipeList.size();
 		
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -75,7 +77,7 @@ public class CheckRecipesPage extends JFrame {
 		};	
 		tableModel.addColumn("Recipes");
 		for(int i = 0;i < length;i++) {
-			// should link to database
+			// put recipe name into table by using Vector
 			Vector v = new Vector();
 			v.add(AllRecipeList.get(i));
 			tableModel.addRow(v);
@@ -99,7 +101,10 @@ public class CheckRecipesPage extends JFrame {
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
 				// TODO Auto-generated method stub
+				//get the index in table we click
 				index = table.getSelectedRow();
+				
+				//show the select Recipe name
 				//String n = (String) table.getValueAt(index, 0);
 				/*textField = new JTextField();
 				textField.setEditable(false);
@@ -109,8 +114,9 @@ public class CheckRecipesPage extends JFrame {
 				textField.setText((String) table.getValueAt(index, 0));
 				layeredPane.add(textField);
 				textField.setColumns(10);*/
+				
+				// Get the Recipe Name from table
 				String name = (String) table.getValueAt(index, 0);
-						
 				// Brew Button
 				MyRoundButton btnCheck = new MyRoundButton("Check");
 				btnCheck.setFont(new Font("Calibri", Font.PLAIN, 25));
@@ -119,9 +125,8 @@ public class CheckRecipesPage extends JFrame {
 				// Brew Button Listener
 				btnCheck.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-			
+						// click "Check" to check the ingredient of selected Recipe we missed
 						closeThis();
-						//new IngredientCheckPage(textField.getText(),batchSize).setVisible(true);;
 						new IngredientCheckPage(name,batchSize).setVisible(true);;
 					}
 				});
@@ -136,6 +141,7 @@ public class CheckRecipesPage extends JFrame {
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// click "Cancel", go beck to BrewPage
 				closeThis();
 				new BrewPage().setVisible(true);;
 			}

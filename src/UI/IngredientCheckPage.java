@@ -170,6 +170,7 @@ public class IngredientCheckPage extends JFrame {
 		
 		
 		// Valid or missed
+		// call controller to get the missed number
 		ArrayList<Float> MissedAmount = new ArrayList<Float>();
 		IngredientCheckController controller2 = new IngredientCheckController();
 		MissedAmount = controller2.checkMissing(Name,batchSize);
@@ -180,12 +181,14 @@ public class IngredientCheckPage extends JFrame {
 		float x5 = MissedAmount.get(4); //additives
 		
 		if(x1 == 0) {
+			// if it is 0 ,it means available, we do not miss
 			JLabel lblAvailable = new JLabel("Available");
 			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
 			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
 			lblAvailable.setBounds(284, 13, 89, 27);
 			layeredPane.add(lblAvailable);
 		}else {
+			// if it is larger than 0, it means we missed, so show the missed amount
 			JLabel lblMissed = new JLabel("Missed");
 			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
 			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -207,12 +210,14 @@ public class IngredientCheckPage extends JFrame {
 		}
 		
 		if(x2 == 0) {
+			// if it is 0 ,it means available, we do not miss
 			JLabel lblAvailable= new JLabel("Available");
 			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
 			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
 			lblAvailable.setBounds(284, 55, 89, 27);
 			layeredPane.add(lblAvailable);
 		}else {
+			// if it is larger than 0, it means we missed, so show the missed amount
 			JLabel lblMissed = new JLabel("Missed");
 			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
 			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -234,12 +239,14 @@ public class IngredientCheckPage extends JFrame {
 		}
 		
 		if(x3 == 0) {
+			// if it is 0 ,it means available, we do not miss
 			JLabel lblAvailable = new JLabel("Available");
 			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
 			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
 			lblAvailable.setBounds(284, 93, 89, 27);
 			layeredPane.add(lblAvailable);
 		}else {
+			// if it is larger than 0, it means we missed, so show the missed amount
 			JLabel lblMissed = new JLabel("Missed");
 			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
 			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -261,12 +268,14 @@ public class IngredientCheckPage extends JFrame {
 		}
 		
 		if(x4 == 0) {
+			// if it is 0 ,it means available, we do not miss
 			JLabel lblAvailable = new JLabel("Available");
 			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
 			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
 			lblAvailable.setBounds(284, 133, 89, 27);
 			layeredPane.add(lblAvailable);
 		}else {
+			// if it is larger than 0, it means we missed, so show the missed amount
 			JLabel lblMissed = new JLabel("Missed");
 			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
 			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -288,12 +297,14 @@ public class IngredientCheckPage extends JFrame {
 		}
 		
 		if(x5 == 0) {
+			// if it is 0 ,it means available, we do not miss
 			JLabel lblAvailable = new JLabel("Available");
 			lblAvailable.setHorizontalAlignment(SwingConstants.LEFT);
 			lblAvailable.setFont(new Font("Calibri", Font.PLAIN, 20));
 			lblAvailable.setBounds(284, 173, 89, 27);
 			layeredPane.add(lblAvailable);
 		}else {
+			// if it is larger than 0, it means we missed, so show the missed amount
 			JLabel lblMissed = new JLabel("Missed");
 			lblMissed.setHorizontalAlignment(SwingConstants.LEFT);
 			lblMissed.setFont(new Font("Calibri", Font.PLAIN, 20));
@@ -316,9 +327,10 @@ public class IngredientCheckPage extends JFrame {
 		
 
 		MyRoundButton btnBrew = new MyRoundButton("Back");
-		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnBrew.setFont(new Font("Calibri", Font.PLAIN, 22));
 		btnBrew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Click "Back", go back to the CheckRecipesPage
 				closeThis();
 				new CheckRecipesPage(batchSize).setVisible(true);
 			}
@@ -327,7 +339,7 @@ public class IngredientCheckPage extends JFrame {
 		contentPane.add(btnBrew);
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();

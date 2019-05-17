@@ -63,13 +63,13 @@ public class RecipesDeletePage extends JFrame {
 		
 		// Set Buttons
 		MyRoundButton btnDelete = new MyRoundButton("Delete");
-		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnDelete.setBounds(99, 283, 113, 39);
+		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnDelete.setBounds(85, 283, 140, 39);
 		contentPane.add(btnDelete);
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(373, 283, 113, 39);
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnCancel.setBounds(346, 283, 140, 39);
 		contentPane.add(btnCancel);
 		
 		// Page Jump

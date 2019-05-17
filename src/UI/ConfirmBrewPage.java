@@ -44,12 +44,10 @@ public class ConfirmBrewPage extends JFrame {
 		contentPane.add(lblConfirm);
 		
 		MyRoundButton btnYes = new MyRoundButton("Yes");
-		btnYes.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnYes.setFont(new Font("Calibri", Font.PLAIN, 22));
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//operation with controller��then it  will return the boolean for operation
-				//decide the page jump by boolean
-
+				// Click "Yes", go to NotesWritePage
 				closeThis();
 				new NotesWritePage(Name,batchSize).setVisible(true);
 				
@@ -59,7 +57,7 @@ public class ConfirmBrewPage extends JFrame {
 		contentPane.add(btnYes);
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();

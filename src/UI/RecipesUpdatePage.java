@@ -78,7 +78,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_2 = new JLabel("kg");
 		label_2.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_2.setBounds(231, 135, 26, 18);
+		label_2.setBounds(231, 128, 26, 39);
 		contentPane.add(label_2);
 		
 		JLabel label_3 = new JLabel("Hops:");
@@ -94,7 +94,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_4 = new JLabel("kg");
 		label_4.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_4.setBounds(231, 202, 26, 18);
+		label_4.setBounds(231, 192, 26, 39);
 		contentPane.add(label_4);
 		
 		JLabel label_5 = new JLabel("Yeasts:");
@@ -110,7 +110,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_6 = new JLabel("kg");
 		label_6.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_6.setBounds(506, 71, 26, 18);
+		label_6.setBounds(506, 61, 26, 39);
 		contentPane.add(label_6);
 		
 		JLabel label_7 = new JLabel("Sugars:");
@@ -126,7 +126,7 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_8 = new JLabel("kg");
 		label_8.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_8.setBounds(506, 135, 26, 18);
+		label_8.setBounds(506, 128, 26, 39);
 		contentPane.add(label_8);
 		
 		JLabel label_9 = new JLabel("Additives:");
@@ -142,18 +142,18 @@ public class RecipesUpdatePage extends JFrame {
 		
 		JLabel label_10 = new JLabel("kg");
 		label_10.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_10.setBounds(506, 202, 26, 18);
+		label_10.setBounds(506, 192, 26, 39);
 		contentPane.add(label_10);
 		
 		// Set Buttons
 		MyRoundButton btnUpdate = new MyRoundButton("Update");
-		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnUpdate.setBounds(101, 300, 113, 39);
+		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnUpdate.setBounds(87, 301, 140, 39);
 		contentPane.add(btnUpdate);
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(344, 302, 113, 37);
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnCancel.setBounds(336, 302, 140, 37);
 		contentPane.add(btnCancel);
 		
 		// Page Jump

@@ -120,6 +120,7 @@ public class IngredientAddPage extends JFrame {
 		// Find Amount in database and show on
 		//IngredientAddController controllerUI1 = new IngredientAddController();
 		
+		// call controller to get the ingredient amount in database 
 		IngredientAddController controller1 = new IngredientAddController();
 		float x1 = controller1.searchQuantity("Malts");
 		String cMalts = Float.toString(x1);
@@ -229,8 +230,8 @@ public class IngredientAddPage extends JFrame {
 		
 		
 		MyRoundButton btnAdd = new MyRoundButton("Add");
-		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnAdd.setBounds(99, 332, 113, 38);
+		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnAdd.setBounds(80, 332, 150, 38);
 		contentPane.add(btnAdd);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -250,6 +251,7 @@ public class IngredientAddPage extends JFrame {
 						new IngredientAddPage().setVisible(true);
 					
 					}else {
+						// call controller to change the amount in database
 						IngredientAddController controllerUI = new IngredientAddController();
 						controllerUI.addIngredientQuantity("Malts",nMalts);
 						controllerUI.addIngredientQuantity("Hops",nHops);
@@ -269,8 +271,8 @@ public class IngredientAddPage extends JFrame {
 		});
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(357, 332, 113, 38);
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnCancel.setBounds(337, 332, 150, 38);
 		contentPane.add(btnCancel);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

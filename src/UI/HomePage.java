@@ -82,6 +82,7 @@ public class HomePage {
 		frmBrewdayfrege.getContentPane().add(btnRecipes);
 		btnRecipes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// When click "Recipes", jump to RecipePage
 				closeThis();
 				new RecipePage();
 			}
@@ -93,6 +94,7 @@ public class HomePage {
 		frmBrewdayfrege.getContentPane().add(btnIngredients);
 		btnIngredients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// When click "Ingredients", jump to IngredientsPage
 				closeThis();
 				new IngredientPage().setVisible(true);
 			}
@@ -104,6 +106,7 @@ public class HomePage {
 		frmBrewdayfrege.getContentPane().add(btnBrew);
 		btnBrew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// When click "Brew", jump to BrewPage
 				closeThis();
 				new BrewPage().setVisible(true);
 			}
@@ -115,17 +118,19 @@ public class HomePage {
 		frmBrewdayfrege.getContentPane().add(btnNotes);
 		btnNotes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// When click "Notes", jump to NotesPage
 				closeThis();
 				new NotesPage().setVisible(true);
 			}
 		});
 		
-		MyRoundButton btnEquipemnt = new MyRoundButton("Equipemnt");
-		btnEquipemnt.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnEquipemnt.setBounds(321, 270, 204, 39);
-		frmBrewdayfrege.getContentPane().add(btnEquipemnt);
-		btnEquipemnt.addActionListener(new ActionListener() {
+		MyRoundButton btnEquipment = new MyRoundButton("Equipment");
+		btnEquipment.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnEquipment.setBounds(321, 270, 204, 39);
+		frmBrewdayfrege.getContentPane().add(btnEquipment);
+		btnEquipment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// When click "Equipment", jump to Equipment
 				closeThis();
 				new EquipmentPage().setVisible(true);
 			}

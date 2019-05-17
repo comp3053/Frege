@@ -107,7 +107,7 @@ public class NotesWritePage extends JFrame {
         layeredPane2.add(scr, BorderLayout.CENTER);
 		
         MyRoundButton btnSave = new MyRoundButton("Save");
-        btnSave.setFont(new Font("Calibri", Font.PLAIN, 25));
+        btnSave.setFont(new Font("Calibri", Font.PLAIN, 24));
         btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -145,7 +145,7 @@ public class NotesWritePage extends JFrame {
 		contentPane.add(btnSave);
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 24));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				closeThis();

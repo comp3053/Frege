@@ -37,7 +37,7 @@ class MyRoundButton extends JButton {
 
 	public MyRoundButton(String s) {
 		super(s);
-		//��ɫ
+		// define the color
 		Color c_initial = new Color(151, 112, 212);
 		Color c_enter = new Color(164, 135, 217);
 		
@@ -49,9 +49,10 @@ class MyRoundButton extends JButton {
 		
 		setForeground(Color.white);// define the color of text on button
 		
+		// To way to change the button text background in Mac
 		//way 1
 	    setBackground(color);
-	    setOpaque(true);//设置透明背影
+	    setOpaque(true);
 	    setBorderPainted(false);
 		
 		//way 2
@@ -94,10 +95,14 @@ class MyRoundButton extends JButton {
 		super.paintComponent(g);
 	}
 
-	public void paintBorder(Graphics g) {// ���ư�ť�߿�Բ�Ǿ��α߿�
-		// ע�⣺�����еľ���ʵ�֣����������䣬�����У�Ҳ����û�У������յ���ʾЧ��û�ж��Ӱ�졣����������������У�������Ƴ��ľ���Ĭ�ϵľ��α߿򣬶�����Բ�Ǳ߿��ˡ�
+	public void paintBorder(Graphics g) {// Draw button border: rounded rectangle border
+		/* Note: The specific implementation in this class, 
+		that is, the following two sentences, may or may not have a significant impact 
+		on the final display effect. But this method must be there, otherwise 
+		the default rectangular border is drawn instead of the rounded border.
+		*/
 		// g.setColor(color);
-		// ���߽�����
+		// Draw border area
 		// g.drawRoundRect(0, 0, getSize().width-1 , getSize().height-1, 28, 28);
 	}
 }

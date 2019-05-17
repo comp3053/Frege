@@ -207,8 +207,8 @@ public class IngredientSubtractPage extends JFrame {
 		layeredPane.add(spinner_4);
 		
 		MyRoundButton btnSubtract = new MyRoundButton("Subtract");
-		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnSubtract.setBounds(94, 332, 136, 38);
+		btnSubtract.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnSubtract.setBounds(83, 332, 159, 38);
 		contentPane.add(btnSubtract);
 		btnSubtract.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -251,8 +251,8 @@ public class IngredientSubtractPage extends JFrame {
 		});
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(344, 332, 136, 38);
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnCancel.setBounds(321, 332, 159, 38);
 		contentPane.add(btnCancel);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

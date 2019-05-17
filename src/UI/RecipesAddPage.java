@@ -80,7 +80,7 @@ public class RecipesAddPage extends JFrame {
 		
 		JLabel lblKg = new JLabel("kg");
 		lblKg.setFont(new Font("Calibri", Font.PLAIN, 20));
-		lblKg.setBounds(221, 144, 26, 18);
+		lblKg.setBounds(221, 134, 26, 39);
 		contentPane.add(lblKg);
 		
 		// Hops input
@@ -97,7 +97,7 @@ public class RecipesAddPage extends JFrame {
 		
 		label = new JLabel("kg");
 		label.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label.setBounds(221, 213, 26, 18);
+		label.setBounds(221, 203, 26, 39);
 		contentPane.add(label);
 		
 		// Yeasts input
@@ -114,7 +114,7 @@ public class RecipesAddPage extends JFrame {
 		
 		label_1 = new JLabel("kg");
 		label_1.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_1.setBounds(510, 76, 26, 18);
+		label_1.setBounds(510, 66, 26, 39);
 		contentPane.add(label_1);
 		
 		// Sugars input
@@ -131,7 +131,7 @@ public class RecipesAddPage extends JFrame {
 		
 		label_2 = new JLabel("kg");
 		label_2.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_2.setBounds(510, 144, 26, 18);
+		label_2.setBounds(510, 134, 26, 39);
 		contentPane.add(label_2);
 		
 		// Additives input
@@ -148,18 +148,18 @@ public class RecipesAddPage extends JFrame {
 		
 		label_3 = new JLabel("kg");
 		label_3.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label_3.setBounds(510, 213, 26, 18);
+		label_3.setBounds(510, 203, 26, 39);
 		contentPane.add(label_3);
 		
 		// Set Buttons
 		btnAdd = new MyRoundButton("Add");
-		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnAdd.setBounds(105, 303, 113, 39);
+		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnAdd.setBounds(78, 303, 140, 39);
 		contentPane.add(btnAdd);
 		
 		btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.setBounds(340, 303, 113, 39);
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
+		btnCancel.setBounds(331, 303, 140, 39);
 		contentPane.add(btnCancel);
 		
 		// Page Jump
