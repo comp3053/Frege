@@ -55,6 +55,7 @@ public class IngredientSubtractPage extends JFrame {
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(null);
 		
+		// Set JLabel
 		JLabel lblName = new JLabel("Name");
 		lblName.setBounds(41, 13, 83, 31);
 		layeredPane.add(lblName);
@@ -99,6 +100,7 @@ public class IngredientSubtractPage extends JFrame {
 		
 		// Find Amount in database and show on
 		IngredientSubtractController controller1 = new IngredientSubtractController();
+		
 		float x1 = controller1.searchQuantity("Malts");
 		String cMalts = Float.toString(x1);
 		JLabel lblAmountMalts= new JLabel(cMalts);
@@ -139,7 +141,6 @@ public class IngredientSubtractPage extends JFrame {
 		lblAmountAdditives.setBounds(198, 194, 133, 31);
 		layeredPane.add(lblAmountAdditives);
 		
-		
 		// The symbol '-'
 		JLayeredPane layeredPane_1 = new JLayeredPane();
 		layeredPane_1.setBounds(345, 0, 55, 266);
@@ -176,6 +177,8 @@ public class IngredientSubtractPage extends JFrame {
 		layeredPane_1.add(label_4);
 		
 		// Input number to add
+		// JSpinner can limited the click number from 0 to larger
+		// If input negative number it will change to 0 
 		JSpinner spinner = new JSpinner();
 		spinner.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
 		spinner.setFont(new Font("Calibri", Font.PLAIN, 18));
@@ -256,6 +259,7 @@ public class IngredientSubtractPage extends JFrame {
 		contentPane.add(btnCancel);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// Click "Cancel", go back to IngredientPage 
 				closeThis();
 				new IngredientPage().setVisible(true);
 			}

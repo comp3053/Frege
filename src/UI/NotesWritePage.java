@@ -60,6 +60,7 @@ public class NotesWritePage extends JFrame {
 		layeredPane.setBounds(14, 37, 554, 272);
 		contentPane.add(layeredPane);
 		
+		// Set JLabel
 		JLabel lblRecipe = new JLabel("Recipe");
 		lblRecipe.setHorizontalAlignment(SwingConstants.LEFT);
 		lblRecipe.setFont(new Font("Calibri", Font.PLAIN, 25));
@@ -99,6 +100,7 @@ public class NotesWritePage extends JFrame {
         JTextArea ContentVal = new JTextArea(4, 180);
         ContentVal.setFont(new Font("Calibri", Font.PLAIN, 20)); 
         ContentVal.setLineWrap(true);
+        // Set dynamic textField
         JScrollPane scr = new JScrollPane(ContentVal, 
         								// Hide the horizontal scroll bar policy
         								JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
@@ -121,6 +123,7 @@ public class NotesWritePage extends JFrame {
 						
 						}else {
 							// pass the title and content of notes
+							// Call controller to brew, in this time,  will change the database
 							NotesWriteController controller = new NotesWriteController();
 							//controller.addNote(RecipeName, batchSize, ContentVal.getText());
 							boolean add = controller.addNote(RecipeName, TitleVal.getText(),batchSize, ContentVal.getText());
