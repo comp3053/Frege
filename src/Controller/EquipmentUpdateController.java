@@ -7,6 +7,7 @@ public class EquipmentUpdateController {
 		
 	}
 	
+	//View ask to modify the equipment capacity
 	public boolean updateEquipment(float capacity) {
 		return Equipment.updateCapacity(capacity);
 	}

@@ -7,6 +7,7 @@ public class EquipmentController {
 		
 	}
 	
+	//View ask for the equipment capacity to show
 	public float getCapacity() {
 		return Database.dbGetEquipmentCapacity();
 	}

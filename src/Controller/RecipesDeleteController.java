@@ -7,6 +7,7 @@ public class RecipesDeleteController {
 		
 	}
 	
+	//View give the name that user want to delete
 	public boolean deleteR(String name) {
 		return Recipe.deleteRecipe(name);
 	}

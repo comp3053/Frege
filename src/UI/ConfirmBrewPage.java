@@ -9,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Controller.SelectRecipesController;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -48,7 +47,7 @@ public class ConfirmBrewPage extends JFrame {
 		btnYes.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnYes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//operation with controller£¬then it  will return the boolean for operation
+				//operation with controllerï¿½ï¿½then it  will return the boolean for operation
 				//decide the page jump by boolean
 
 				closeThis();

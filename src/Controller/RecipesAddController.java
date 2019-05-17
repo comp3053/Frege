@@ -8,6 +8,7 @@ public class RecipesAddController {
 		
 	}
 	
+	//View give the recipe name and ingredients amounts, controller gives them all to the database
 	public boolean addRecipe(String name, float maltQ, float hopQ, float yeastQ, float sugarQ, float additiveQ) {
 		ArrayList<RecipeIngredient> addR = new ArrayList<RecipeIngredient>();
 		

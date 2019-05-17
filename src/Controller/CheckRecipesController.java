@@ -11,6 +11,7 @@ public class CheckRecipesController {
 		
 	}
 	
+	//View ask for all recipe name
 	public ArrayList<String> getAllRecipeName(){
 		return Recipe.getAllRecipeName();
 	}
