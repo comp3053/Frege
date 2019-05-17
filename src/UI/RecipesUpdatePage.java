@@ -176,11 +176,17 @@ public class RecipesUpdatePage extends JFrame {
 					
 					try {
 						//Transfer String into integer
-						float malts = Integer.parseInt(cMalts);
-						float hops = Integer.parseInt(cHops);
-						float yeasts = Integer.parseInt(cYeasts);
-						float sugars = Integer.parseInt(cSugars);
-						float additives= Integer.parseInt(cAdditives);
+						//float malts = Integer.parseInt(cMalts);
+						//float hops = Integer.parseInt(cHops);
+						//float yeasts = Integer.parseInt(cYeasts);
+						//float sugars = Integer.parseInt(cSugars);
+						//float additives= Integer.parseInt(cAdditives);
+						float malts = Float.valueOf(cMalts);
+						float hops = Float.valueOf(cHops);
+						float yeasts = Float.valueOf(cYeasts);
+						float sugars = Float.valueOf(cSugars);
+						float additives = Float.valueOf(cAdditives);
+						
 						if (malts<0||hops<0||yeasts<0||sugars<0||additives<0) {
 							// If input a negative number it will be error 
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
