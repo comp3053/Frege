@@ -75,6 +75,7 @@ public class IngredientAddPage extends JFrame {
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(null);
 		
+		// Set text
 		JLabel lblName = new JLabel("Name");
 		lblName.setBounds(41, 13, 83, 31);
 		layeredPane.add(lblName);
@@ -122,12 +123,13 @@ public class IngredientAddPage extends JFrame {
 		
 		// call controller to get the ingredient amount in database 
 		IngredientAddController controller1 = new IngredientAddController();
+		
 		float x1 = controller1.searchQuantity("Malts");
 		String cMalts = Float.toString(x1);
 		JLabel lblAmountMalts= new JLabel(cMalts);
 		lblAmountMalts.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountMalts.setFont(new Font("Calibri", Font.PLAIN, 22));
-		lblAmountMalts.setBounds(224, 57, 71, 31);
+		lblAmountMalts.setBounds(198, 57, 133, 31);
 		layeredPane.add(lblAmountMalts);
 		
 		float x2 = controller1.searchQuantity("Hops");
@@ -135,7 +137,7 @@ public class IngredientAddPage extends JFrame {
 		JLabel lblAmountHops = new JLabel(cHops);
 		lblAmountHops.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountHops.setFont(new Font("Calibri", Font.PLAIN, 22));
-		lblAmountHops.setBounds(224, 91, 71, 31);
+		lblAmountHops.setBounds(198, 91, 133, 31);
 		layeredPane.add(lblAmountHops);
 		
 		float x3 = controller1.searchQuantity("Yeasts");
@@ -143,7 +145,7 @@ public class IngredientAddPage extends JFrame {
 		JLabel lblAmountYeasts = new JLabel(cYeasts);
 		lblAmountYeasts.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountYeasts.setFont(new Font("Calibri", Font.PLAIN, 22));
-		lblAmountYeasts.setBounds(224, 125, 71, 31);
+		lblAmountYeasts.setBounds(198, 125, 133, 31);
 		layeredPane.add(lblAmountYeasts);
 		
 		float x4 = controller1.searchQuantity("Sugars");
@@ -151,7 +153,7 @@ public class IngredientAddPage extends JFrame {
 		JLabel lblAmountSugars = new JLabel(cSugars);
 		lblAmountSugars.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountSugars.setFont(new Font("Calibri", Font.PLAIN, 22));
-		lblAmountSugars.setBounds(224, 159, 71, 31);
+		lblAmountSugars.setBounds(198, 159, 133, 31);
 		layeredPane.add(lblAmountSugars);
 		
 		float x5 = controller1.searchQuantity("Additives");
@@ -159,7 +161,7 @@ public class IngredientAddPage extends JFrame {
 		JLabel lblAmountAdditives = new JLabel(cAdditives);
 		lblAmountAdditives.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmountAdditives.setFont(new Font("Calibri", Font.PLAIN, 22));
-		lblAmountAdditives.setBounds(224, 194, 71, 31);
+		lblAmountAdditives.setBounds(198, 194, 133, 31);
 		layeredPane.add(lblAmountAdditives);
 		
 		// The symbol '+'
@@ -201,31 +203,31 @@ public class IngredientAddPage extends JFrame {
 		JSpinner spinner = new JSpinner();
 		spinner.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
 		spinner.setFont(new Font("Calibri", Font.PLAIN, 18));
-		spinner.setBounds(414, 61, 55, 24);
+		spinner.setBounds(414, 61, 70, 24);
 		layeredPane.add(spinner);
 		
 		JSpinner spinner_1 = new JSpinner();
 		spinner_1.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
 		spinner_1.setFont(new Font("Calibri", Font.PLAIN, 18));
-		spinner_1.setBounds(414, 95, 55, 24);
+		spinner_1.setBounds(414, 95, 70, 24);
 		layeredPane.add(spinner_1);
 		
 		JSpinner spinner_2 = new JSpinner();
 		spinner_2.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
 		spinner_2.setFont(new Font("Calibri", Font.PLAIN, 18));
-		spinner_2.setBounds(414, 129, 55, 24);
+		spinner_2.setBounds(414, 129, 70, 24);
 		layeredPane.add(spinner_2);
 		
 		JSpinner spinner_3 = new JSpinner();
 		spinner_3.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
 		spinner_3.setFont(new Font("Calibri", Font.PLAIN, 18));
-		spinner_3.setBounds(414, 163, 55, 24);
+		spinner_3.setBounds(414, 163, 70, 24);
 		layeredPane.add(spinner_3);
 		
 		JSpinner spinner_4 = new JSpinner();
 		spinner_4.setModel(new SpinnerNumberModel(new Float(0), new Float(0), null, new Float(1)));
 		spinner_4.setFont(new Font("Calibri", Font.PLAIN, 18));
-		spinner_4.setBounds(414, 198, 55, 24);
+		spinner_4.setBounds(414, 198, 70, 24);
 		layeredPane.add(spinner_4);
 		
 		
@@ -276,6 +278,7 @@ public class IngredientAddPage extends JFrame {
 		contentPane.add(btnCancel);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// Click  "Cancel", go back to IngredientPage
 				closeThis();
 				new IngredientPage().setVisible(true);
 			}

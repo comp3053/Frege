@@ -44,6 +44,7 @@ public class IngredientCheckPage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		// Set text
 		JLabel lblName= new JLabel(Name);
 		lblName.setBounds(37, 30, 150, 31);
 		contentPane.add(lblName);
@@ -91,15 +92,18 @@ public class IngredientCheckPage extends JFrame {
 		layeredPane.add(lblAdditives);
 		
 		// Get ingredient amount we need from database 
+		// Call controller to get the Ingredient Amount from database, it will return an ArrayList of float number
 		ArrayList<Float> AbsoluteIngredient = new ArrayList<Float>();
 		IngredientCheckController controller1 = new IngredientCheckController();
 		AbsoluteIngredient = controller1.getAbsoluteIngredient(Name,batchSize);
+		// Get each amount
 		float malts = AbsoluteIngredient.get(0);
 		float hops = AbsoluteIngredient.get(1);
 		float yeasts = AbsoluteIngredient.get(2);
 		float sugars = AbsoluteIngredient.get(3);
 		float additives = AbsoluteIngredient.get(4);
-		// show the number in database
+		
+		// show the number from database
 		String cMalts = Float.toString(malts);
 		JLabel lblAmountMalts= new JLabel(cMalts);
 		lblAmountMalts.setHorizontalAlignment(SwingConstants.CENTER);
@@ -342,6 +346,7 @@ public class IngredientCheckPage extends JFrame {
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Click "Cancel", go back to BrewPage
 				closeThis();
 				new BrewPage().setVisible(true);
 			}

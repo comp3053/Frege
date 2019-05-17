@@ -60,6 +60,7 @@ public class ConfirmBrewPage extends JFrame {
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Click "Cancel", go back to BrewPage
 				closeThis();
 				new BrewPage().setVisible(true);;
 			}

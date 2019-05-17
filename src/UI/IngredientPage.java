@@ -61,6 +61,7 @@ public class IngredientPage extends JFrame {
 		// Page Jump
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// Click "Home", go back to HomePage
 				closeThis();
 				new HomePage();
 			}
@@ -68,12 +69,14 @@ public class IngredientPage extends JFrame {
 		
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// Click "Add", go to IngredientAddPage
 				closeThis();
 				new IngredientAddPage().setVisible(true);
 			}
 		});
 		
 		btnSubtract.addActionListener(new ActionListener() {
+			// Click "Cancel", go to the IngredientSubtractPage 
 			public void actionPerformed(ActionEvent e) {
 				closeThis();
 				new IngredientSubtractPage().setVisible(true);
