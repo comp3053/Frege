@@ -79,7 +79,7 @@ public class SelectRecipesPage extends JFrame {
 		int size = RecipesList.size(); 
 		System.out.println(size);
         for(int i = 0;i < size;i++) {
-        	// should link to database
+        	// put recipe name into table by using Vector
         	Vector v = new Vector();
         	v.add(RecipesList.get(i));
         	tableModel.addRow(v);
@@ -103,8 +103,11 @@ public class SelectRecipesPage extends JFrame {
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
 				// TODO Auto-generated method stub
+				
+				//get the index in table we click
 				index = table.getSelectedRow();
 				
+				//show the select Recipe name
 				/*textField = new JTextField();
 				textField.setEditable(false);
 				textField.setHorizontalAlignment(SwingConstants.CENTER);
@@ -113,6 +116,8 @@ public class SelectRecipesPage extends JFrame {
 				textField.setText((String) table.getValueAt(index, 0));
 				layeredPane.add(textField);
 				textField.setColumns(10);*/
+				
+				// Get the Recipe Name from table
 				String name = (String) table.getValueAt(index, 0);
 				
 				// Brew Button
@@ -139,6 +144,7 @@ public class SelectRecipesPage extends JFrame {
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// click "Cancel", go beck to BrewPage
 				closeThis();
 				new BrewPage().setVisible(true);
 			}

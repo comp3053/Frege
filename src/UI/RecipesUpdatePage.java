@@ -160,6 +160,7 @@ public class RecipesUpdatePage extends JFrame {
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				// Get the input information
 				String cName = textField.getText().trim();
 				String cMalts = textField_1.getText().trim();
 				String cHops = textField_2.getText().trim();
@@ -176,11 +177,6 @@ public class RecipesUpdatePage extends JFrame {
 					
 					try {
 						//Transfer String into integer
-						//float malts = Integer.parseInt(cMalts);
-						//float hops = Integer.parseInt(cHops);
-						//float yeasts = Integer.parseInt(cYeasts);
-						//float sugars = Integer.parseInt(cSugars);
-						//float additives= Integer.parseInt(cAdditives);
 						float malts = Float.valueOf(cMalts);
 						float hops = Float.valueOf(cHops);
 						float yeasts = Float.valueOf(cYeasts);

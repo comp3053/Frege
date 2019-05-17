@@ -75,6 +75,7 @@ public class RecipesDeletePage extends JFrame {
 		// Page Jump
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//Get input information
 				String name = textField.getText().trim();
 				if(name.equals("")) {
 					//If the operation fails, do not change the database and refresh the current page

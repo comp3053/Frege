@@ -166,6 +166,7 @@ public class RecipesAddPage extends JFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				// Get the input information
 				String cName = textField.getText().trim();
 				String cMalts = textField_1.getText().trim();
 				String cHops = textField_2.getText().trim();
@@ -173,6 +174,7 @@ public class RecipesAddPage extends JFrame {
 				String cSugars = textField_4.getText().trim();
 				String cAdditives = textField_5.getText().trim();
 				
+				// If input nothing, assume it is 0
 				if(cMalts.equals("")) {
 					cMalts = "0";
 				}
@@ -198,12 +200,7 @@ public class RecipesAddPage extends JFrame {
 				}else {
 					
 					try {
-						//Transfer String into integer
-						//float malts = Integer.parseInt(cMalts);
-						//float hops = Integer.parseInt(cHops);
-						//float yeasts = Integer.parseInt(cYeasts);
-						//float sugars = Integer.parseInt(cSugars);
-						//float additives= Integer.parseInt(cAdditives);
+						//Transfer String into float
 						float malts = Float.valueOf(cMalts);
 						float hops = Float.valueOf(cHops);
 						float yeasts = Float.valueOf(cYeasts);
