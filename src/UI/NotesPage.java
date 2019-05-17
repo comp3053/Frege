@@ -40,6 +40,7 @@ public class NotesPage extends JFrame {
 	 * Create the frame.
 	 */
 	public NotesPage() {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
@@ -97,7 +98,7 @@ public class NotesPage extends JFrame {
 			}
 		});
 		
-		JButton btnHome = new JButton("Home");
+		MyRoundButton btnHome = new MyRoundButton("Home");
 		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

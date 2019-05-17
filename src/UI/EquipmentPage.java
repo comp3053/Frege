@@ -44,7 +44,7 @@ public class EquipmentPage extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblCapacity = new JLabel("Current Capacity:");
-		lblCapacity.setBounds(56, 180, 270, 40);
+		lblCapacity.setBounds(56, 180, 237, 40);
 		contentPane.add(lblCapacity);
 		lblCapacity.setFont(new Font("Calibri", Font.BOLD, 25));
 		lblCapacity.setHorizontalAlignment(SwingConstants.CENTER);
@@ -77,9 +77,15 @@ public class EquipmentPage extends JFrame {
 		JLabel lblNumber = new JLabel("number");
 		lblNumber.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumber.setFont(new Font("Calibri", Font.BOLD, 25));
-		lblNumber.setBounds(322, 180, 169, 40);
+		lblNumber.setBounds(273, 180, 155, 40);
 		lblNumber.setText(Float.toString(controller1.getCapacity()));
 		contentPane.add(lblNumber);
+		
+		JLabel lblL = new JLabel("L");
+		lblL.setHorizontalAlignment(SwingConstants.CENTER);
+		lblL.setFont(new Font("Calibri", Font.BOLD, 25));
+		lblL.setBounds(414, 180, 64, 40);
+		contentPane.add(lblL);
 	}
 	// Close current UI page
 	protected void closeThis() {

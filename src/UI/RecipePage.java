@@ -1,5 +1,6 @@
 package UI;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
@@ -31,6 +32,8 @@ public class RecipePage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(255, 255, 255));
+		frame.setTitle("BrewDay! [Frege]");
 		frame.setBounds(100, 100, 600, 430);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -52,22 +55,22 @@ public class RecipePage {
 		frame.getContentPane().add(lblRecipes);
 		
 		// Set Buttons
-		JButton btnHome = new JButton("Home");
+		MyRoundButton btnHome = new MyRoundButton("Home");
 		btnHome.setBounds(478, 29, 90, 32);
 		frame.getContentPane().add(btnHome);
 		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
 		
-		JButton btnAdd = new JButton("Add");
+		MyRoundButton btnAdd = new MyRoundButton("Add");
 		btnAdd.setBounds(53, 256, 130, 52);
 		frame.getContentPane().add(btnAdd);
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
 		
-		JButton btnDelete = new JButton("Delete");
+		MyRoundButton btnDelete = new MyRoundButton("Delete");
 		btnDelete.setBounds(223, 256, 130, 52);
 		frame.getContentPane().add(btnDelete);
 		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
 		
-		JButton btnUpdate = new JButton("Update");
+		MyRoundButton btnUpdate = new MyRoundButton("Update");
 		btnUpdate.setBounds(392, 256, 130, 52);
 		frame.getContentPane().add(btnUpdate);
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));

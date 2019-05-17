@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -42,9 +43,11 @@ public class RecipesAddPage extends JFrame {
 	 * Create the frame.
 	 */
 	public RecipesAddPage() {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -149,12 +152,12 @@ public class RecipesAddPage extends JFrame {
 		contentPane.add(label_3);
 		
 		// Set Buttons
-		btnAdd = new JButton("Add");
+		btnAdd = new MyRoundButton("Add");
 		btnAdd.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnAdd.setBounds(105, 303, 113, 39);
 		contentPane.add(btnAdd);
 		
-		btnCancel = new JButton("Cancel");
+		btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.setBounds(340, 303, 113, 39);
 		contentPane.add(btnCancel);

@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import java.awt.Choice;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JComboBox;
@@ -33,9 +34,11 @@ public class RecipesDeletePage extends JFrame {
 	 * Create the frame.
 	 */
 	public RecipesDeletePage() {
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -59,12 +62,12 @@ public class RecipesDeletePage extends JFrame {
 		textField.setColumns(10);
 		
 		// Set Buttons
-		JButton btnDelete = new JButton("Delete");
+		MyRoundButton btnDelete = new MyRoundButton("Delete");
 		btnDelete.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnDelete.setBounds(99, 283, 113, 39);
 		contentPane.add(btnDelete);
 		
-		JButton btnCancel = new JButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
 		btnCancel.setBounds(373, 283, 113, 39);
 		contentPane.add(btnCancel);

@@ -1,6 +1,7 @@
 package UI;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -46,10 +47,11 @@ public class SelectRecipesPage extends JFrame {
 	 * Create the frame.
 	 */
 	public SelectRecipesPage(float batchSize, ArrayList<String> RecipesList) {
-		
+		setTitle("BrewDay! [Frege]");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
@@ -114,7 +116,7 @@ public class SelectRecipesPage extends JFrame {
 				String name = (String) table.getValueAt(index, 0);
 				
 				// Brew Button
-				JButton btnBrew = new JButton("Brew");
+				MyRoundButton btnBrew = new MyRoundButton("Brew");
 				btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
 				btnBrew.setBounds(359, 183, 110, 43);
 				layeredPane.add(btnBrew);
@@ -131,7 +133,7 @@ public class SelectRecipesPage extends JFrame {
 			 
 		});
 		
-		JButton btnCancel = new JButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setBounds(215, 325, 150, 45);
 		contentPane.add(btnCancel);
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));

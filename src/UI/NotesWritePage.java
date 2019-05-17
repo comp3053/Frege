@@ -75,7 +75,7 @@ public class NotesWritePage extends JFrame {
 		JLabel lblContent = new JLabel("Content");
 		lblContent.setHorizontalAlignment(SwingConstants.LEFT);
 		lblContent.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblContent.setBounds(16, 83, 99, 32);
+		lblContent.setBounds(16, 83, 119, 32);
 		layeredPane.add(lblContent);
         
 		JTextField RecipeVal = new JTextField(Recipe);
