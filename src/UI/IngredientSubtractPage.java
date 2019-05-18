@@ -62,10 +62,10 @@ public class IngredientSubtractPage extends JFrame {
 		lblName.setFont(new Font("Calibri", Font.PLAIN, 25));
 		lblName.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JLabel lblAmount = new JLabel("Amount");
+		JLabel lblAmount = new JLabel("Amount(kg)");
 		lblAmount.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAmount.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblAmount.setBounds(198, 13, 133, 31);
+		lblAmount.setBounds(198, 13, 143, 31);
 		layeredPane.add(lblAmount);
 		
 		JLabel lblMalts = new JLabel("Malts");

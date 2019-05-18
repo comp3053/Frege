@@ -64,6 +64,10 @@ public class Recipe<ingredients> {
 	// ------- methods ---------
 	public static boolean addRecipe(String recipeName, float quantity, String unit, ArrayList<RecipeIngredient> ingredients) {
 		// add a recipe into the database
+		int recipeID = Database.dbGetRecipeID(recipeName);
+		if (recipeID != 0) // if the recipe already exists.
+			return false;
+		
 		return Database.dbNewRecipe(recipeName, quantity, unit, ingredients);
 	}
 	

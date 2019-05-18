@@ -59,7 +59,7 @@ public class BrewPage extends JFrame {
 		lblRecommendARecipe.setBounds(147, 130, 281, 47);
 		contentPane.add(lblRecommendARecipe);
 		
-		JLabel lblBatchSizeL = new JLabel("Entry a batch size                  L ");
+		JLabel lblBatchSizeL = new JLabel("Enter a batch size                  L ");
 		lblBatchSizeL.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBatchSizeL.setFont(new Font("Calibri", Font.PLAIN, 25));
 		lblBatchSizeL.setBounds(24, 191, 533, 47);
