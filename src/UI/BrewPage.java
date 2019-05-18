@@ -107,7 +107,7 @@ public class BrewPage extends JFrame {
 					//Type changing, so need Exception to catch the error
 					try {
 						// change the input string into float
-						float batch = Integer.parseInt(cBatch);
+						float batch = Float.valueOf(cBatch);
 						if(batch < 0) {
 							// if input is smaller then 0, error
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
