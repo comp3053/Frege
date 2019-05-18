@@ -106,6 +106,8 @@ public class EquipmentUpdatePage extends JFrame {
 						float l = Float.valueOf(cEquipment);
 						if(l < 0) {
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+							closeThis();
+							new EquipmentUpdatePage().setVisible(true);
 						}else {
 							EquipmentUpdateController controller = new EquipmentUpdateController();
 							boolean check = controller.updateEquipment(l);
@@ -122,6 +124,8 @@ public class EquipmentUpdatePage extends JFrame {
 						}
 					}catch(NumberFormatException ex) {
 						JOptionPane.showMessageDialog(null,"Please input a number! (> w <)","Warning",JOptionPane.ERROR_MESSAGE);
+						closeThis();
+						new EquipmentUpdatePage().setVisible(true);
 					}	
 				}
 				
