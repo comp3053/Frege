@@ -48,7 +48,7 @@ public class EquipmentUpdatePage extends JFrame {
 		JLabel lblEquipment = new JLabel("Equipment 1");
 		lblEquipment.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEquipment.setFont(new Font("Calibri", Font.BOLD, 30));
-		lblEquipment.setBounds(134, 36, 301, 72);
+		lblEquipment.setBounds(110, 36, 345, 72);
 		contentPane.add(lblEquipment);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
