@@ -98,11 +98,23 @@ public class RecipesCheckPage extends JFrame {
 					 
 		});
 		
-		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setBounds(208, 331, 150, 45);
-		contentPane.add(btnCancel);
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
-		btnCancel.addActionListener(new ActionListener() {
+		MyRoundButton btnHome = new MyRoundButton("Home");
+		btnHome.setBounds(478, 13, 90, 32);
+		contentPane.add(btnHome);
+		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// click "Cancel", go beck to BrewPage
+				closeThis();
+				new HomePage();
+			}
+		});
+		
+		MyRoundButton btnBack = new MyRoundButton("Back");
+		btnBack.setBounds(208, 331, 150, 45);
+		contentPane.add(btnBack);
+		btnBack.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// click "Cancel", go beck to BrewPage
 				closeThis();
