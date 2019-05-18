@@ -51,7 +51,7 @@ public class RecipePage {
 		JLabel lblRecipes = new JLabel("Recipes");
 		lblRecipes.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRecipes.setFont(new Font("Calibri", Font.BOLD, 35));
-		lblRecipes.setBounds(205, 126, 168, 52);
+		lblRecipes.setBounds(202, 97, 168, 52);
 		frame.getContentPane().add(lblRecipes);
 		
 		// Set Buttons
@@ -75,7 +75,20 @@ public class RecipePage {
 		frame.getContentPane().add(btnUpdate);
 		btnUpdate.setFont(new Font("Calibri", Font.PLAIN, 25));
 		
+		UI.MyRoundButton btnCheck = new UI.MyRoundButton("Check");
+		btnCheck.setText("Check");
+		btnCheck.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCheck.setBounds(222, 186, 130, 52);
+		frame.getContentPane().add(btnCheck);
+		
 		// Page Jump
+		btnCheck.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				closeThis();
+				new RecipesCheckPage().setVisible();
+			}
+		});
+		
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();

@@ -65,7 +65,7 @@ public class CheckRecipesPage extends JFrame {
 		int length = AllRecipeList.size();
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(14, 50, 554, 279);
+		layeredPane.setBounds(14, 50, 554, 326);
 		contentPane.add(layeredPane);
 		
 		// Table Model
@@ -90,7 +90,7 @@ public class CheckRecipesPage extends JFrame {
 		// Dynamic table 
 		JScrollPane scroll = new JScrollPane(table);
 		scroll.setEnabled(false);
-		scroll.setBounds(75, 13, 196, 253);
+		scroll.setBounds(51, 13, 452, 253);
 		layeredPane.add(scroll);
 		table.setModel(tableModel);
 				
@@ -120,29 +120,29 @@ public class CheckRecipesPage extends JFrame {
 				// Brew Button
 				MyRoundButton btnCheck = new MyRoundButton("Check");
 				btnCheck.setFont(new Font("Calibri", Font.PLAIN, 22));
-				btnCheck.setBounds(353, 161, 130, 43);
+				btnCheck.setBounds(78, 277, 150, 45);
 				layeredPane.add(btnCheck);
 				// Brew Button Listener
 				btnCheck.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						// click "Check" to check the ingredient of selected Recipe we missed
 						closeThis();
-						new IngredientCheckPage(name,batchSize).setVisible(true);;
+						new IngredientCheckPage(name,batchSize).setVisible(true);
 					}
 				});
 			}
 					 
 		});
-		
+
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setBounds(208, 331, 150, 45);
-		contentPane.add(btnCancel);
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCancel.setBounds(321, 277, 150, 45);
+		layeredPane.add(btnCancel);
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// click "Cancel", go beck to BrewPage
 				closeThis();
-				new BrewPage().setVisible(true);;
+				new BrewPage().setVisible(true);
 			}
 		});
 	}

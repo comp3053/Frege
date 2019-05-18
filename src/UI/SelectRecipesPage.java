@@ -64,7 +64,7 @@ public class SelectRecipesPage extends JFrame {
 		contentPane.add(lblRecipeList);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
-		layeredPane.setBounds(14, 45, 554, 279);
+		layeredPane.setBounds(14, 45, 554, 334);
 		contentPane.add(layeredPane);
 		
 		// Table Model
@@ -92,7 +92,7 @@ public class SelectRecipesPage extends JFrame {
 		// Dynamic table 
 		JScrollPane scroll = new JScrollPane(table);
 		scroll.setEnabled(false);
-		scroll.setBounds(75, 13, 196, 253);
+		scroll.setBounds(52, 13, 452, 253);
 		layeredPane.add(scroll);
 		table.setModel(tableModel);
 		
@@ -122,8 +122,8 @@ public class SelectRecipesPage extends JFrame {
 				
 				// Brew Button
 				MyRoundButton btnBrew = new MyRoundButton("Brew");
-				btnBrew.setFont(new Font("Calibri", Font.PLAIN, 25));
-				btnBrew.setBounds(359, 183, 110, 43);
+				btnBrew.setFont(new Font("Calibri", Font.PLAIN, 22));
+				btnBrew.setBounds(89, 279, 150, 45);
 				layeredPane.add(btnBrew);
 				// Brew Button Listener
 				btnBrew.addActionListener(new ActionListener() {
@@ -139,9 +139,9 @@ public class SelectRecipesPage extends JFrame {
 		});
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
-		btnCancel.setBounds(215, 325, 150, 45);
-		contentPane.add(btnCancel);
-		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
+		btnCancel.setBounds(320, 279, 150, 45);
+		layeredPane.add(btnCancel);
+		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 22));
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// click "Cancel", go beck to BrewPage
