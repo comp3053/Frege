@@ -120,7 +120,7 @@ public class CheckRecipesPage extends JFrame {
 				// Brew Button
 				MyRoundButton btnCheck = new MyRoundButton("Check");
 				btnCheck.setFont(new Font("Calibri", Font.PLAIN, 22));
-				btnCheck.setBounds(359, 183, 130, 43);
+				btnCheck.setBounds(353, 161, 130, 43);
 				layeredPane.add(btnCheck);
 				// Brew Button Listener
 				btnCheck.addActionListener(new ActionListener() {
@@ -133,7 +133,6 @@ public class CheckRecipesPage extends JFrame {
 			}
 					 
 		});
-
 		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setBounds(208, 331, 150, 45);

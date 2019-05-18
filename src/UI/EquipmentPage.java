@@ -38,7 +38,7 @@ public class EquipmentPage extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Equipment");
-		lblNewLabel.setBounds(165, 79, 254, 71);
+		lblNewLabel.setBounds(136, 77, 303, 71);
 		lblNewLabel.setFont(new Font("Calibri", Font.BOLD, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel);
@@ -59,7 +59,7 @@ public class EquipmentPage extends JFrame {
 				new EquipmentUpdatePage().setVisible(true);;
 			}
 		});
-		btnUpdate.setBounds(219, 266, 150, 45);
+		btnUpdate.setBounds(212, 267, 150, 45);
 		contentPane.add(btnUpdate);
 		
 		MyRoundButton btnHome = new MyRoundButton("Home");

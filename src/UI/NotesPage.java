@@ -67,7 +67,7 @@ public class NotesPage extends JFrame {
 		
 		NotesController controller = new NotesController();
 		ArrayList<Note> note = controller.showNote();
-        for(int i = 0;i < note.size();i++) {
+        for(int i = note.size();i >= 0;i--) {
         	Vector row = new Vector();
         	Vector vData = new Vector();
         	vData.add(note.get(i).getDate());

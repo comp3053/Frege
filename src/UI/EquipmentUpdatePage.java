@@ -48,7 +48,7 @@ public class EquipmentUpdatePage extends JFrame {
 		JLabel lblEquipment = new JLabel("Equipment 1");
 		lblEquipment.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEquipment.setFont(new Font("Calibri", Font.BOLD, 30));
-		lblEquipment.setBounds(201, 36, 190, 72);
+		lblEquipment.setBounds(134, 36, 301, 72);
 		contentPane.add(lblEquipment);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
@@ -103,7 +103,7 @@ public class EquipmentUpdatePage extends JFrame {
 					new EquipmentUpdatePage().setVisible(true);
 				}else {
 					try {
-						float l = Integer.parseInt(cEquipment);
+						float l = Float.valueOf(cEquipment);
 						if(l < 0) {
 							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
