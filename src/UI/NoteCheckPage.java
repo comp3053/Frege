@@ -37,20 +37,21 @@ public class NoteCheckPage extends JFrame {
 		setBounds(100, 100, 600, 430);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(contentPane);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblTitle = new JLabel("Title");
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitle.setFont(new Font("Calibri", Font.BOLD, 30));
-		lblTitle.setBounds(170, 13, 224, 42);
+		lblTitle.setFont(new Font("Calibri", Font.BOLD, 22));
+		lblTitle.setBounds(14, 13, 554, 42);
 		lblTitle.setText(Title);
 		contentPane.add(lblTitle);
 		
 		JLabel lblDate = new JLabel("Date");
 		lblDate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDate.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblDate.setBounds(300, 54, 224, 42);
+		lblDate.setFont(new Font("Calibri", Font.PLAIN, 18));
+		lblDate.setBounds(344, 54, 224, 42);
 		DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String outputText = outputFormat.format(Date);
 		lblDate.setText(outputText);
@@ -73,8 +74,8 @@ public class NoteCheckPage extends JFrame {
 		
 		JLabel lblRecipe = new JLabel("Recipe");
 		lblRecipe.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRecipe.setFont(new Font("Calibri", Font.PLAIN, 25));
-		lblRecipe.setBounds(49, 54, 155, 42);
+		lblRecipe.setFont(new Font("Calibri", Font.PLAIN, 22));
+		lblRecipe.setBounds(14, 54, 224, 42);
 		lblRecipe.setText(RecipeName);
 		contentPane.add(lblRecipe);
 		
