@@ -92,6 +92,7 @@ public class NotesPage extends JFrame {
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
 				index = table.getSelectedRow();
+				index = note.size() - 1 - index;
 				System.out.println(index);
 				closeThis();
 				new NoteCheckPage(note.get(index).getDate(), note.get(index).getRecipeName(), note.get(index).getTitle(), note.get(index).getContent()).setVisible(true);

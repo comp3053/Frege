@@ -85,7 +85,7 @@ public class RecipePage {
 		btnCheck.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				closeThis();
-				new RecipesCheckPage().setVisible();
+				new RecipesCheckPage().setVisible(true);
 			}
 		});
 		
