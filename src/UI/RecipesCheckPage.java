@@ -98,6 +98,11 @@ public class RecipesCheckPage extends JFrame {
 					 
 		});
 		
+		MyRoundButton btnHome = new MyRoundButton("Home");
+		btnHome.setBounds(478, 13, 90, 32);
+		contentPane.add(btnHome);
+		btnHome.setFont(new Font("Calibri", Font.PLAIN, 15));
+		
 		MyRoundButton btnCancel = new MyRoundButton("Cancel");
 		btnCancel.setBounds(208, 331, 150, 45);
 		contentPane.add(btnCancel);
