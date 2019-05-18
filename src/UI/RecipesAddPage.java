@@ -209,7 +209,7 @@ public class RecipesAddPage extends JFrame {
 						
 						if (malts<0||hops<0||yeasts<0||sugars<0||additives<0) {
 							// If input a negative number it will be error 
-							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null,"Please input a positive number! <(*ToT*)>","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
 							// call controller to add recipes into database
 							RecipesAddController controllerUI = new RecipesAddController();
@@ -217,18 +217,18 @@ public class RecipesAddPage extends JFrame {
 							
 							if(check) {
 								//If the operation is successful, modify the database and return to RecipePage
-								JOptionPane.showMessageDialog(null, "Success!");
+								JOptionPane.showMessageDialog(null, "Success! (*^ w ^*)");
 								closeThis();
 								new RecipePage();
 							}else {
-								JOptionPane.showMessageDialog(null,"Add fail!","Warning",JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(null,"Add fail! (* X *)","Warning",JOptionPane.ERROR_MESSAGE);
 								closeThis();
 								new RecipesAddPage().setVisible(true);
 							}
 							
 						}
 					}catch(NumberFormatException ex) {
-						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Please input a number! (> w <)","Warning",JOptionPane.ERROR_MESSAGE);
 					}	
 					
 				}

@@ -226,12 +226,12 @@ public class IngredientSubtractPage extends JFrame {
 					if(nMalts < 0||nHops < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
 					
 						//If the operation fails, do not change the database and refresh the current page
-						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Please input positive number! <(*ToT*)>","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
 						new IngredientAddPage().setVisible(true);
 					
 					}else if (nMalts > x1 || nHops > x2 || nYeasts > x3 || nSugars > x4 || nAdditives > x5){
-						JOptionPane.showMessageDialog(null,"Not enough!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Not enough! (*T^T*)","Warning",JOptionPane.ERROR_MESSAGE);
 					}else {
 					
 						IngredientSubtractController controllerUI = new IngredientSubtractController();
@@ -241,13 +241,13 @@ public class IngredientSubtractPage extends JFrame {
 						controllerUI.subtractIngredientQuantity("Sugars",nSugars);
 						controllerUI.subtractIngredientQuantity("Additives",nAdditives);
 						//If the operation is successful, modify the database and return to RecipePage
-						JOptionPane.showMessageDialog(null, "Success!");
+						JOptionPane.showMessageDialog(null, "Success! (*^ w ^*)");
 						closeThis();
 						new IngredientPage().setVisible(true);
 					}
 					
 				}catch(NumberFormatException ex) {
-					JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Please input a number! (> w <)","Warning",JOptionPane.ERROR_MESSAGE);
 				}
 				
 			}

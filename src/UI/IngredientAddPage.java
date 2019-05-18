@@ -248,7 +248,7 @@ public class IngredientAddPage extends JFrame {
 					if(nMalts < 0||nHops < 0||nYeasts < 0||nSugars < 0||nAdditives < 0) {
 					
 						//If the operation fails, do not change the database and refresh the current page
-						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Please input positive number! <(*ToT*)>","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
 						new IngredientAddPage().setVisible(true);
 					
@@ -261,12 +261,12 @@ public class IngredientAddPage extends JFrame {
 						controllerUI.addIngredientQuantity("Sugars",nSugars);
 						controllerUI.addIngredientQuantity("Additives",nAdditives);
 						//If the operation is successful, modify the database and return to RecipePage
-						JOptionPane.showMessageDialog(null, "Success!");
+						JOptionPane.showMessageDialog(null, "Success! (*^ w ^*)");
 						closeThis();
 						new IngredientPage().setVisible(true);
 					}
 				}catch(NumberFormatException ex) {
-					JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Please input a number! (> w <)","Warning",JOptionPane.ERROR_MESSAGE);
 				}
 				
 			}

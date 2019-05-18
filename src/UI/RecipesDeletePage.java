@@ -79,7 +79,7 @@ public class RecipesDeletePage extends JFrame {
 				String name = textField.getText().trim();
 				if(name.equals("")) {
 					//If the operation fails, do not change the database and refresh the current page
-					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Please input a recipe name! (*^o^*)","Warning",JOptionPane.ERROR_MESSAGE);
 					closeThis();
 					new RecipesDeletePage().setVisible(true);
 				}else {
@@ -87,11 +87,11 @@ public class RecipesDeletePage extends JFrame {
 					Boolean check = controller.deleteR(name);
 					if(check) {
 						//If the operation is successful, modify the database and return to RecipePage
-						JOptionPane.showMessageDialog(null, "Success!");
+						JOptionPane.showMessageDialog(null, "Success! (*^ w ^*)");
 						closeThis();
 						new RecipePage();
 					}else {
-						JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Recipe is not exist! (> w <)","Warning",JOptionPane.ERROR_MESSAGE);
 						closeThis();
 						new RecipesDeletePage().setVisible(true);
 					}	

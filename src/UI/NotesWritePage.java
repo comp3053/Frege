@@ -114,12 +114,12 @@ public class NotesWritePage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					if(TitleVal.getText() == null) {
-						JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Please input a title! (*^o^*)","Warning",JOptionPane.ERROR_MESSAGE);
 					}else if(TitleVal.getText().length() > 20){
-						JOptionPane.showMessageDialog(null,"Input Title is too long!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Input Title is too long! (_QAQ_)","Warning",JOptionPane.ERROR_MESSAGE);
 					}else {
 						if( ContentVal.getText()== null) {
-							JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null,"Please input some content! (*^o^*)","Warning",JOptionPane.ERROR_MESSAGE);
 						
 						}else {
 							// pass the title and content of notes
@@ -128,11 +128,11 @@ public class NotesWritePage extends JFrame {
 							//controller.addNote(RecipeName, batchSize, ContentVal.getText());
 							boolean add = controller.addNote(RecipeName, TitleVal.getText(),batchSize, ContentVal.getText());
 							if(add) {
-								JOptionPane.showMessageDialog(null, "Success!");
+								JOptionPane.showMessageDialog(null, "Success! (*^ w ^*)");
 								closeThis();
 								new HomePage();
 							}else {
-								JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(null,"Fail! (* X *)","Warning",JOptionPane.ERROR_MESSAGE);
 								closeThis();
 								new NotesWritePage(RecipeName, batchSize).setVisible(true);
 							}

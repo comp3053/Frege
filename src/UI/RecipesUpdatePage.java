@@ -170,7 +170,7 @@ public class RecipesUpdatePage extends JFrame {
 				
 				if(cName.equals("")||cMalts.equals("")||cHops.equals("")||cYeasts.equals("")||cSugars.equals("")||cAdditives.equals("")) {
 					//If the operation fails, do not change the database and refresh the current page
-					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Please fill all blanks! <(*ToT*)>","Warning",JOptionPane.ERROR_MESSAGE);
 					closeThis();
 					new RecipesUpdatePage().setVisible(true);
 				}else {
@@ -185,25 +185,25 @@ public class RecipesUpdatePage extends JFrame {
 						
 						if (malts<0||hops<0||yeasts<0||sugars<0||additives<0) {
 							// If input a negative number it will be error 
-							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null,"Please input a positive number! <(*ToT*)>","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
 							RecipesUpdateController controllerUI = new RecipesUpdateController();
 							boolean check = controllerUI.updateRecipe(cName, malts, hops, yeasts, sugars, additives);
 							
 							if(check) {
 								//If the operation is successful, modify the database and return to RecipePage
-								JOptionPane.showMessageDialog(null, "Success!");
+								JOptionPane.showMessageDialog(null, "Success! (*^ w ^*)");
 								closeThis();
 								new RecipePage();
 							}else {
-								JOptionPane.showMessageDialog(null,"Update fail!","Warning",JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(null,"Update fail! (* X *)","Warning",JOptionPane.ERROR_MESSAGE);
 								closeThis();
 								new RecipesUpdatePage().setVisible(true);
 							}
 							
 						}
 					}catch(NumberFormatException ex) {
-						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Please input a number! (> w <)","Warning",JOptionPane.ERROR_MESSAGE);
 					}	
 				}
 			}

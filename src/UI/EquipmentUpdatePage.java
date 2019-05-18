@@ -111,17 +111,17 @@ public class EquipmentUpdatePage extends JFrame {
 							boolean check = controller.updateEquipment(l);
 							
 							if(check) {
-								JOptionPane.showMessageDialog(null, "Success!");
+								JOptionPane.showMessageDialog(null, "Success! (*^ w ^*)");
 								closeThis();
 								new EquipmentPage().setVisible(true);
 							}else {
-								JOptionPane.showMessageDialog(null,"Fail!","Warning",JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(null,"Fail! (* X *)","Warning",JOptionPane.ERROR_MESSAGE);
 								closeThis();
 								new EquipmentPage().setVisible(true);
 							}
 						}
 					}catch(NumberFormatException ex) {
-						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Please input a number! (> w <)","Warning",JOptionPane.ERROR_MESSAGE);
 					}	
 				}
 				

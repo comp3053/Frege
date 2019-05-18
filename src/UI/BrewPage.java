@@ -113,7 +113,7 @@ public class BrewPage extends JFrame {
 							JOptionPane.showMessageDialog(null,"Please input a positive number! <(*ToT*)>","Warning",JOptionPane.ERROR_MESSAGE);
 						}else if(batch > capacity) {
 							// if input is larger than the capacity in database, can't brew
-							JOptionPane.showMessageDialog(null,"Can't brew more than "+capacity+" L!","Warning",JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null,"Can't brew more than "+capacity+" L! (*ToT*)","Warning",JOptionPane.ERROR_MESSAGE);
 						}else {
 							// call controller to change the database, and it will return an arrayList we can brew now
 							ArrayList<String> RecipeList = new ArrayList<String>();
@@ -135,7 +135,7 @@ public class BrewPage extends JFrame {
 							}
 						}
 					}catch(NumberFormatException ex) {
-						JOptionPane.showMessageDialog(null,"Please input a number!","Warning",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"Please input a number! (> w <)","Warning",JOptionPane.ERROR_MESSAGE);
 					}	
 				}
 			}
