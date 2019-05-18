@@ -119,8 +119,8 @@ public class CheckRecipesPage extends JFrame {
 				String name = (String) table.getValueAt(index, 0);
 				// Brew Button
 				MyRoundButton btnCheck = new MyRoundButton("Check");
-				btnCheck.setFont(new Font("Calibri", Font.PLAIN, 25));
-				btnCheck.setBounds(359, 183, 110, 43);
+				btnCheck.setFont(new Font("Calibri", Font.PLAIN, 22));
+				btnCheck.setBounds(359, 183, 130, 43);
 				layeredPane.add(btnCheck);
 				// Brew Button Listener
 				btnCheck.addActionListener(new ActionListener() {
