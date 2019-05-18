@@ -99,7 +99,7 @@ public class BrewPage extends JFrame {
 				String cBatch = textField.getText().trim();
 				if(cBatch.equals("")) {
 					//warning: if user did not input anything
-					JOptionPane.showMessageDialog(null,"Operation error!","Warning",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,"Please input batch size! (*^o^*)","Warning",JOptionPane.ERROR_MESSAGE);
 					//Refresh this page
 					closeThis();
 					new BrewPage().setVisible(true);
@@ -110,7 +110,7 @@ public class BrewPage extends JFrame {
 						float batch = Float.valueOf(cBatch);
 						if(batch < 0) {
 							// if input is smaller then 0, error
-							JOptionPane.showMessageDialog(null,"Please input a positive number!","Warning",JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null,"Please input a positive number! <(*ToT*)>","Warning",JOptionPane.ERROR_MESSAGE);
 						}else if(batch > capacity) {
 							// if input is larger than the capacity in database, can't brew
 							JOptionPane.showMessageDialog(null,"Can't brew more than "+capacity+" L!","Warning",JOptionPane.ERROR_MESSAGE);

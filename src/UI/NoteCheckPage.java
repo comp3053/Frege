@@ -51,7 +51,7 @@ public class NoteCheckPage extends JFrame {
 		JLabel lblDate = new JLabel("Date");
 		lblDate.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDate.setFont(new Font("Calibri", Font.PLAIN, 18));
-		lblDate.setBounds(344, 54, 224, 42);
+		lblDate.setBounds(376, 54, 192, 42);
 		DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
 		String outputText = outputFormat.format(Date);
 		lblDate.setText(outputText);
@@ -75,7 +75,7 @@ public class NoteCheckPage extends JFrame {
 		JLabel lblRecipe = new JLabel("Recipe");
 		lblRecipe.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRecipe.setFont(new Font("Calibri", Font.PLAIN, 22));
-		lblRecipe.setBounds(14, 54, 224, 42);
+		lblRecipe.setBounds(14, 54, 321, 42);
 		lblRecipe.setText(RecipeName);
 		contentPane.add(lblRecipe);
 		
