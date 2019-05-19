@@ -51,7 +51,7 @@ public class IngredientPage extends JFrame {
 		// Show Our the amount of ingredients in database
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBackground(new java.awt.Color(255, 255, 255));
-		layeredPane.setBorder(new LineBorder(new java.awt.Color(0, 0, 0)));
+		layeredPane.setBorder(null);
 		layeredPane.setBounds(24, 69, 527, 230);
 		contentPane.add(layeredPane);
 		layeredPane.setLayout(null);
