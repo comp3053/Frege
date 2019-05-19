@@ -90,7 +90,7 @@ public class RecipesIngredientsPage extends JFrame {
 		btnHome.setBounds(464, 17, 89, 27);
 		contentPane.add(btnHome);
 		
-		MyRoundButton btnCancel = new MyRoundButton("Cancel");
+		MyRoundButton btnCancel = new MyRoundButton("Back");
 		btnCancel.setBounds(215, 325, 150, 45);
 		contentPane.add(btnCancel);
 		btnCancel.setFont(new Font("Calibri", Font.PLAIN, 25));
